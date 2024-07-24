@@ -10,21 +10,30 @@
             <form (ngSubmit)="crearEncargado()" #loginForm="ngForm" class="p-4 border rounded bg-light">
                 <!-- Nombre -->
                 <div>
-                    <br>
-                    <mat-form-field appearance="outline" class="d-flex justify-content-center">
+                    <mat-form-field appearance="outline"  class="d-flex justify-content-center">
                         <mat-label>Nombre: </mat-label>
                         <input matInput placeholder="Nombre Encargado" class="form-control" type="text" id="nombre"
                             [(ngModel)]="encargadoLaboratorio.nombre" name="nombre" required #nombreModel="ngModel">
                         <mat-icon matSuffix>face</mat-icon>
                         <div *ngIf="nombreModel.invalid && (nombreModel.dirty || nombreModel.touched)"
                             class="text-danger">
-                            <mat-hint>Correo es requerido.</mat-hint>
+                            <mat-hint>Nombre requerido</mat-hint>
                         </div>
                     </mat-form-field>
                 </div>
+                <div>
+                    <mat-form-field appearance="outline" class="d-flex justify-content-center">
+                      <mat-label>Nombre: </mat-label>
+                      <input matInput placeholder="Nombre Encargado" class="form-control" type="text" id="nombre"
+                        [(ngModel)]="encargadoLaboratorio.nombre" name="nombre" required #nombreModel="ngModel">
+                      <mat-icon matSuffix>face</mat-icon>
+                      <div *ngIf="nombreModel.invalid && (nombreModel.dirty || nombreModel.touched)" class="text-danger">
+                        <mat-hint>Nombre requerido</mat-hint>
+                      </div>
+                    </mat-form-field>
+                  </div>
                 <!-- apellido -->
                 <div>
-                    <br>
                     <mat-form-field appearance="outline" class="d-flex justify-content-center">
                         <mat-label>Apellido: </mat-label>
                         <input matInput placeholder="Apellido Encargado" type="text" id="apellido"
@@ -43,7 +52,6 @@
 
                 <!-- correo -->
                 <div>
-                    <br>
                     <mat-form-field appearance="outline" class="d-flex justify-content-center">
                         <mat-label>Correo: </mat-label>
                         <input matInput placeholder="ejemplo@tecazuay.edu.ec" class="form-control" type="email"
@@ -58,7 +66,6 @@
                 </div>
                 <!-- contraseña -->
                 <div>
-                    <br>
                     <mat-form-field appearance="outline" class="d-flex justify-content-center">
                         <mat-label>Contraseña: </mat-label>
                         <input matInput placeholder="Contraseña" type="password" id="contrasena"
