@@ -5,5 +5,5 @@ export interface EncargadoLaboratorio {
     laboratorioAsignado: string;
     tipo: string; // "responsable" o "auxiliar"
     correo: string;
-    contraseña: string;
+    contrasenia: string;
 }

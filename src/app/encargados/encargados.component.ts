@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { EncargadoLaboratorio } from '../login/encargadoLaboratorio';
 
 @Component({
   selector: 'app-encargados',
@@ -7,10 +8,14 @@ import { Component } from '@angular/core';
 })
 export class EncargadosComponent {
 
-  encargados: boolean = false;
+  encargados: boolean = true;
+  encargadoLaboratorio: EncargadoLaboratorio
 
   eliminar(){
     
+  }
+  onSubmit(){
+
   }
 
 }
