@@ -1,133 +1,92 @@
 <div class="container">
     <div class="card borber-primary mb-2 mt-2">
         <div class="card-header">Encargados de los Laboratorios<mat-icon>face</mat-icon>
-            <button 
-            type="button" 
-            name="button" 
-            [routerLink]="[]" 
-            class="btn btn-outline-primary"
-            (click)="encargados=false">
-            Añadir Encargado
+            <button type="button" name="button" [routerLink]="[]" class="btn btn-outline-primary"
+                (click)="encargados=false">
+                Añadir Encargado
             </button>
         </div>
         <div class="card-body text-primary" *ngIf="!encargados">
-            <div class="bg">
-                <div class="container d-flex justify-content-center align-items-center vh-100">
-                    <form (ngSubmit)="onSubmit()" #encargadoForm="ngForm" class="p-4 border rounded bg-light">
-                        <img src="LOGO-TECAZUAY.png" class="img-fluid mx-auto d-block" alt="logo tec" width="600"
-                            height="200">
-
-                        <div>
-                            <br>
-                            <mat-form-field appearance="outline" class="d-flex justify-content-center">
-                                <mat-label>Nombre</mat-label>
-                                <input matInput placeholder="Nombre" class="form-control" type="text" id="nombre"
-                                    [(ngModel)]="encargadoLaboratorio.nombre" name="nombre" required
-                                    #nombreModel="ngModel">
-                                <mat-icon matSuffix>person</mat-icon>
-                                <div *ngIf="nombreModel.invalid && (nombreModel.dirty || nombreModel.touched)"
-                                    class="text-danger">
-                                    <mat-hint>Nombre es requerido.</mat-hint>
-                                </div>
-                            </mat-form-field>
+            <form (ngSubmit)="crearEncargado()" #loginForm="ngForm" class="p-4 border rounded bg-light">
+                <!-- Nombre -->
+                <div>
+                    <br>
+                    <mat-form-field appearance="outline" class="d-flex justify-content-center">
+                        <mat-label>Nombre: </mat-label>
+                        <input matInput placeholder="Nombre Encargado" class="form-control" type="text" id="nombre"
+                            [(ngModel)]="encargadoLaboratorio.nombre" name="nombre" required #nombreModel="ngModel">
+                        <mat-icon matSuffix>face</mat-icon>
+                        <div *ngIf="nombreModel.invalid && (nombreModel.dirty || nombreModel.touched)"
+                            class="text-danger">
+                            <mat-hint>Correo es requerido.</mat-hint>
                         </div>
-
-                        <div>
-                            <br>
-                            <mat-form-field appearance="outline" class="d-flex justify-content-center">
-                                <mat-label>Apellido</mat-label>
-                                <input matInput placeholder="Apellido" class="form-control" type="text" id="apellido"
-                                    [(ngModel)]="encargadoLaboratorio.apellido" name="apellido" required
-                                    #apellidoModel="ngModel">
-                                <mat-icon matSuffix>person_outline</mat-icon>
-                                <div *ngIf="apellidoModel.invalid && (apellidoModel.dirty || apellidoModel.touched)"
-                                    class="text-danger">
-                                    <mat-hint>Apellido es requerido.</mat-hint>
-                                </div>
-                            </mat-form-field>
-                        </div>
-
-                        <div>
-                            <br>
-                            <mat-form-field appearance="outline" class="d-flex justify-content-center">
-                                <mat-label>Laboratorio Asignado</mat-label>
-                                <input matInput placeholder="Laboratorio Asignado" class="form-control" type="text"
-                                    id="laboratorioAsignado" [(ngModel)]="encargadoLaboratorio.laboratorioAsignado"
-                                    name="laboratorioAsignado" required #laboratorioAsignadoModel="ngModel">
-                                <mat-icon matSuffix>business</mat-icon>
-                                <div *ngIf="laboratorioAsignadoModel.invalid && (laboratorioAsignadoModel.dirty || laboratorioAsignadoModel.touched)"
-                                    class="text-danger">
-                                    <mat-hint>Laboratorio Asignado es requerido.</mat-hint>
-                                </div>
-                            </mat-form-field>
-                        </div>
-
-                        <div>
-                            <br>
-                            <mat-form-field appearance="outline" class="d-flex justify-content-center">
-                                <mat-label>Tipo</mat-label>
-                                <mat-select [(ngModel)]="encargadoLaboratorio.tipo" name="tipo" required
-                                    #tipoModel="ngModel">
-                                    <mat-option value="responsable">Responsable</mat-option>
-                                    <mat-option value="auxiliar">Auxiliar</mat-option>
-                                </mat-select>
-                                <mat-icon matSuffix>supervisor_account</mat-icon>
-                                <div *ngIf="tipoModel.invalid && (tipoModel.dirty || tipoModel.touched)"
-                                    class="text-danger">
-                                    <mat-hint>Tipo es requerido.</mat-hint>
-                                </div>
-                            </mat-form-field>
-                        </div>
-
-                        <div>
-                            <br>
-                            <mat-form-field appearance="outline" class="d-flex justify-content-center">
-                                <mat-label>Correo</mat-label>
-                                <input matInput placeholder="ejemplo@tecazuay.edu.ec" class="form-control" type="email"
-                                    id="correo" [(ngModel)]="encargadoLaboratorio.correo" name="correo" required
-                                    #correoModel="ngModel">
-                                <mat-icon matSuffix>email</mat-icon>
-                                <div *ngIf="correoModel.invalid && (correoModel.dirty || correoModel.touched)"
-                                    class="text-danger">
-                                    <mat-hint>Correo es requerido.</mat-hint>
-                                </div>
-                            </mat-form-field>
-                        </div>
-
-                        <div>
-                            <br>
-                            <mat-form-field appearance="outline" class="d-flex justify-content-center">
-                                <mat-label>Contraseña</mat-label>
-                                <input matInput placeholder="Contraseña" type="password" id="contrasenia"
-                                    [(ngModel)]="encargadoLaboratorio.contrasenia" name="contrasenia" required
-                                    #contraseniaModel="ngModel">
-                                <mat-icon matSuffix>lock</mat-icon>
-                                <div *ngIf="contraseniaModel.invalid && (contraseniaModel.dirty || contraseniaModel.touched)"
-                                    class="text-danger">
-                                    <mat-hint>Contraseña es requerida.</mat-hint>
-                                </div>
-                            </mat-form-field>
-                        </div>
-
-                        <div class="text-end">
-                            <button type="submit" class="btn btn-primary mt-3"
-                                [disabled]="encargadoForm.invalid">Guardar</button>
-                        </div>
-                    </form>
+                    </mat-form-field>
                 </div>
-            </div>
+                <!-- apellido -->
+                <div>
+                    <br>
+                    <mat-form-field appearance="outline" class="d-flex justify-content-center">
+                        <mat-label>Apellido: </mat-label>
+                        <input matInput placeholder="Apellido Encargado" type="text" id="apellido"
+                            [(ngModel)]="encargadoLaboratorio.apellido" name="apellido" required
+                            #apellidoModel="ngModel">
+                        <mat-icon matSuffix>assignment</mat-icon>
+                        <div *ngIf="apellidoModel.invalid && (apellidoModel.dirty || apellidoModel.touched)"
+                            class="text-danger">
+                            <mat-hint>Contraseña es requerida.</mat-hint>
+                        </div>
+                    </mat-form-field>
+                </div>
+                <!-- laboratorioAsignado -->
+
+                <!-- tipo -->
+
+                <!-- correo -->
+                <div>
+                    <br>
+                    <mat-form-field appearance="outline" class="d-flex justify-content-center">
+                        <mat-label>Correo: </mat-label>
+                        <input matInput placeholder="ejemplo@tecazuay.edu.ec" class="form-control" type="email"
+                            id="correo" [(ngModel)]="encargadoLaboratorio.correo" name="correo" required
+                            #correoModel="ngModel">
+                        <mat-icon matSuffix>face</mat-icon>
+                        <div *ngIf="correoModel.invalid && (correoModel.dirty || correoModel.touched)"
+                            class="text-danger">
+                            <mat-hint>Correo es requerido.</mat-hint>
+                        </div>
+                    </mat-form-field>
+                </div>
+                <!-- contraseña -->
+                <div>
+                    <br>
+                    <mat-form-field appearance="outline" class="d-flex justify-content-center">
+                        <mat-label>Contraseña: </mat-label>
+                        <input matInput placeholder="Contraseña" type="password" id="contrasena"
+                            [(ngModel)]="encargadoLaboratorio.contrasenia" name="contrasena" required
+                            #contrasenaModel="ngModel">
+                        <mat-icon matSuffix>assignment</mat-icon>
+                        <div *ngIf="contrasenaModel.invalid && (contrasenaModel.dirty || contrasenaModel.touched)"
+                            class="text-danger">
+                            <mat-hint>Contraseña es requerida.</mat-hint>
+                        </div>
+                    </mat-form-field>
+                </div>
+            </form>
+
             <button type="button" (click)="encargados=true">lista</button><!-- formulario -->
+
         </div>
         <div class="card-body text-primary" *ngIf="encargados">
             <h5 class="card-title">Listado de encargados</h5>
             <table class="table table-bordered table-striped">
                 <thead>
                     <tr>
-                        <th>Id</th>
                         <th>Nombre</th>
                         <th>Apellido</th>
                         <th>laboratorio</th>
                         <th>Rol</th>
+                        <th>Correo</th>
+                        <th>Contraseña</th>
                     </tr>
                 </thead>
                 <tbody>
