@@ -1,0 +1,7 @@
+.bg{
+    background: cornflowerblue;
+}
+
+.btn {
+    margin-left: auto; /* Empuja el botón hacia la derecha */
+}

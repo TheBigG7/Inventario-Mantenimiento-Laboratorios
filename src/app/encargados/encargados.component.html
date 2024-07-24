@@ -1,0 +1,36 @@
+<div class="container">
+    <div class="card borber-primary mb-2 mt-2">
+        <div class="card-header">Encargados de los Laboratorios<mat-icon>face</mat-icon><button type="button"
+                name="button" [routerLink]="[]" class="btn btn-outline-primary" (click)="encargados=false">Añadir Encargado</button></div>
+        <div class="card-body text-primary" *ngIf="!encargados">
+            <button type="button" (click)="encargados=true">lista</button><!-- formulario -->
+        </div>
+        <div class="card-body text-primary" *ngIf="encargados">
+            <h5 class="card-title">Listado de encargados</h5>
+            <table class="table table-bordered table-striped">
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Nombre</th>
+                        <th>Apellido</th>
+                        <th>laboratorio</th>
+                        <th>Rol</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr> <!-- *ngFor="let peri of periodos" -->
+                        <td>uno</td><!-- {{peri.id_periodo}} -->
+                        <td>dos</td>
+                        <td>tres</td>
+                        <td>cuatro</td>
+                        <td>
+                            <button type="button" name="button" [routerLink]="[]"
+                                class="btn btn-outline-primary">Editar</button>
+                            <button (click)="eliminar()" class="btn btn-outline-danger">Eliminar</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

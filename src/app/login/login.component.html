@@ -1,0 +1,18 @@
+<div class="text-center bg-dark full-screen" *ngIf="!loginPresionado">
+    <img class="d-block mx-auto mb-4" src="LOGO-TECAZUAY.png" alt="Logo" width="600" height="auto">
+    <h1 class="display-5 fw-bold text-primary">Inventario y Mantenimiento de Laboratorios</h1>
+    <div class="col-lg-6 mx-auto">
+        <p class="h3 mb-4 text-info">Inventario de los laboratorios, encargados y Mantenimiento</p>
+        <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
+            <button type="button" class="btn btn-primary btn-lg px-4 gap-3 rounded-pill"
+                    routerLinkActive="active" [routerLink]="['/login/formulario']"
+                    (click)="loginPresionado = true"
+            >Login</button>
+        </div>
+    </div>
+</div>
+
+<router-outlet *ngIf="loginPresionado"></router-outlet>
+
+
+
