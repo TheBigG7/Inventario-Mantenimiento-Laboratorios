@@ -54,8 +54,7 @@
                     Sesión</button>
             </div>
 
+            <p *ngIf="mensajeError" class="text-danger mt-3">{{ mensajeError }}</p>
         </form>
-
-        <p *ngIf="mensajeError" class="text-danger mt-3">{{ mensajeError }}</p>
     </div>
 </div>

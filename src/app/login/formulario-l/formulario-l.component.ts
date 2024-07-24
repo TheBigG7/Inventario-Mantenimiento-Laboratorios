@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { AuthService } from '../Auth.service';
 import { Router } from '@angular/router';
+import { AdministradorTIC } from '../administradorTIC';
+import { EncargadoLaboratorio } from '../encargadoLaboratorio';
 
 @Component({
   selector: 'app-formulario-l',
@@ -22,11 +24,11 @@ export class FormularioLComponent {
         // Manejar la respuesta del servidor
         console.log(response);
         // Redirigir al dashboard correspondiente según el tipo de usuario
-        // Ejemplo de redirección:
-        if (response.role === 'admin') {
-          this.router.navigate(['/dasboarda']);
-        } else if (response.role === 'encargado') {
-          this.router.navigate(['/dasboarda']);
+        // Verificar si response es de tipo AdministradorTIC o Encargado
+        if (this.isAdministradorTIC(response)) {
+          this.router.navigate(['/dashboarda']);
+        } else if (this.isEncargado(response)) {
+          this.router.navigate(['/dashboarde']);
         }
       },
       error => {
@@ -36,4 +38,14 @@ export class FormularioLComponent {
     );
   }
 
+  // Métodos para verificar los tipos
+  isAdministradorTIC(response: any): response is AdministradorTIC {
+    //return response.role === 'admin' && /* otras condiciones específicas para AdministradorTIC */;
+    return response
+  }
+
+  isEncargado(response: any): response is EncargadoLaboratorio {
+    /* return response.role === 'encargado' &&  otras condiciones específicas para Encargado ; */
+    return response
+  }
 }

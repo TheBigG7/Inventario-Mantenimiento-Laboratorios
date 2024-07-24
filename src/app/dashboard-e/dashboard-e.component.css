@@ -1,0 +1,33 @@
+.bg-navbar {
+    background-color: #07294D;
+
+}
+
+.bg-navbar a {
+    color: white;
+}
+
+.bg-navbar a:hover {
+    color: #F2B705;
+    /* Color del texto de los enlaces al pasar el mouse */
+}
+
+.sub-menu a {
+    color: black;
+}
+
+.sub-menu a:hover {
+    background: #07294D;
+}
+
+/* Cambia el color del icono del toggler a negro */
+.navbar-toggler-icon {
+    background-image: url('data:image/svg+xml;charset=utf8,<svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="%23000" class="bi bi-list" viewBox="0 0 16 16"><path d="M2 12h12v-1H2v1zM2 6h12V5H2v1zm0-3v1h12V3H2z"/></svg>');
+}
+
+.total {
+    display: flex;
+    flex-direction: column;
+    min-height: 90vh;
+    /* 100% de la altura de la ventana del navegador */
+}
