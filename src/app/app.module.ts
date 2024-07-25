@@ -3,6 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { RouterModule } from '@angular/router'; 
 import { LoginComponent } from './login/login.component';
 import { DashboardAComponent } from './dashboard-a/dashboard-a.component';
 import { DashboardEComponent } from './dashboard-e/dashboard-e.component';
@@ -39,6 +40,7 @@ import { RegistroComponent } from './laboratorios/registro.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
+    RouterModule,
     FormsModule,
     HttpClientModule,
     MatSlideToggleModule,
