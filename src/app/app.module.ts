@@ -20,6 +20,8 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatSelectModule } from '@angular/material/select';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatCardModule } from '@angular/material/card';
+import { LaboratoriosComponent } from './laboratorios/laboratorios.component';
+import { RegistroComponent } from './laboratorios/registro.component';
 
 
 @NgModule({
@@ -30,7 +32,9 @@ import { MatCardModule } from '@angular/material/card';
     DashboardEComponent,
     FormularioLComponent,
     FooterComponent,
-    EncargadosComponent
+    EncargadosComponent,
+    LaboratoriosComponent,
+    RegistroComponent
   ],
   imports: [
     BrowserModule,

@@ -6,6 +6,8 @@ import { DashboardAComponent } from './dashboard-a/dashboard-a.component';
 import { DashboardEComponent } from './dashboard-e/dashboard-e.component';
 import { EncargadosComponent } from './encargados/encargados.component';
 import { FooterComponent } from './footer/footer.component';
+import { LaboratoriosComponent } from './laboratorios/laboratorios.component';
+import { RegistroComponent } from './laboratorios/registro.component';
 
 
 const routes: Routes = [
@@ -21,7 +23,10 @@ const routes: Routes = [
   {
     path: 'dashboarda', component: DashboardAComponent,
     children: [
-      { path: 'crear-encargados', component: EncargadosComponent }
+      { path: 'crear-encargados', component: EncargadosComponent },
+      { path: 'laboratorios', component: LaboratoriosComponent},
+      { path: 'laboratorios/form', component: RegistroComponent},
+      { path: 'laboratorios/form/:id', component: RegistroComponent}
     ]
   },
   { path: 'dashboarde', component: DashboardEComponent },

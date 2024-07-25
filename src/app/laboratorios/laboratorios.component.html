@@ -1,0 +1,58 @@
+
+<div class="card border-primary mb-3">
+    <div class="card-header">LABORATORIOS</div>
+    <div class="card-body text-primary">
+        <h5 class="card-title">Listado de los Laboratorios</h5>
+        <!--Para buscar
+        <div class="group; contenedor">
+            <svg class="icon" aria-hidden="true" viewBox="0 0 24 24">
+                <g>
+                    <path d="M21.53 20.47l-3.66-3.66C19.195 15.24 20 13.214 20 11c0-4.97-4.03-9-9-9s-9 4.03-9 9 4.03 9 9 9c2.215 0 4.24-.804 5.808-2.13l3.66 3.66c.147.146.34.22.53.22s.385-.073.53-.22c.295-.293.295-.767.002-1.06zM3.5 11c0-4.135 3.365-7.5 7.5-7.5s7.5 3.365 7.5 7.5-3.365 7.5-7.5 7.5-7.5-3.365-7.5-7.5z"></path>
+                </g>
+            </svg>
+            <input placeholder="Search" type="search" class="input">
+        </div>-->
+
+        <div class="input-group align-items-center; contenedor" style="max-width: 300px; height: 40px">
+            <input type="text" class="form-control" placeholder="Buscar" aria-label="Buscar"
+              aria-describedby="button-addon2" [(ngModel)]="filtro" (ngModelChange)="filtrarLaboratorio()" />
+            <div class="input-group-append">
+                <button class="butt" (click)="borrarFiltro()"><span class="butt span" (click)="borrarFiltro()"> X 
+                    <i class="bi bi-backspace-fill fs-4a"></i>
+                </span></button>
+              <!--<span class="input-group-text btn-outline-success" type="button" id="button-addon2"
+                (click)="borrarFiltro()">
+                <i class="bi bi-backspace-fill fs-4a"></i>
+              </span>-->
+            </div>
+          </div>
+
+        <div class="my-2 text-left">
+            <button class="btn btn-rounded btn-primary" type="button" [routerLink]="['/dashboarda/laboratorios/form']">Crear Laboratorios</button>
+        </div>
+        <table class="table table-bordered table-striped">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Numero maximo de maquinas</th>
+                    <th>Proyector</th>
+                    <th>Editar</th>
+                    <th>Eliminar</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let laboratorios of laboratoriosFiltrados">
+                    <td>{{laboratorios.id}}</td>
+                    <td>{{laboratorios.num_maquinas}}</td>
+                    <td>{{laboratorios.proyector}}</td>
+                    <td>
+                        <button type="button" name="button" [routerLink]="['/dashboarda/laboratorios/form', laboratorios.id]" class="btn btn-primary">Editar</button>
+                    </td>
+                    <td>
+                        <button type="button" name="button" (click)="delete(laboratorios.id)" class="btn btn-danger btn-xs">Eliminar</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

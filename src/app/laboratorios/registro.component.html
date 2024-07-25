@@ -1,0 +1,99 @@
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-8" style="width: 100%;">
+                <div class="cardd">
+                    <div class="card-header">
+                        <h4 class="card-title">Registrar Laboratorios</h4>
+                        <p class="card-category">Ingresa los datos de los laboratorios</p>
+                    </div>
+                    <div class="card-body">
+                        <form ngNativeValidate (ngSubmit)="create()">
+                            <div class="col-md-12; section; new-container">
+                                <img class="center"
+                                    src="https://th.bing.com/th/id/OIP.4Pq_vSIWosgCAtdTp7ZnDwHaE8?rs=1&pid=ImgDetMain"
+                                    width="240px">
+                            </div>
+                            <div class="row; contenedor">
+                                <div class="form__group field; col-md-5; left">
+                                    <input type="text" class="form__field" placeholder="ID" name="'ID" id='id'
+                                    [(ngModel)]="laboratorio.id" [disabled]="isEditing" required />
+                                    <label for="id" class="form__label">ID (Ejem: Laboratorio 1)</label>
+                                </div>
+                                <div class="form__group field; col-md-3; center">
+                                    <input type="number" class="form__field" placeholder="Numero maximo de maquinas"
+                                    [(ngModel)]="laboratorio.num_maquinas" name="num_maquinas" id='num_maquinas' min="0" required />
+                                    <label for="num_maquinas" class="form__label">Numero maximo de maquinas</label>
+                                </div>
+                                <div class="form__group field; col-md-4; right">
+                                    <input type="text" class="form__field" placeholder="Proyector" name="proyector" id='proyector'
+                                    [(ngModel)]="laboratorio.proyector" required />
+                                    <label for="proyector" class="form__label">Proyector</label>
+                                </div>
+                            </div>
+                            <!--<div class="row; contenedor">
+                                <div class="form__group field; col-md-6; left">
+                                    <input type="text" class="form__field" placeholder="Procesador" name="procesador" id='procesador'
+                                     required />
+                                    <label for="procesador" class="form__label">Procesador</label>
+                                </div>
+                                <div class="form__group field; col-md-6; center">
+                                    <input type="text" class="form__field" placeholder="Memoria Ram" name="ram" id='ram'
+                                     required />
+                                    <label for="ram" class="form__label">Memoria Ram</label>
+                                </div>
+                                <div class="form__group field; col-md-12; right">
+                                    <input type="text" class="form__field" placeholder="Capacidad del disco" name="capacidad_disco" id='capacidad_disco'
+                                     required />
+                                    <label for="capacidad_disco" class="form__label">Capacidad del disco</label>
+                                </div>
+                            </div>
+                            <div class="row; contenedor">
+                                <div class="form__group field; col-md-4; left">
+                                    <input type="text" class="form__field" placeholder="Serie Disco" name="serie_disco" id='serie_disco'
+                                     required />
+                                    <label for="serie_disco" class="form__label">Serie Disco</label>
+                                </div>
+                                <div class="form__group field; col-md-4; center">
+                                    <input type="text" class="form__field" placeholder="Modelo Disco" name="modelo_disco" id='modelo_disco'
+                                     required />
+                                    <label for="modelo_disco" class="form__label">Modelo Disco</label>
+                                </div>
+                                <div class="form__group field; col-md-4; right">
+                                    <select class="form__field" placeholder="Estado"  name="estado" id='estado' required>
+                                        <option value="Funcional">Funcional</option>
+                                        <option value="No Funci0nal">No Funcional</option>
+                                    </select>
+                                    <label for="estado" class="form__label">Estado</label>
+                                </div>
+                            </div>
+                            <div class="row; container_txarea">
+                                <div class="form__group field; col-md-12; left">
+                                    <select class="form__field" placeholder="Prioridad"  name="prioridad" id='prioridad' required>
+                                        <option value="Baja">Baja</option>
+                                        <option value="Media">Media</option>
+                                        <option value="Alta">Alta</option>
+                                    </select>
+                                    <label for="prioridad" class="form__label">Prioridad</label>
+                                </div>
+                                <div class="form__group__tx field; col-md-12; right">
+                                    <textarea class="form__field" placeholder="Aplicaciones Instaladas" 
+                                     name="app_install" id='app_install' required></textarea>
+                                    <label for="app_install" class="form__label">Aplicaciones Instaladas</label>
+                                </div>
+                            </div>-->
+                            <div class="row">
+                                <div class="col-md-6" style="margin-top: 50px;">
+                                    <button type="submit" class="btn btn-danger pull-right"
+                                        role="button">Guardar</button>
+                                    <button type="submit" class="btn btn-danger pull-right"
+                                        (click)="cancel()">Cancelar</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
