@@ -92,4 +92,8 @@ input:hover {
     color: orange;
     font-weight: bold;
   }
+
+  .btn-impr{
+    margin-left: 5px;
+}
   
