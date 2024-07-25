@@ -9,6 +9,9 @@ import { FooterComponent } from './footer/footer.component';
 import { LaboratoriosComponent } from './laboratorios/laboratorios.component';
 import { RegistroComponent } from './laboratorios/registro.component';
 import { SuperAdComponent } from './super-ad/super-ad.component';
+import { EquiposComponent } from './equipos/equipos.component';
+import { FormuComponent } from './equipos/formu.component';
+
 
 
 const routes: Routes = [
@@ -27,7 +30,10 @@ const routes: Routes = [
       { path: 'crear-encargados', component: EncargadosComponent },
       { path: 'laboratorios', component: LaboratoriosComponent},
       { path: 'laboratorios/form', component: RegistroComponent},
-      { path: 'laboratorios/form/:id', component: RegistroComponent}
+      { path: 'laboratorios/form/:id', component: RegistroComponent},
+      { path: 'equipos', component: EquiposComponent},
+      { path: 'equipos/form', component: FormuComponent},
+      { path: 'equipos/form/:id', component: FormuComponent},
     ]
   },
   { path: 'dashboarde', component: DashboardEComponent },

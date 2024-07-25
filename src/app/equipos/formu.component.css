@@ -1,0 +1,375 @@
+.main-content {
+    padding-top: 5px;
+}
+
+.cardd {
+    background-color: #fff;
+    border-radius: 6px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+    margin-bottom: 20px;
+    overflow: hidden;
+}
+
+.card-header {
+    background-color: #006eff;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 6px 6px 0 0;
+    font-family: Roboto, sans-serif;
+}
+
+.card-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 0;
+    font-family: Roboto, sans-serif;
+}
+
+.card-category {
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.card-body {
+    padding: 10px;
+}
+
+.row {
+    margin-bottom: 15px;
+}
+
+/****************** los inputs ************************/
+.form__group {
+    position: relative;
+    padding: 15px 0 0;
+    margin-top: 0px;
+    width: 250px;
+}
+
+.form__group__tx {
+    position: relative;
+    padding: 15px 0 0;
+    margin-top: 0px;
+    width: 600px;
+}
+
+.form__field {
+    font-family: inherit;
+    width: 100%;
+    border: 0;
+    border-bottom: 2px solid #9b9b9b;
+    outline: 0;
+    font-size: 1rem;
+    color: #353434;
+    padding: 7px 0;
+    background: transparent;
+    transition: border-color 0.2s;
+}
+
+.form__field::placeholder {
+    color: transparent;
+}
+
+.form__field:placeholder-shown~.form__label {
+    font-size: 1rem;
+    cursor: text;
+    top: 20px;
+}
+
+.form__label {
+    position: absolute;
+    top: 0;
+    display: block;
+    transition: 0.2s;
+    font-size: 0.8rem;
+    color: #9b9b9b;
+}
+
+.form__field:focus {
+    padding-bottom: 6px;
+    font-weight: 700;
+    border-width: 3px;
+    border-image: linear-gradient(to right, #11998e, #38ef7d);
+    border-image-slice: 1;
+}
+
+.form__field:focus~.form__label {
+    position: absolute;
+    top: 0;
+    display: block;
+    transition: 0.2s;
+    font-size: 0.8rem;
+    color: #11998e;
+    font-weight: 700;
+}
+
+/* reset input */
+.form__field:required,
+.form__field:invalid {
+    box-shadow: none;
+}
+
+/************************************************/
+
+input {
+    width: 210px;
+    height: 45px;
+    border: 0px solid #020202;
+    border-radius: 8px;
+    font-size: 15px;
+    box-shadow: 5px 5px 3px 5px rgba(4, 0, 255, 0.05);
+}
+
+select {
+    color: #4c5057;
+    width: 210px;
+    height: 45px;
+    border: 0px solid #020202;
+    border-radius: 8px;
+    font-size: 15px;
+    box-shadow: 5px 5px 3px 5px rgba(4, 0, 255, 0.05);
+}
+
+textarea {
+    width: 470px;
+    min-height: 100px;
+    border: 0px solid #020202;
+    border-radius: 8px;
+    font-size: 15px;
+    box-shadow: 5px 5px 3px 5px rgba(4, 0, 255, 0.05);
+}
+
+.col-md-5,
+.col-md-3,
+.col-md-4,
+.col-md-6,
+.col-md-12 {
+    padding-right: 10px;
+    padding-left: 10px;
+}
+
+mat-form-field {
+    width: 100%;
+}
+
+mat-form-field input {
+    padding: 10px;
+    border: 0px solid #d1d1d1;
+    box-shadow: 5px 5px 3px 5px rgba(4, 0, 255, 0.05);
+    border-radius: 4px;
+    font-size: 1rem;
+}
+
+mat-form-field input:focus {
+    border-color: #2500f8;
+    box-shadow: 0 0 0 2px rgba(244, 67, 54, 0.2);
+}
+
+mat-form-field select {
+    padding: 10px;
+    border: 0px solid #ddd;
+    box-shadow: 5px 5px 3px 5px rgba(38, 0, 255, 0.05);
+    border-radius: 4px;
+    font-size: 1rem;
+    width: 215px;
+    color: #4c5057;
+}
+
+mat-form-field select:focus {
+    border-color: #2500f8;
+    box-shadow: 0 0 0 2px rgba(244, 67, 54, 0.2);
+}
+
+mat-form-field textarea {
+    padding: 10px;
+    border: 0px solid #ddd;
+    border-radius: 4px;
+    box-shadow: 5px 5px 3px 5px rgba(0, 0, 0, 0.05);
+    font-size: 1rem;
+    resize: vertical;
+    font-family: Roboto, sans-serif;
+}
+
+mat-form-field textarea:focus {
+    border-color: #3700fc;
+    box-shadow: 0 0 0 2px rgba(244, 67, 54, 0.2);
+
+}
+
+.btn-danger {
+    background-color: #008cff;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    padding: 10px 20px;
+    margin-right: 10px;
+    /*Separar un poco los botones*/
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    position: relative;
+}
+
+.btn-danger:hover {
+    background-color: #2600ff;
+}
+
+.boton-cancel {
+    position: absolute;
+    background-color: #008cff;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    padding: 10px 20px;
+    margin-right: 10px;
+    /*Separar un poco los botones*/
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    position: relative;
+}
+
+.boton-cancel:hover {
+    background-color: #2600ff;
+}
+
+.clearfix {
+    clear: both;
+}
+
+/*********************** CONTAINERS **************/
+.contenedor {
+    position: relative;
+    height: 50px;
+    /* Altura del contenedor */
+    border: 0px solid black;
+    /* Borde para visualizar el contenedor */
+    width: 75%;
+    margin-top: 10px;
+}
+
+.container_txarea {
+    position: relative;
+    height: 150px;
+    /* Altura del contenedor */
+    border: 0px solid black;
+    /* Borde para visualizar el contenedor */
+    width: 75%;
+    font-family: Roboto, sans-serif;
+    margin-top: 10px;
+}
+
+.new-container {
+    flex: 1;
+    position: absolute;
+    border: 0px solid black;
+    flex-direction: column;
+    padding: 10px;
+    right: 10px;
+    width: 25%;
+    height: 330px;
+}
+
+/********************************************/
+
+.left {
+    position: absolute;
+    top: 0px;
+    /* Ajusta la distancia desde la parte superior del contenedor */
+    left: 20px;
+    /* Ajusta la distancia desde la parte izquierda del contenedor */
+}
+
+/* Estilo para el input del centro */
+.center {
+    position: absolute;
+    top: 0px;
+    /* Ajusta la distancia desde la parte superior del contenedor */
+    left: 50%;
+    /* Coloca el input en el centro horizontalmente */
+    transform: translateX(-50%);
+    /* Ajusta la posición para centrar el input exactamente */
+}
+
+/* Estilo para el input de la derecha */
+.right {
+    position: absolute;
+    top: 0px;
+    /* Ajusta la distancia desde la parte superior del contenedor */
+    right: 20px;
+    /* Ajusta la distancia desde la parte derecha del contenedor */
+}
+
+.right-priority {
+    position: absolute;
+    top: 40px;
+    /* Ajusta la distancia desde la parte superior del contenedor */
+    right: 70px;
+    /* Ajusta la distancia desde la parte derecha del contenedor */
+    margin-right: 10px;
+}
+
+.left_tx {
+    position: absolute;
+    top: 0px;
+    /* Ajusta la distancia desde la parte superior del contenedor */
+    left: 0px;
+    /* Ajusta la distancia desde la parte derecha del contenedor */
+
+}
+
+.center_tx {
+    position: absolute;
+    top: 0px;
+    /* Ajusta la distancia desde la parte superior del contenedor */
+    right: 500px;
+    /* Ajusta la distancia desde la parte derecha del contenedor */
+    left: 50%;
+    /* Coloca el input en el centro horizontalmente */
+    transform: translateX(-50%);
+    /* Ajusta la posición para centrar el input exactamente */
+}
+
+.section {
+    display: flex;
+    flex-direction: column;
+    /* Coloca los elementos en columna (vertical) */
+    margin: 0px;
+}
+
+.letter-blue {
+    color: #008cff;
+    font-weight: bold;
+}
+
+.letter-top {
+    color: #008cff;
+    font-weight: bold;
+    margin-right: 10px;
+}
+
+.lab {
+    text-align: center;
+    position: relative;
+    font-family: Roboto, sans-serif;
+    font-size: 15px;
+    color: #373b41;
+    display: block;
+    /* Asegura que el label se muestre como un bloque */
+    margin-top: 200px;
+    /* Espacio entre la imagen y el label */
+}
+
+.left-bot {
+    position: absolute;
+    left: 50px;
+}
+
+html,
+body {
+    height: 100%;
+}
+
+body {
+    background: radial-gradient(rgba(255, 254, 234, 1) 0%, rgba(255, 254, 234, 1) 35%, #B7E8EB 100%);
+}

@@ -1,67 +1,76 @@
 import { Component, OnInit } from '@angular/core';
-import { Laboratorio } from './laboratorio';
-import { LaboratorioService } from './laboratorio.service';
-import { Router } from '@angular/router';
-import { Location } from '@angular/common';
 import Swal from 'sweetalert2';
+import { Equipo } from './equipo';
+import { Router } from '@angular/router';
+import { EquipoService } from './equipo.service';
 
 //primero instalamos esto npm install jspdf jspdf-autotable despues importamos
 import { jsPDF } from 'jspdf';
 import 'jspdf-autotable'; //para generar tablas facilmente
 
 @Component({
-  selector: 'app-laboratorios',
-  templateUrl: './laboratorios.component.html',
-  styleUrl: './laboratorios.component.css'
+  selector: 'app-equipos',
+  templateUrl: './equipos.component.html',
+  styleUrl: './equipos.component.css'
 })
-export class LaboratoriosComponent implements OnInit{
+export class EquiposComponent implements OnInit{
 
-  laboratorios: Laboratorio[] = [];
-  public laboratoriosFiltrados: Laboratorio[] = [];
-  public filtro: String = '';
+  equipos: Equipo[] = [];
+  public equiposFiltrados: Equipo[] = [];
+  public filtro: string = '';
 
-  constructor(private laboratorioService: LaboratorioService, private router: Router) {}
+  constructor(private equipoService: EquipoService, private router: Router) { }
+
+  /*ngOnInit(): void {
+
+    this.equipoService.getEquipos().subscribe(
+      equipos => this.equipos = equipos
+    )
+
+    this.equiposFiltrados();
+
+  }*/
 
   ngOnInit(): void {
-    
-    this.cargarLaboratorios();
-    this.filtrarLaboratorio();
-  }
+    this.cargarEquipos();
+    this.filtrarEquipo();
+  }
 
-  filtrarLaboratorio(): void {
-    this.laboratoriosFiltrados = this.laboratorios.filter((laboratorio) => {
+  filtrarEquipo(): void {
+    this.equiposFiltrados = this.equipos.filter((equipo) => {
       const textoBusqueda =
-        `${laboratorio.num_maquinas} ${laboratorio.proyector} ${laboratorio.id}`.toLowerCase();
+        `${equipo.laboratorio} ${equipo.num_equipo} ${equipo.procesador} ${equipo.ram} ${equipo.capacidad_disco} 
+       ${equipo.serie_disco} ${equipo.modelo_disco} ${equipo.app_install} ${equipo.estado} ${equipo.prioridad}`.toLowerCase();
       return textoBusqueda.includes(this.filtro.toLowerCase());
     });
   }
 
   borrarFiltro(): void {
     this.filtro = '';
-    this.filtrarLaboratorio();
+    this.filtrarEquipo();
   }
 
-cargarLaboratorios() {
-  this.laboratorioService.getLaboratorios().subscribe(
-    laboratorios => {
-      this.laboratorios = laboratorios;
-      this.laboratoriosFiltrados = laboratorios;
+cargarEquipos() {
+  this.equipoService.getEquipos().subscribe(
+    equipos => {
+      this.equipos = equipos;
+      this.equiposFiltrados = equipos;
     },
     error => {
       console.error('Error al cargar usuarios:', error);
     });
   }
   
-  public delete(id: String): void {
+  public delete(id: number): void {
     console.log("ha realizado un clik")
 
-    this.laboratorioService.deleteLaboratorio(id)
+    this.equipoService.deleteEquipo(id)
     .subscribe(() => {
-      //this.laboratorios = this.laboratorios.filter(laboratorio => laboratorio.id !== id);
-      this.laboratorios = this.laboratorios.filter(laboratorio => laboratorio.id !== id);
-      this.laboratoriosFiltrados = this.laboratoriosFiltrados.filter(laboratorio => laboratorio.id !== id);
-      this.router.navigate(['/dashboarda/laboratorios']);
-      Swal.fire('Laboratorio eliminado', 'Laboratorio eliminado con exito', 'success');
+      //this.equipos = this.equipos.filter(equipo => equipo.id !== id);
+      this.equipos = this.equipos.filter(equipo => equipo.id !== id);
+            this.equiposFiltrados = this.equiposFiltrados.filter(equipo => equipo.id !== id);
+      this.router.navigate(['/dashboarda/equipos']);
+      Swal.fire('Equipo eliminado', 'Equipo eliminado con exito', 'success');
     })
   }
 
@@ -72,7 +81,7 @@ cargarLaboratorios() {
     const blue = '#003366';
     const yellow = '#FFCC00';
     const white = '#FFFFFF';
-    
+
     // Fecha y hora actual
     const date = new Date();
     const formattedDate = date.toLocaleDateString();
@@ -93,7 +102,7 @@ cargarLaboratorios() {
     // Subtítulo del reporte
     doc.setFontSize(14);
     doc.setFont('helvetica', 'normal');
-    doc.text('Reporte de los Laboratorios', 105, 30, {
+    doc.text('Reporte de Equipos de los Laboratorios', 105, 30, {
       align: 'center',
     });
 
@@ -108,7 +117,7 @@ cargarLaboratorios() {
     doc.setFont('helvetica', 'normal');
     doc.text(`Fecha: ${formattedDate}`, 20, 45);
     doc.text(`Hora: ${formattedTime}`, 20, 50);
-    doc.text('Generado por: Sistema de Gestión de Laboratorios', 20, 55);
+    doc.text('Generado por: Sistema de Gestión de Equipos', 20, 55);
 
     // Línea horizontal azul
     doc.setDrawColor(blue);
@@ -120,13 +129,29 @@ cargarLaboratorios() {
       [
         'ID',
         '# Laboratorio',
-        '# Equipo'
+        '# Equipo',
+        'Procesador',
+        'Ram',
+        'Disco',
+        'Serio Disco',
+        'Modelo Disco',
+        'Apps Instaladas',
+        'Estado',
+        'Prioridad',
       ],
     ];
-    const data = this.laboratoriosFiltrados.map((laboratorio) => [
-      laboratorio.id,
-      laboratorio.num_maquinas,
-      laboratorio.proyector
+    const data = this.equiposFiltrados.map((equipo) => [
+      equipo.id,
+      equipo.laboratorio,
+      equipo.num_equipo,
+      equipo.procesador,
+      equipo.ram,
+      equipo.capacidad_disco,
+      equipo.serie_disco,
+      equipo.modelo_disco,
+      equipo.app_install,
+      equipo.estado,
+      equipo.prioridad,
     ]);
 
     // Configuración de la tabla
@@ -149,7 +174,7 @@ cargarLaboratorios() {
     });
 
     // Guarda el PDF
-    doc.save('Reporte_de_Laboratorios.pdf');
-  
+    doc.save('Reporte_de_Maquinas_para_Mantenimiento.pdf');
   }
+
 }

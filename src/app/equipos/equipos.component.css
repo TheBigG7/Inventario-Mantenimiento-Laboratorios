@@ -78,6 +78,22 @@ input:hover {
     background-color: #0071e2;
 }
 
-.btn-impr{
+.text-verde {
+    color: rgb(0, 209, 0);
+    font-weight: bold;
+  }
+  
+  .text-rojo {
+    color: red;
+    font-weight: bold;
+  }
+  
+  .text-naranja {
+    color: orange;
+    font-weight: bold;
+  }
+
+  .btn-impr{
     margin-left: 5px;
 }
+  

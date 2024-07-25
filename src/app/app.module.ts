@@ -25,6 +25,9 @@ import { LaboratoriosComponent } from './laboratorios/laboratorios.component';
 import { RegistroComponent } from './laboratorios/registro.component';
 import { Location } from '@angular/common';
 import { SuperAdComponent } from './super-ad/super-ad.component';
+import { EquiposComponent } from './equipos/equipos.component';
+import { FormuComponent } from './equipos/formu.component';
+
 
 
 @NgModule({
@@ -38,7 +41,10 @@ import { SuperAdComponent } from './super-ad/super-ad.component';
     EncargadosComponent,
     LaboratoriosComponent,
     RegistroComponent,
-    SuperAdComponent
+    SuperAdComponent,
+    EquiposComponent,
+    FormuComponent
+
   ],
   imports: [
     BrowserModule,
