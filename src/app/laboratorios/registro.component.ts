@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Laboratorio } from './laboratorio';
 import { LaboratorioService } from './laboratorio.service';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Location } from '@angular/common';
 import Swal from 'sweetalert2';
 
 @Component({

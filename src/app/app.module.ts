@@ -23,6 +23,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatCardModule } from '@angular/material/card';
 import { LaboratoriosComponent } from './laboratorios/laboratorios.component';
 import { RegistroComponent } from './laboratorios/registro.component';
+import { Location } from '@angular/common';
 
 
 @NgModule({
