@@ -65,7 +65,7 @@ cargarEquipos() {
       //this.equipos = this.equipos.filter(equipo => equipo.id !== id);
       this.equipos = this.equipos.filter(equipo => equipo.id !== id);
             this.equiposFiltrados = this.equiposFiltrados.filter(equipo => equipo.id !== id);
-      this.router.navigate(['/equipos']);
+      this.router.navigate(['/dashboarda/equipos']);
       Swal.fire('Equipo eliminado', 'Equipo eliminado con exito', 'success');
     })
   }

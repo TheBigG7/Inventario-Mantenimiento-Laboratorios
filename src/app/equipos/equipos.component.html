@@ -27,7 +27,7 @@
           </div>
 
         <div class="my-2 text-left">
-            <button class="btn btn-rounded btn-primary" type="button" [routerLink]="['/equipos/form']">Crear Equipos</button>
+            <button class="btn btn-rounded btn-primary" type="button" [routerLink]="['/dashboarda/equipos/form']">Crear Equipos</button>
         </div>
         <table class="table table-bordered table-striped">
             <thead>
@@ -65,7 +65,7 @@
                         {{equipo.prioridad}}
                     </td>
                     <td>
-                        <button type="button" name="button" [routerLink]="['/equipos/form', equipo.id]" class="btn btn-primary">Editar</button>
+                        <button type="button" name="button" [routerLink]="['/dashboarda/equipos/form', equipo.id]" class="btn btn-primary">Editar</button>
                     </td>
                     <td>
                         <button type="button" name="button" (click)="delete(equipo.id)" class="btn btn-danger btn-xs">Eliminar</button>

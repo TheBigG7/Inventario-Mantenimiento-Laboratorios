@@ -37,7 +37,7 @@ export class FormuComponent implements OnInit{
 
   cancel() {
     //this.location.back();
-    this.router.navigate(['/equipos']); // Navega a la página anterior
+    this.router.navigate(['/dashboarda/equipos']); // Navega a la página anterior
     Swal.fire('Equipo no Guardado', `Equipo no guardado`, 'error')
   }
 
@@ -62,7 +62,7 @@ export class FormuComponent implements OnInit{
 
     this.equipoService.create(this.equipo)
     .subscribe(equipo => {
-      this.router.navigate(['/equipos'])
+      this.router.navigate(['/dashboarda/equipos'])
       Swal.fire('Equipo guardato', `Equipo ${equipo.num_equipo} guardado con exito`, 'success')
     })
   }
