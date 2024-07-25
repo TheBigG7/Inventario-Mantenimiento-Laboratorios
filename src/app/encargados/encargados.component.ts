@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { EncargadoLaboratorio } from '../login/encargadoLaboratorio';
 import { E } from '@angular/cdk/keycodes';
 
@@ -7,7 +7,8 @@ import { E } from '@angular/cdk/keycodes';
   templateUrl: './encargados.component.html',
   styleUrl: './encargados.component.css'
 })
-export class EncargadosComponent {
+export class EncargadosComponent implements OnInit{
+  
 
   encargados: boolean = true
   encargadoLaboratorio: EncargadoLaboratorio
@@ -18,6 +19,13 @@ export class EncargadosComponent {
   tipo: string; // "responsable" o "auxiliar"
   correo: string;
   contrasenia: string;
+
+  constructor(){}
+
+  ngOnInit(): void {
+    
+  }
+
   eliminar() {
 
   }

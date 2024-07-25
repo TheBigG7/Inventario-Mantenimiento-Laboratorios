@@ -8,6 +8,7 @@ import { EncargadosComponent } from './encargados/encargados.component';
 import { FooterComponent } from './footer/footer.component';
 import { LaboratoriosComponent } from './laboratorios/laboratorios.component';
 import { RegistroComponent } from './laboratorios/registro.component';
+import { SuperAdComponent } from './super-ad/super-ad.component';
 
 
 const routes: Routes = [
@@ -30,7 +31,9 @@ const routes: Routes = [
     ]
   },
   { path: 'dashboarde', component: DashboardEComponent },
-  { path: 'footer', component: FooterComponent }
+  { path: 'footer', component: FooterComponent },
+  { path: 'admin', component: SuperAdComponent }
+
 ];
 
 @NgModule({
