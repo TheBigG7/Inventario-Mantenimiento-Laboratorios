@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { EncargadoLaboratorio } from '../login/encargadoLaboratorio';
+import { E } from '@angular/cdk/keycodes';
 
 @Component({
   selector: 'app-encargados',
@@ -8,18 +9,29 @@ import { EncargadoLaboratorio } from '../login/encargadoLaboratorio';
 })
 export class EncargadosComponent {
 
-  encargados: boolean = true;
+  encargados: boolean = true
   encargadoLaboratorio: EncargadoLaboratorio
 
-  eliminar(){
-    
-  }
-  onSubmit(){
+  nombre: string;
+  apellido: string;
+  laboratorioAsignado: string;
+  tipo: string; // "responsable" o "auxiliar"
+  correo: string;
+  contrasenia: string;
+  eliminar() {
 
   }
+  onSubmit() {
+    this.encargadoLaboratorio.nombre = this.nombre
+    this.encargadoLaboratorio.apellido = this.apellido
+    this.encargadoLaboratorio.laboratorioAsignado = this.laboratorioAsignado
+    this.encargadoLaboratorio.tipo = this.tipo
+    this.encargadoLaboratorio.correo = this.correo
+    this.encargadoLaboratorio.contrasenia = this.contrasenia
+  }
 
-  crearEncargado(){
-    
+  crearEncargado() {
+
   }
 
 }
