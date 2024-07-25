@@ -24,6 +24,8 @@ import { MatCardModule } from '@angular/material/card';
 import { LaboratoriosComponent } from './laboratorios/laboratorios.component';
 import { RegistroComponent } from './laboratorios/registro.component';
 import { Location } from '@angular/common';
+import { EquiposComponent } from './equipos/equipos.component';
+import { FormuComponent } from './equipos/formu.component';
 
 
 @NgModule({
@@ -36,7 +38,9 @@ import { Location } from '@angular/common';
     FooterComponent,
     EncargadosComponent,
     LaboratoriosComponent,
-    RegistroComponent
+    RegistroComponent,
+    EquiposComponent,
+    FormuComponent
   ],
   imports: [
     BrowserModule,
