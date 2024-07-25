@@ -1,0 +1,238 @@
+<div >
+    <div class="container">
+        <div class="card borber-primary mb-2 mt-2">
+            <div class="card-header">Administrador de TIC<mat-icon>face</mat-icon>
+                <button type="button" name="button" [routerLink]="[]" class="btn btn-outline-primary"
+                    (click)="administrador=false">
+                    Añadir Encargado
+                </button>
+            </div>
+            <div class="card-body text-primary" *ngIf="!administrador">
+                <form (ngSubmit)="crearAdmin()" #loginForm="ngForm" class="p-4 border rounded bg-light">
+                    <!-- Nombre -->
+                    <div>
+                        <mat-form-field appearance="outline" class="d-flex justify-content-center">
+                            <mat-label>Nombre: </mat-label>
+                            <input matInput placeholder="Nombre Encargado" class="form-control" type="text" id="nombre"
+                                [(ngModel)]="administradorTic.nombre" name="nombre" required #nombreModel="ngModel">
+                            <mat-icon matSuffix>account_circle</mat-icon>
+                            <div *ngIf="nombreModel.invalid && (nombreModel.dirty || nombreModel.touched)"
+                                class="text-danger">
+                                <mat-hint>Nombre requerido</mat-hint>
+                            </div>
+                        </mat-form-field>
+                    </div>
+                    <!-- apellido -->
+                    <div>
+                        <mat-form-field appearance="outline" class="d-flex justify-content-center">
+                            <mat-label>Apellido: </mat-label>
+                            <input matInput placeholder="Apellido Encargado" type="text" id="apellido"
+                                [(ngModel)]="apellido" name="apellido" required #apellidoModel="ngModel">
+                            <mat-icon matSuffix>account_circle</mat-icon>
+                            <div *ngIf="apellidoModel.invalid && (apellidoModel.dirty || apellidoModel.touched)"
+                                class="text-danger">
+                                <mat-hint>Apellido es requerida.</mat-hint>
+                            </div>
+                        </mat-form-field>
+                    </div>
+                    <!-- periodo -->
+                    <div>
+                        <mat-form-field appearance="outline" class="d-flex justify-content-center">
+                            <mat-label>Periodo inicio: </mat-label>
+                            <input matInput placeholder="Fecha inicio del Periodo" type="date" id="periodoInicio"
+                                [(ngModel)]="apellido" name="apellido" required #periodoIModel="ngModel">
+                            <mat-icon matSuffix>calendar_today</mat-icon>
+                            <div *ngIf="periodoIModel.invalid && (periodoIModel.dirty || periodoIModel.touched)"
+                                class="text-danger">
+                                <mat-hint>Fecha inicio del Periodo es requerida.</mat-hint>
+                            </div>
+                        </mat-form-field>
+                    </div>
+                    <div>
+                        <mat-form-field appearance="outline" class="d-flex justify-content-center">
+                            <mat-label>Apellido: </mat-label>
+                            <input matInput placeholder="Fecha fin del Periodo" type="date" id="periodoFin"
+                                [(ngModel)]="apellido" name="apellido" required #periodoFModel="ngModel">
+                            <mat-icon matSuffix>calendar_today</mat-icon>
+                            <div *ngIf="periodoFModel.invalid && (periodoFModel.dirty || periodoFModel.touched)"
+                                class="text-danger">
+                                <mat-hint>Fecha fin del Periodo es requerida.</mat-hint>
+                            </div>
+                        </mat-form-field>
+                    </div>
+                    <!-- correo -->
+                    <div>
+                        <mat-form-field appearance="outline" class="d-flex justify-content-center">
+                            <mat-label>Correo: </mat-label>
+                            <input matInput placeholder="ejemplo@tecazuay.edu.ec" class="form-control" type="email"
+                                id="correo" [(ngModel)]="correo" name="correo" required #correoModel="ngModel">
+                            <mat-icon matSuffix>fingerprint</mat-icon>
+                            <div *ngIf="correoModel.invalid && (correoModel.dirty || correoModel.touched)"
+                                class="text-danger">
+                                <mat-hint>Correo es requerido.</mat-hint>
+                            </div>
+                        </mat-form-field>
+                    </div>
+                    <!-- contraseña -->
+                    <div>
+                        <mat-form-field appearance="outline" class="d-flex justify-content-center">
+                            <mat-label>Contraseña: </mat-label>
+                            <input matInput placeholder="Contraseña" type="password" id="contrasena"
+                                [(ngModel)]="contrasenia" name="contrasena" required #contrasenaModel="ngModel">
+                            <mat-icon matSuffix>assignment</mat-icon>
+                            <div *ngIf="contrasenaModel.invalid && (contrasenaModel.dirty || contrasenaModel.touched)"
+                                class="text-danger">
+                                <mat-hint>Contraseña es requerida.</mat-hint>
+                            </div>
+                        </mat-form-field>
+                    </div>
+                    <div class="text-end">
+                        <button type="submit" class="btn btn-primary mt-3" (click)="administrador=true">Guardar</button>
+                    </div>
+                </form>
+
+            </div>
+            <div class="card-body text-primary" *ngIf="administrador">
+                <h5 class="card-title">Listado de encargados</h5>
+                <table class="table table-bordered table-striped">
+                    <thead>
+                        <tr>
+                            <th>Nombre</th>
+                            <th>Apellido</th>
+                            <th>Periodo</th>
+                            <th>Correo</th>
+                            <th>Contraseña</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr> <!-- *ngFor="let peri of periodos" -->
+                            <td>uno</td><!-- {{peri.id_periodo}} -->
+                            <td>dos</td>
+                            <td>tres</td>
+                            <td>cuatro</td>
+                            <td>cinco</td>
+                            <td class="d-flex justify-content-center">
+                                <button type="button" name="editar" (click)="eliminar()"
+                                    class="btn btn-outline-primary">Editar</button>
+                                <button type="button" name="eliminar" (click)="eliminar()"
+                                    class="btn btn-outline-danger">Eliminar</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+<div>
+    <div class="container">
+        <div class="card borber-primary mb-2 mt-2">
+            <div class="card-header">Administrador de TIC<mat-icon>face</mat-icon>
+                <button type="button" name="button" [routerLink]="[]" class="btn btn-outline-primary"
+                    (click)="administrador=false">
+                    Añadir Encargado
+                </button>
+            </div>
+            <div class="card-body text-primary" *ngIf="!administrador">
+                <form (ngSubmit)="crearAdmin()" #loginForm="ngForm" class="p-4 border rounded bg-light">
+                    <!-- Nombre -->
+                    <div>
+                        <mat-form-field appearance="outline" class="d-flex justify-content-center">
+                            <mat-label>Nombre: </mat-label>
+                            <input matInput placeholder="Nombre Encargado" class="form-control" type="text" id="nombre"
+                                [(ngModel)]="administradorTic.nombre" name="nombre" required #nombreModel="ngModel">
+                            <mat-icon matSuffix>account_circle</mat-icon>
+                            <div *ngIf="nombreModel.invalid && (nombreModel.dirty || nombreModel.touched)"
+                                class="text-danger">
+                                <mat-hint>Nombre requerido</mat-hint>
+                            </div>
+                        </mat-form-field>
+                    </div>
+                    <!-- apellido -->
+                    <div>
+                        <mat-form-field appearance="outline" class="d-flex justify-content-center">
+                            <mat-label>Apellido: </mat-label>
+                            <input matInput placeholder="Apellido Encargado" type="text" id="apellido"
+                                [(ngModel)]="administradorTic.apellido" name="apellido" required #apellidoModel="ngModel">
+                            <mat-icon matSuffix>account_circle</mat-icon>
+                            <div *ngIf="apellidoModel.invalid && (apellidoModel.dirty || apellidoModel.touched)"
+                                class="text-danger">
+                                <mat-hint>Apellido es requerida.</mat-hint>
+                            </div>
+                        </mat-form-field>
+                    </div>
+                    <!-- periodo -->
+                    <div>
+                        <mat-form-field class="w-100">
+                            <mat-select [(ngModel)]="administradorTic." required>
+                                <!-- *ngif -->
+                                <mat-option value="option">Option</mat-option>
+                                <mat-option value="option 2">Option</mat-option>
+                            </mat-select>
+                            <mat-label><mat-icon>home</mat-icon> <strong>Laboratorios</strong></mat-label>
+                        </mat-form-field>
+                    </div>
+                    <!-- correo -->
+                    <div>
+                        <mat-form-field appearance="outline" class="d-flex justify-content-center">
+                            <mat-label>Correo: </mat-label>
+                            <input matInput placeholder="ejemplo@tecazuay.edu.ec" class="form-control" type="email"
+                                id="correo" [(ngModel)]="administradorTic.correo" name="correo" required #correoModel="ngModel">
+                            <mat-icon matSuffix>fingerprint</mat-icon>
+                            <div *ngIf="correoModel.invalid && (correoModel.dirty || correoModel.touched)"
+                                class="text-danger">
+                                <mat-hint>Correo es requerido.</mat-hint>
+                            </div>
+                        </mat-form-field>
+                    </div>
+                    <!-- contraseña -->
+                    <div>
+                        <mat-form-field appearance="outline" class="d-flex justify-content-center">
+                            <mat-label>Contraseña: </mat-label>
+                            <input matInput placeholder="Contraseña" type="password" id="contrasena"
+                                [(ngModel)]="administradorTic.contrasenia" name="contrasena" required #contrasenaModel="ngModel">
+                            <mat-icon matSuffix>assignment</mat-icon>
+                            <div *ngIf="contrasenaModel.invalid && (contrasenaModel.dirty || contrasenaModel.touched)"
+                                class="text-danger">
+                                <mat-hint>Contraseña es requerida.</mat-hint>
+                            </div>
+                        </mat-form-field>
+                    </div>
+                    <div class="text-end">
+                        <button type="submit" class="btn btn-primary mt-3" (click)="administrador=true">Guardar</button>
+                    </div>
+                </form>
+
+            </div>
+            <div class="card-body text-primary" *ngIf="administrador">
+                <h5 class="card-title">Listado de encargados</h5>
+                <table class="table table-bordered table-striped">
+                    <thead>
+                        <tr>
+                            <th>Nombre</th>
+                            <th>Apellido</th>
+                            <th>Periodo</th>
+                            <th>Correo</th>
+                            <th>Contraseña</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr> <!-- *ngFor="let peri of periodos" -->
+                            <td>uno</td><!-- {{peri.id_periodo}} -->
+                            <td>dos</td>
+                            <td>tres</td>
+                            <td>cuatro</td>
+                            <td>cinco</td>
+                            <td class="d-flex justify-content-center">
+                                <button type="button" name="editar" (click)="eliminar()"
+                                    class="btn btn-outline-primary">Editar</button>
+                                <button type="button" name="eliminar" (click)="eliminar()"
+                                    class="btn btn-outline-danger">Eliminar</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
