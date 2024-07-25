@@ -3,6 +3,7 @@ import Swal from 'sweetalert2';
 import { Equipo } from './equipo';
 import { Router } from '@angular/router';
 import { EquipoService } from './equipo.service';
+import { EmailService } from './email.service';
 
 //primero instalamos esto npm install jspdf jspdf-autotable despues importamos
 import { jsPDF } from 'jspdf';
@@ -16,10 +17,11 @@ import 'jspdf-autotable'; //para generar tablas facilmente
 export class EquiposComponent implements OnInit{
 
   equipos: Equipo[] = [];
+  equipo: Equipo = new Equipo();
   public equiposFiltrados: Equipo[] = [];
   public filtro: string = '';
 
-  constructor(private equipoService: EquipoService, private router: Router) { }
+  constructor(private equipoService: EquipoService, private router: Router, private emailService:EmailService) { }
 
   /*ngOnInit(): void {
 
@@ -177,4 +179,28 @@ cargarEquipos() {
     doc.save('Reporte_de_Maquinas_para_Mantenimiento.pdf');
   }
 
+  saveEquipo(): void {
+    this.equipoService.create(this.equipo).subscribe(
+      response => {
+        // Aquí puedes manejar la respuesta después de crear el equipo
+        Swal.fire('Equipo guardado', 'Equipo guardado con éxito', 'success');
+        this.router.navigate(['/equipos']);
+        
+        // Verifica si la prioridad es "Alta" y envía el correo
+        if (this.equipo.prioridad === 'Alta') {
+          this.emailService.sendEmail(
+            'destinatario@correo.com', // Reemplaza con el correo de destino
+            'Alerta de Prioridad Alta',
+            `El equipo con ID ${this.equipo.id} tiene una prioridad alta.`
+          ).subscribe(
+            () => Swal.fire('Correo enviado', 'Correo de alerta enviado con éxito', 'success'),
+            error => Swal.fire('Error', 'Error al enviar el correo', 'error')
+          );
+        }
+      },
+      error => {
+        Swal.fire('Error', 'Error al guardar el equipo', 'error');
+      }
+    );
+  }
 }
