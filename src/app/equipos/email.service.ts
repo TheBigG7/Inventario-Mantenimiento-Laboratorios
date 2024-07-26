@@ -1,36 +1,19 @@
 // primero instalamos npm install @sendgrid/mail y creamos una cuenta en SendGrid para poder generar mi api key
+// src/app/services/email.service.ts
+
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class EmailService {
-
-  private sendGridApiUrl = 'https://api.sendgrid.com/v3/mail/send';
-  private sendGridApiKey = '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'; // Reemplaza con tu API Key de SendGrid
+  private emailApiUrl = 'http://api.sendgrid.com/v3/mail/send/enviar-correo'; // Cambia esto a la URL correcta de tu API de correo
 
   constructor(private http: HttpClient) { }
 
-  sendEmail(to: string, subject: string, text: string): Observable<any> {
-    const headers = new HttpHeaders({
-      'Content-Type': 'application/json',
-      'Authorization': `Bearer ${this.sendGridApiKey}`
-    });
-
-    const body = {
-      personalizations: [{
-        to: [{ email: to }]
-      }],
-      from: { email: 'derek.vergara.est@tecazuay.edu.ec' },
-      subject: subject,
-      content: [{
-        type: 'text/plain',
-        value: text
-      }]
-    };
-
-    return this.http.post(this.sendGridApiUrl, body, { headers: headers });
+  sendAlertEmail(equipo: any): Observable<any> {
+    return this.http.post(this.emailApiUrl, equipo);
   }
 }
