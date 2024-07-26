@@ -1,0 +1,31 @@
+
+<div class="card border-primary mb-3">
+    <div class="card-header">REPORTES</div>
+    <div class="card-body text-primary">
+        <h5 class="card-title">Listado de los reportes</h5>
+
+        <div class="my-2 text-left">
+            <button class="btn btn-rounded btn-primary" type="button" [routerLink]="['/dashboarda/equipos/form']">Crear Equipos</button>
+            <button class="btn btn-rounded btn-primary btn-impr" type="button" (click)="generatePDF()">Imprimir</button>
+        </div>
+        <table class="table table-bordered table-striped">
+            <thead>
+                <tr>
+                    <th># Laboratorio</th>
+                    <th># Equipo</th>
+                    <th>Descripcion</th> <!-- campo mantenimiento -->
+                    <th>Prioridad</th> <!-- campo equipo -->
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let equipo of equiposFiltrados">
+                    <td>{{equipo.laboratorio}}</td>
+                    <td>{{equipo.num_equipo}}</td>
+                    <td [ngClass]="{'text-verde': equipo.prioridad === 'Baja', 'text-naranja': equipo.prioridad === 'Media', 'text-rojo': equipo.prioridad === 'Alta'}">
+                        {{equipo.prioridad}}
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

@@ -28,6 +28,7 @@ import { SuperAdComponent } from './super-ad/super-ad.component';
 import { EquiposComponent } from './equipos/equipos.component';
 import { FormuComponent } from './equipos/formu.component';
 import {MatButtonToggleModule} from '@angular/material/button-toggle';
+import { ReportesComponent } from './reportes/reportes.component';
 
 
 
@@ -44,7 +45,8 @@ import {MatButtonToggleModule} from '@angular/material/button-toggle';
     RegistroComponent,
     SuperAdComponent,
     EquiposComponent,
-    FormuComponent
+    FormuComponent,
+    ReportesComponent
 
   ],
   imports: [
