@@ -59,11 +59,11 @@ export class ReportesComponent implements OnInit {
     } else {
       this.prioridadSeleccionada = event.value;
       this.equiposFiltrados = this.equipos.filter(equipo => {
-        if (equipo && equipo.prioridad) { // Agrega esta verificación
+        if (equipo && equipo.prioridad) {
           if (event.value === 'Alta') {
-            return equipo.prioridad === 'Alta' || equipo.prioridad === 'Media' || equipo.prioridad === 'Baja';
+            return equipo.prioridad === 'Alta';
           } else if (event.value === 'Media') {
-            return equipo.prioridad === 'Media' || equipo.prioridad === 'Baja';
+            return equipo.prioridad === 'Media';
           } else if (event.value === 'Baja') {
             return equipo.prioridad === 'Baja';
           }
@@ -129,7 +129,6 @@ export class ReportesComponent implements OnInit {
       [
         '# Laboratorio',
         '# Equipo',
-        'Procesador',
         'Descripcion',
         'Prioridad',
       ],
@@ -137,6 +136,7 @@ export class ReportesComponent implements OnInit {
     const data = this.equiposFiltrados.map((equipo) => [
       equipo.laboratorio,
       equipo.num_equipo,
+      
       equipo.prioridad,
     ]);
 
