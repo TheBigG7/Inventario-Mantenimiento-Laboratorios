@@ -136,7 +136,7 @@ export class ReportesComponent implements OnInit {
     const data = this.equiposFiltrados.map((equipo) => [
       equipo.laboratorio,
       equipo.num_equipo,
-      
+      equipo.num_equipo,
       equipo.prioridad,
     ]);
 
