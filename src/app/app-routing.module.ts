@@ -29,6 +29,7 @@ const routes: Routes = [
   {
     path: 'dashboarda', component: DashboardAComponent,
     children: [
+      { path: '', redirectTo: 'inicio', pathMatch: 'full'},
       { path: 'crear-encargados', component: EncargadosComponent },
       { path: 'laboratorios', component: LaboratoriosComponent},
       { path: 'laboratorios/form', component: RegistroComponent},
