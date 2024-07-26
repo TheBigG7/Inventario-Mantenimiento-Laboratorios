@@ -96,4 +96,15 @@ input:hover {
   .btn-impr{
     margin-left: 5px;
 }
-  
+
+.btn-filtro {
+    background-color: rgb(158, 157, 167); /* Fondo azul */
+    color: white; /* Letras blancas */
+    border-radius: 20px; /* Bordes redondeados (opcional) */
+    cursor: pointer; /* Cursor tipo mano al pasar sobre el botón */
+}
+
+.btn-filtro:hover {
+    background-color: rgb(93, 93, 247 ); /* Fondo morado al pasar el mouse */
+    color: white; /* Letras blancas (se mantiene igual) */
+}

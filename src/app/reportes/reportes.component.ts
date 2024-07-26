@@ -3,6 +3,7 @@ import Swal from 'sweetalert2';
 import { Equipo } from '../equipos/equipo';
 import { Router } from '@angular/router';
 import { EquipoService } from '../equipos/equipo.service'; 
+import { MatButtonToggleChange } from '@angular/material/button-toggle';
 
 //primero instalamos esto npm install jspdf jspdf-autotable despues importamos
 import { jsPDF } from 'jspdf';
@@ -21,6 +22,7 @@ export class ReportesComponent implements OnInit {
   equipo: Equipo = new Equipo();
   public equiposFiltrados: Equipo[] = [];
   public filtro: string = '';
+  prioridadSeleccionada = '';
 
   constructor(private equipoService: EquipoService, private router: Router) { }
 
@@ -48,6 +50,28 @@ export class ReportesComponent implements OnInit {
         console.error('Error al cargar usuarios:', error);
       });
     }
+
+  filtroPrioridad(event: MatButtonToggleChange) {
+    if (event.value === 'limpiar') {
+      this.prioridadSeleccionada = '';
+      this.equiposFiltrados = this.equipos;
+      event.source.checked = false;
+    } else {
+      this.prioridadSeleccionada = event.value;
+      this.equiposFiltrados = this.equipos.filter(equipo => {
+        if (equipo && equipo.prioridad) { // Agrega esta verificación
+          if (event.value === 'Alta') {
+            return equipo.prioridad === 'Alta' || equipo.prioridad === 'Media' || equipo.prioridad === 'Baja';
+          } else if (event.value === 'Media') {
+            return equipo.prioridad === 'Media' || equipo.prioridad === 'Baja';
+          } else if (event.value === 'Baja') {
+            return equipo.prioridad === 'Baja';
+          }
+        }
+        return false;
+      });
+    }
+  }
 
 
   generatePDF() {

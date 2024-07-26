@@ -5,7 +5,12 @@
         <h5 class="card-title">Listado de los reportes</h5>
 
         <div class="my-2 text-left">
-            <button class="btn btn-rounded btn-primary" type="button" [routerLink]="['']">Filtro</button>
+            <mat-button-toggle-group  class="btn-filtro btn-filtro:hover" name="fontStyle" aria-label="Font Style" (change)="filtroPrioridad($event)">
+                <mat-button-toggle value="Baja">Baja</mat-button-toggle>
+                <mat-button-toggle value="Media">Media</mat-button-toggle>
+                <mat-button-toggle value="Alta">Alta</mat-button-toggle>
+                <mat-button-toggle value="limpiar">Limpiar</mat-button-toggle>
+              </mat-button-toggle-group>
             <button class="btn btn-rounded btn-primary btn-impr" type="button" (click)="generatePDF()">Imprimir</button>
         </div>
         <table class="table table-bordered table-striped">
@@ -20,6 +25,7 @@
             <tbody>
                 <tr *ngFor="let equipo of equiposFiltrados">
                     <td>{{equipo.laboratorio}}</td>
+                    <td>{{equipo.num_equipo}}</td>
                     <td>{{equipo.num_equipo}}</td>
                     <td [ngClass]="{'text-verde': equipo.prioridad === 'Baja', 'text-naranja': equipo.prioridad === 'Media', 'text-rojo': equipo.prioridad === 'Alta'}">
                         {{equipo.prioridad}}
