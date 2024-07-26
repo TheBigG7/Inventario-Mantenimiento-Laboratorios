@@ -5,7 +5,7 @@ import { PeriodoService } from './periodo.service';
 import { EncargadoLaboratorio } from '../login/encargadoLaboratorio';
 import Swal from 'sweetalert2';
 import { ActivatedRoute } from '@angular/router';
-import { AdministradorService } from '../login/Administrador.service';
+import { AdministradorService } from '../login/administrador.service';
 
 @Component({
   selector: 'app-super-ad',
@@ -59,7 +59,7 @@ export class SuperAdComponent implements OnInit {
     )
   }
   eliminarPeriodo(id: number): void {
-
+    
     this.periodoService.eliminarPeriodo(id)
       .subscribe(() => {
         //this.equipos = this.equipos.filter(equipo => equipo.id !== id);
@@ -68,6 +68,7 @@ export class SuperAdComponent implements OnInit {
 
   }
   editarPeriodo(): void {
+    this.administrador = false
     this.activatedRoute.params.subscribe(params => {
       let id = params['idPeriodo']
       if (id) {
@@ -96,6 +97,7 @@ export class SuperAdComponent implements OnInit {
       })
   }
   editarAdmin(): void { 
+
     this.activatedRoute.params.subscribe(params => {
       let id = params['administradorTIC_id']
       if (id) {
