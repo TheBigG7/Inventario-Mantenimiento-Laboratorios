@@ -114,7 +114,7 @@
                     <div>
                         <mat-form-field appearance="outline" class="d-flex justify-content-center">
                             <mat-label>Nombre: </mat-label>
-                            <input matInput placeholder="Nombre Encargado" class="form-control" type="text" id="nombre"
+                            <input matInput placeholder="Nombre Administrador" class="form-control" type="text" id="nombre"
                                 [(ngModel)]="administradorTic.nombre" name="nombre" required #nombreModel="ngModel">
                             <mat-icon matSuffix>account_circle</mat-icon>
                             <div *ngIf="nombreModel.invalid && (nombreModel.dirty || nombreModel.touched)"
@@ -139,16 +139,13 @@
                     </div>
                     <!-- periodo -->
                     <div>
-                        <mat-form-field appearance="outline" class="d-flex justify-content-center">
-                            <mat-label>Periodo inicio: </mat-label>
-                            <input matInput placeholder="Fecha inicio del Periodo" class="form-control" type="date"
-                                id="periodoInicio" [(ngModel)]="administradorTic.idPeriodo" name="apellido" required
-                                #periodoIModel="ngModel">
-                            <mat-icon matSuffix>calendar_today</mat-icon>
-                            <div *ngIf="periodoIModel.invalid && (periodoIModel.dirty || periodoIModel.touched)"
-                                class="text-danger">
-                                <mat-hint>Fecha inicio del Periodo es requerida.</mat-hint>
-                            </div>
+                        <mat-form-field class="w-100">
+                            <mat-select id="periodo" name="periodo" [(ngModel)]="periodo.idPeriodo" required>
+                                <!-- *ngif -->
+                                <mat-option *ngFor="let per of periodoL"
+                                    [value]="per.idPeriodo">{{per.fechaInicio}} - {{per.fechaFin}}</mat-option>
+                            </mat-select>
+                            <mat-label><mat-icon>face</mat-icon> <strong>Periodos</strong></mat-label>
                         </mat-form-field>
                     </div>
                     <!-- correo -->
