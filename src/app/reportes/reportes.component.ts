@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import Swal from 'sweetalert2';
-import { Equipo } from './equipo';
+import { Equipo } from '../equipos/equipo';
 import { Router } from '@angular/router';
-import { EquipoService } from './equipo.service';
+import { EquipoService } from '../equipos/equipo.service'; 
 
 //primero instalamos esto npm install jspdf jspdf-autotable despues importamos
 import { jsPDF } from 'jspdf';
@@ -21,6 +21,8 @@ export class ReportesComponent implements OnInit {
   equipo: Equipo = new Equipo();
   public equiposFiltrados: Equipo[] = [];
   public filtro: string = '';
+
+  constructor(private equipoService: EquipoService, private router: Router) { }
 
   ngOnInit(): void {
     this.cargarEquipos();
