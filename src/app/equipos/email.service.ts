@@ -23,7 +23,7 @@ export class EmailService {
       personalizations: [{
         to: [{ email: to }]
       }],
-      from: { email: 'tu_email@tu_dominio.com' },
+      from: { email: 'derek.vergara.est@tecazuay.edu.ec' },
       subject: subject,
       content: [{
         type: 'text/plain',
