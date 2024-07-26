@@ -6,11 +6,12 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { LaboratorioService } from '../laboratorios/laboratorio.service';
 import { Location } from '@angular/common';
 import Swal from 'sweetalert2';
+import { EmailService } from '../equipos/email.service';
 
 @Component({
   selector: 'app-formu',
   templateUrl: './formu.component.html',
-  styleUrl: './formu.component.css'
+  styleUrls: ['./formu.component.css']
 })
 export class FormuComponent implements OnInit{
 
@@ -22,7 +23,9 @@ export class FormuComponent implements OnInit{
 
   constructor(private equipoService: EquipoService, private router: Router,
     private activitedRouter: ActivatedRoute, private location: Location,
-    private laboratorioService: LaboratorioService) {}
+    private laboratorioService: LaboratorioService,
+    private emailService: EmailService
+  ) {}
 
   ngOnInit(): void {
     this.cargarEquipo()
@@ -57,13 +60,24 @@ export class FormuComponent implements OnInit{
   }
 
   public create(): void {
-    console.log("Has realizado un clik")
-    console.log(this.equipo)
+    console.log("Has realizado un click");
+    console.log(this.equipo);
 
-    this.equipoService.create(this.equipo)
-    .subscribe(equipo => {
-      this.router.navigate(['/dashboarda/equipos'])
-      Swal.fire('Equipo guardato', `Equipo ${equipo.num_equipo} guardado con exito`, 'success')
-    })
+    this.equipoService.create(this.equipo).subscribe(equipo => {
+      this.router.navigate(['/dashboarda/equipos']);
+      Swal.fire('Equipo guardado', `Equipo ${equipo.num_equipo} guardado con éxito`, 'success');
+
+      // Enviar correo si la prioridad es alta
+      if (this.equipo.prioridad === 'Alta') {
+        this.emailService.sendAlertEmail(this.equipo).subscribe(
+          (emailResponse: any) => {
+            console.log('Correo de alerta enviado:', emailResponse);
+          },
+          (emailError: any) => {
+            console.error('Error al enviar el correo de alerta:', emailError);
+          }
+        );
+      }
+    });
   }
 }

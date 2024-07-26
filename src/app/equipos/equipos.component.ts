@@ -188,13 +188,13 @@ cargarEquipos() {
         
         // Verifica si la prioridad es "Alta" y envía el correo
         if (this.equipo.prioridad === 'Alta') {
-          this.emailService.sendEmail(
-            'dereckvergara12@gmail.com', // Reemplaza con el correo de destino
-            'Alerta de Prioridad Alta',
-            `El equipo con ID ${this.equipo.id} tiene una prioridad alta.`
-          ).subscribe(
-            () => Swal.fire('Correo enviado', 'Correo de alerta enviado con éxito', 'success'),
-            error => Swal.fire('Error', 'Error al enviar el correo', 'error')
+          this.emailService.sendAlertEmail(this.equipo).subscribe(
+            (emailResponse: any) => {
+              console.log('Correo de alerta enviado:', emailResponse);
+            },
+            (emailError: any) => {
+              console.error('Error al enviar el correo de alerta:', emailError);
+            }
           );
         }
       },
