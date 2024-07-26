@@ -15,7 +15,7 @@ export class PeriodoService {
     constructor(private http: HttpClient) { }
 
     listarPeriodos(): Observable<Periodo[]> {
-        //return of(CLIENTES);
+
         console.log(this.urlEndPoint);
 
         return this.http.get<Periodo[]>(this.urlEndPoint);
@@ -28,4 +28,7 @@ export class PeriodoService {
         return this.http.get<Periodo>(`${this.urlEndPoint}/${id}`)
     }
 
+    eliminarPeriodo(id: number): Observable<Periodo> {
+        return this.http.delete<Periodo>(`${this.urlEndPoint}/${id}`);
+    }
 }

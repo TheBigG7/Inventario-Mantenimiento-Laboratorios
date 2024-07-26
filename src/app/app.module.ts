@@ -27,6 +27,7 @@ import { Location } from '@angular/common';
 import { SuperAdComponent } from './super-ad/super-ad.component';
 import { EquiposComponent } from './equipos/equipos.component';
 import { FormuComponent } from './equipos/formu.component';
+import {MatButtonToggleModule} from '@angular/material/button-toggle';
 
 
 
@@ -60,7 +61,8 @@ import { FormuComponent } from './equipos/formu.component';
     MatFormFieldModule,
     MatSelectModule,
     BrowserAnimationsModule,
-    MatCardModule
+    MatCardModule,
+    MatButtonToggleModule
   ],
   providers: [
     provideAnimationsAsync()

@@ -7,11 +7,11 @@ import { Observable } from 'rxjs';
 })
 export class AuthService {
 
-    private baseUrl = 'http://localhost:8080/api/auth'; // Reemplaza con tu URL base de la API
+    private baseUrl = 'http://localhost:8080/api_auth/auth'; // Reemplaza con tu URL base de la API
 
     constructor(private http: HttpClient) { }
 
-    login(correo: string, contraseña: string): Observable<any> {
-        return this.http.post<any>(`${this.baseUrl}/login`, { correo, contraseña });
+    login(correo: string, contrasenia: string): Observable<any> {
+        return this.http.post<any>(`${this.baseUrl}/login`, { correo, contrasenia });
     }
 }

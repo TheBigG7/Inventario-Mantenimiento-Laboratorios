@@ -29,10 +29,10 @@
                 <br>
                 <mat-form-field appearance="outline" class="d-flex justify-content-center">
                     <mat-label>Contraseña: </mat-label>
-                    <input matInput placeholder="Contraseña" type="password" id="contrasena" [(ngModel)]="contrasena"
-                        name="contrasena" required #contrasenaModel="ngModel">
+                    <input matInput placeholder="Contraseña" type="password" id="contrasena" [(ngModel)]="contrasenia"
+                        name="contrasena" required #contraseniaModel="ngModel">
                     <mat-icon matSuffix>assignment</mat-icon>
-                    <div *ngIf="contrasenaModel.invalid && (contrasenaModel.dirty || contrasenaModel.touched)"
+                    <div *ngIf="contraseniaModel.invalid && (contraseniaModel.dirty || contraseniaModel.touched)"
                         class="text-danger">
                         <mat-hint>Contraseña es requerida.</mat-hint>
                     </div>

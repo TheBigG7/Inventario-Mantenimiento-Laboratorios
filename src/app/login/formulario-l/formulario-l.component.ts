@@ -13,13 +13,13 @@ import { EncargadoLaboratorio } from '../encargadoLaboratorio';
 export class FormularioLComponent {
 
   correo: string;
-  contrasena: string;
+  contrasenia: string;
   mensajeError: string;
 
   constructor(private authService: AuthService, private router: Router) { }
 
   login(): void {
-    this.authService.login(this.correo, this.contrasena).subscribe(
+    this.authService.login(this.correo, this.contrasenia).subscribe(
       response => {
         // Manejar la respuesta del servidor
         console.log(response);
@@ -37,6 +37,7 @@ export class FormularioLComponent {
       },
       error => {
         console.error(error);
+        console.log("no entro");
         this.mensajeError = 'Credenciales incorrectas';
       }
     );
