@@ -29,6 +29,7 @@ import { EquiposComponent } from './equipos/equipos.component';
 import { FormuComponent } from './equipos/formu.component';
 import {MatButtonToggleModule} from '@angular/material/button-toggle';
 import { ReportesComponent } from './reportes/reportes.component';
+import { InicioComponent } from './inicio/inicio.component';
 
 
 
@@ -46,7 +47,8 @@ import { ReportesComponent } from './reportes/reportes.component';
     SuperAdComponent,
     EquiposComponent,
     FormuComponent,
-    ReportesComponent
+    ReportesComponent,
+    InicioComponent
 
   ],
   imports: [

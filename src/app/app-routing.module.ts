@@ -11,6 +11,7 @@ import { RegistroComponent } from './laboratorios/registro.component';
 import { SuperAdComponent } from './super-ad/super-ad.component';
 import { EquiposComponent } from './equipos/equipos.component';
 import { FormuComponent } from './equipos/formu.component';
+import { InicioComponent } from './inicio/inicio.component';
 
 
 
@@ -34,6 +35,7 @@ const routes: Routes = [
       { path: 'equipos', component: EquiposComponent},
       { path: 'equipos/form', component: FormuComponent},
       { path: 'equipos/form/:id', component: FormuComponent},
+      { path: 'inicio', component: InicioComponent},
     ]
   },
   { path: 'dashboarde', component: DashboardEComponent },

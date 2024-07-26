@@ -1,0 +1,130 @@
+body {
+    background-image: url('pixelcut-export.png'); /* Ruta relativa a la carpeta de assets */
+    background-size: cover; /* Ajusta la imagen para cubrir toda la pantalla */
+    background-repeat: no-repeat; /* Evita que la imagen se repita */
+    background-attachment: fixed; /* La imagen se mantiene fija al hacer scroll */
+    background-position: center; /* Centra la imagen en la pantalla */
+    color: rgb(46, 112, 255); /* Cambia el color del texto para que sea legible sobre el fondo */
+    margin-top: 0%;
+  }
+  
+  .cormorant-garamond-light {
+    font-family: "Cormorant Garamond", serif;
+    font-weight: 300;
+    font-style: normal;
+    font-weight: bold;
+  }
+  
+  .contaimer-but {
+    position: relative;
+    top: 10px;
+    border: 1px solid rgba(0, 0, 0, 0);
+  }
+  
+  .contaimer-title {
+    position: relative;
+    border: 1px solid rgba(0, 0, 0, 0);
+    margin-top: 5%;
+  }
+  
+  .contaimer-parrafo {
+    position: absolute;
+    border: 1px solid rgba(0, 0, 0, 0);
+    height: 200px;
+    width: 65%;
+    margin-top: 2%;
+    left: 60px;
+  }
+  
+  .contaimer-img {
+    position: absolute;
+    border: 1px solid rgba(0, 0, 0, 0);
+    right: 100px;
+    margin-top: 2%;
+  }
+  
+  
+  .left {
+    position: absolute;
+    top: 0px;
+    /* Ajusta la distancia desde la parte superior del contenedor */
+    left: 20px;
+    /* Ajusta la distancia desde la parte izquierda del contenedor */
+  }
+  
+  /* Estilo para el input del centro */
+  .center {
+    position: absolute;
+    top: 0px;
+    /* Ajusta la distancia desde la parte superior del contenedor */
+    left: 50%;
+    /* Coloca el input en el centro horizontalmente */
+    transform: translateX(-50%);
+    /* Ajusta la posición para centrar el input exactamente */
+  }
+  
+  /* Estilo para el input de la derecha */
+  .right {
+    position: absolute;
+    top: 0px;
+    /* Ajusta la distancia desde la parte superior del contenedor */
+    right: 20px;
+    /* Ajusta la distancia desde la parte derecha del contenedor */
+  }
+  
+  .tex {
+    text-align: center;
+  }
+  
+  .img {
+    background-image: url('ISTA-removebg-preview.png'); /* Ruta relativa a la carpeta de assets */
+    background-size: cover; /* Ajusta la imagen para cubrir todo el div */
+    background-repeat: no-repeat; /* Evita que la imagen se repita */
+    background-position: center; /* Centra la imagen en el div */
+    width: 40vh; /* Ajusta el ancho del div */
+    height: 40vh; /* Ajusta la altura del div para que cubra toda la ventana */
+    display: flex; /* Usa flexbox para centrar el contenido */
+    align-items: center; /* Centra el contenido verticalmente */
+    justify-content: center; /* Centra el contenido horizontalmente */
+    color: white; /* Cambia el color del texto para que sea legible sobre el fondo */
+    text-align: center; /* Centra el texto */
+  }
+  
+  /*css para el boton regresar*/
+  .btn-donate {
+    --clr-font-main: hsla(0 0% 20% / 100);
+    --btn-bg-1: hsla(194 100% 69% / 1);
+    --btn-bg-2: hsla(217 100% 56% / 1);
+    --btn-bg-color: hsla(360 100% 100% / 1);
+    --radii: 0.5em;
+    cursor: pointer;
+    padding: 0.9em 1.4em;
+    min-width: 120px;
+    min-height: 44px;
+    font-size: var(--size, 1rem);
+    font-family: "Segoe UI", system-ui, sans-serif;
+    font-weight: 500;
+    transition: 0.8s;
+    background-size: 280% auto;
+    background-image: linear-gradient(325deg, var(--btn-bg-2) 0%, var(--btn-bg-1) 55%, var(--btn-bg-2) 90%);
+    border: none;
+    border-radius: var(--radii);
+    color: var(--btn-bg-color);
+    box-shadow: 0px 0px 20px rgba(71, 184, 255, 0.5), 0px 5px 5px -1px rgba(58, 125, 233, 0.25), inset 4px 4px 8px rgba(175, 230, 255, 0.5), inset -4px -4px 8px rgba(19, 95, 216, 0.35);
+  }
+  
+  .btn-donate:hover {
+    background-position: right top;
+  }
+  
+  .btn-donate:is(:focus, :focus-visible, :active) {
+    outline: none;
+    box-shadow: 0 0 0 3px var(--btn-bg-color), 0 0 0 6px var(--btn-bg-2);
+  }
+  
+  @media (prefers-reduced-motion: reduce) {
+    .btn-donate {
+      transition: linear;
+    }
+  }
+  
