@@ -1,5 +1,5 @@
 export interface EncargadoLaboratorio {
-    id: number;
+    encargadoLaboratorio_id: number;
     nombre: string;
     apellido: string;
     laboratorioAsignado: string;
