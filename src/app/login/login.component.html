@@ -4,10 +4,8 @@
     <div class="col-lg-6 mx-auto">
         <p class="h3 mb-4 text-info">Inventario de los laboratorios, encargados y Mantenimiento</p>
         <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
-            <button type="button" class="btn btn-primary btn-lg px-4 gap-3 rounded-pill"
-                    routerLinkActive="active" [routerLink]="['/login/formulario']"
-                    (click)="loginPresionado = true"
-            >Login</button>
+            <button type="button" class="btn btn-primary btn-lg px-4 gap-3 rounded-pill" routerLinkActive="active"
+                [routerLink]="['/login/formulario']" (click)="loginPresionado = true">Login</button>
         </div>
     </div>
 </div>
@@ -15,4 +13,21 @@
 <router-outlet *ngIf="loginPresionado"></router-outlet>
 
 
-
+<!-- <body>
+    <div style="width: 100%; height: 100%; text-align: center;">
+        <div style="position: absolute; margin-top: 25%; width: 40%;">
+            <div class="text-center bg-dark full-screen" *ngIf="!loginPresionado"></div>
+            <h3 style="color: #003977; font-weight: bold;">Inventario y Mantenimiento de Laboratorios</h3>
+            <div class="">
+                <p style="color: rgb(0, 140, 255); font-weight: bold; font-size: 20px;">Inventario de los laboratorios,
+                    encargados y Mantenimiento</p>
+                <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
+                    <button type="button" class="btn btn-primary btn-lg px-4 gap-3 rounded-pill"
+                        routerLinkActive="active" [routerLink]="['/login/formulario']"
+                        (click)="loginPresionado = true">Login</button>
+                </div>
+            </div>
+            <router-outlet *ngIf="loginPresionado"></router-outlet>
+        </div>
+    </div>
+</body> -->
