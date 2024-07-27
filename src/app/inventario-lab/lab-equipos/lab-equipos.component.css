@@ -1,0 +1,86 @@
+.card-header {
+    background-color: #006eff;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 6px 6px 0 0;
+    font-family: "Quando", serif;
+    font-size: 25px;
+    text-align: center;
+    font-weight: bold;
+    border: 0px solid #ddd;
+    box-shadow: 5px 5px 3px 5px rgba(0, 0, 0, 0.05);
+}
+
+.contenedor {
+    position: relative;
+    width: 90%;
+    border: 1px solid black;
+    top: 0px;
+    /* Ajusta la distancia desde la parte superior del contenedor */
+    left: 50%;
+    /* Coloca el input en el centro horizontalmente */
+    transform: translateX(-50%);
+    /* Ajusta la posición para centrar el input exactamente */
+}
+
+.contenedores {
+    position: relative;
+    width: 90%;
+    border: 0px solid black;
+    box-shadow: 3px 3px 0px 3px rgba(191, 205, 209, 0.253);
+    top: 0px;
+    /* Ajusta la distancia desde la parte superior del contenedor */
+    left: 50%;
+    /* Coloca el input en el centro horizontalmente */
+    transform: translateX(-50%);
+    /* Ajusta la posición para centrar el input exactamente */
+}
+
+.group-div {
+    position: relative;
+    border-radius: 10px 10px 10px 10px;
+    background-color: #b9cada;
+    width: 98%;
+    height: 100px;
+    margin-top: 10px;
+    color: #0d0c22;
+    top: 0px;
+    /* Ajusta la distancia desde la parte superior del contenedor */
+    left: 50%;
+    /* Coloca el input en el centro horizontalmente */
+    transform: translateX(-50%);
+    /* Ajusta la posición para centrar el input exactamente */
+}
+
+.group-div:hover {
+    background-color: #a2d1ff;
+    box-shadow: 3px 3px 0px 3px rgba(166, 228, 245, 0.253);
+}
+
+.left {
+    position: absolute;
+    top: 0px;
+    /* Ajusta la distancia desde la parte superior del contenedor */
+    left: 20px;
+    /* Ajusta la distancia desde la parte izquierda del contenedor */
+}
+
+/* Estilo para el input del centro */
+.center {
+    position: absolute;
+    top: 0px;
+    /* Ajusta la distancia desde la parte superior del contenedor */
+    left: 50%;
+    /* Coloca el input en el centro horizontalmente */
+    transform: translateX(-50%);
+    /* Ajusta la posición para centrar el input exactamente */
+}
+
+/* Estilo para el input de la derecha */
+.right {
+    position: absolute;
+    top: 0px;
+    /* Ajusta la distancia desde la parte superior del contenedor */
+    right: 100px;
+    /* Ajusta la distancia desde la parte derecha del contenedor */
+}

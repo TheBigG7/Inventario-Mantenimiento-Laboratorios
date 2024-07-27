@@ -15,6 +15,8 @@ import { InicioComponent } from './inicio/inicio.component';
 import { ReportesComponent } from './reportes/reportes.component';
 import { RepuestosComponent } from './repuestos/repuestos.component';
 import { FormComponent } from './repuestos/form.component';
+import { InventarioLabComponent } from './inventario-lab/inventario-lab.component';
+import { LabEquiposComponent } from './inventario-lab/lab-equipos/lab-equipos.component';
 
 
 
@@ -44,6 +46,8 @@ const routes: Routes = [
       { path: 'repuestos', component: RepuestosComponent },
       { path: 'repuestos/form', component: FormComponent },
       { path: 'repuestos/form/:id', component: FormComponent },
+      { path: 'inventario-lab', component: InventarioLabComponent},
+      { path: 'lab-equipo/:id', component: LabEquiposComponent}
 
     ]
   },

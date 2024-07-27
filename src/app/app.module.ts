@@ -32,6 +32,8 @@ import { ReportesComponent } from './reportes/reportes.component';
 import { InicioComponent } from './inicio/inicio.component';
 import { RepuestosComponent } from './repuestos/repuestos.component';
 import { FormComponent } from './repuestos/form.component';
+import { InventarioLabComponent } from './inventario-lab/inventario-lab.component';
+import { LabEquiposComponent } from './inventario-lab/lab-equipos/lab-equipos.component';
 
 
 
@@ -52,7 +54,9 @@ import { FormComponent } from './repuestos/form.component';
     ReportesComponent,
     InicioComponent,
     RepuestosComponent,
-    FormComponent
+    FormComponent,
+    InventarioLabComponent,
+    LabEquiposComponent
 
   ],
   imports: [

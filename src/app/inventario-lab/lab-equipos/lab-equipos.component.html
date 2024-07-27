@@ -1,0 +1,41 @@
+<div class="card border-primary mb-3 contenedor">
+    <div class="card-header">Equipos del Laboratorio {{ labId }}</div>
+    <div class="card-body text-primary">
+
+        <div *ngIf="equiposFiltrados.length > 0">
+            <h5 class="card-title">Listado de Equipos Instalados</h5>
+            <div class="right" style="margin-top: 60px; right: 50px;">
+                <button class="btn btn-primary" [routerLink]="['/dashboarda/inventario-lab']">Volver</button>
+            </div>
+            <div *ngFor="let equipo of equiposFiltrados">
+                <div class="group-div contenedores">
+                    <div class="left">
+                        <div style="font-weight: bold; font-size: 16px;">Numero de equipo:</div>
+                        <span style="font-size: 14px;"><i>{{ equipo.num_equipo }}</i></span>
+                        <div style="font-weight: bold; font-size: 16px;">Procesador:</div>
+                        <span style="font-size: 14px;"><i>{{ equipo.procesador }}</i></span>
+                    </div>
+                    <div class="center">
+                        <div style="font-weight: bold; font-size: 16px;">Ram:</div>
+                        <span style="font-size: 14px;"><i>{{ equipo.ram }}</i></span>
+                        <div style="font-weight: bold; font-size: 16px;">Almacenamiento:</div>
+                        <span style="font-size: 14px;"><i>{{ equipo.capacidad_disco }}</i></span>
+                    </div>
+                    <div class="right">
+                        <div style="font-weight: bold; font-size: 16px;">Estado:</div>
+                        <span style="font-size: 14px;"><i>{{ equipo.estado }}</i></span>
+                        <div style="font-weight: bold; font-size: 16px;">Prioridad:</div>
+                        <span style="font-size: 14px;"><i>{{ equipo.prioridad }}</i></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div *ngIf="equiposFiltrados.length === 0">
+            <p>No hay equipos instalados en este laboratorio.</p>
+            <div class="right" style="margin-top: 60px; right: 50px;">
+                <button class="btn btn-primary" [routerLink]="['/dashboarda/inventario-lab']">Volver</button>
+            </div>
+        </div>
+    </div>
+</div>
+

@@ -1,0 +1,26 @@
+
+<div class="card border-primary mb-3 contenedor">
+    <div class="card-header">LABORATORIOS</div>
+    <div class="card-body text-primary">
+        <h5 class="card-title">Listado de los Laboratorios</h5>
+        <div class="contenedores">
+            <div class="group-div" *ngFor="let lab of laboratorios">
+                <div class="left">
+                    <div style="font-weight: bold; font-size: 16px;">ID:</div>
+                    <span style="font-size: 14px;"><i>{{ lab.id }}</i></span>
+                    <div style="font-weight: bold; font-size: 16px;">Máquinas que puede almacenar:</div>
+                    <span style="font-size: 14px;"><i>{{ lab.num_maquinas }}</i></span>
+                </div>
+                <div class="center">
+                    <div style="font-weight: bold; font-size: 16px;">Proyector:</div>
+                    <span style="font-size: 14px;"><i>{{ lab.proyector }}</i></span>
+                    <div style="font-weight: bold; font-size: 16px;">Número de máquinas instaladas:</div>
+                    <span style="font-size: 14px;"><i>{{ lab.num_maquinas_instaladas }}</i></span>
+                </div>
+                <div class="right" style="margin-top: 25px; right: 50px;">
+                    <button class="btn btn-primary" [routerLink]="['/dashboarda/lab-equipo', lab.id]">Ver Equipos instalados</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
