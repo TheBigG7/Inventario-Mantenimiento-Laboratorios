@@ -1,0 +1,54 @@
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <div class="cardd">
+                    <div class="card-header text-center">
+                        <h4 class="card-title">Registrar Repuestos</h4>
+                        <p class="card-category">Ingresa los datos de los repuestos</p>
+                    </div>
+                    <div class="card-body">
+                        <form ngNativeValidate (ngSubmit)="createRepuesto()">
+                            <div class="row justify-content-center mb-3">
+                                <div class="form__group field col-md-5 mb-3">
+                                    <input type="text" class="form__field" placeholder="ID" name="id" id="id" [(ngModel)]="miRepuesto.id" [disabled]="isEditing" required />
+                                    <label for="id" class="form__label">ID</label>
+                                </div>
+                                <div class="form__group field col-md-5 mb-3">
+                                    <input type="text" class="form__field" placeholder="Nombre" name="nombre" id="nombre" [(ngModel)]="miRepuesto.nombre" required />
+                                    <label for="nombre" class="form__label">Nombre</label>
+                                </div>
+                            </div>
+                            <div class="row justify-content-center mb-3">
+                                <div class="form__group field col-md-5 mb-3">
+                                    <input type="text" class="form__field" placeholder="Modelo" name="modelo" id="modelo" [(ngModel)]="miRepuesto.modelo" required />
+                                    <label for="modelo" class="form__label">Modelo</label>
+                                </div>
+                                <div class="form__group field col-md-5 mb-3">
+                                    <input type="text" class="form__field" placeholder="Marca" name="marca" id="marca" [(ngModel)]="miRepuesto.marca" required />
+                                    <label for="marca" class="form__label">Marca</label>
+                                </div>
+                            </div>
+                            <div class="row justify-content-center mb-3">
+                                <div class="form__group field col-md-5 mb-3">
+                                    <input type="number" class="form__field" placeholder="Cantidad" name="cantidad" id="cantidad" [(ngModel)]="miRepuesto.cantidad" min="0" required />
+                                    <label for="cantidad" class="form__label">Cantidad</label>
+                                </div>
+                            </div>
+                            <div class="row justify-content-center" style="margin-top: 50px;">
+                                <div class="col-md-6 text-center">
+                                    <button type="submit" class="btn btn-danger btn-lg" role="button">
+                                        Guardar
+                                    </button>
+                                    <button type="button" class="btn btn-secondary btn-lg" (click)="cancel()" style="margin-left: 10px;">
+                                        Cancelar
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

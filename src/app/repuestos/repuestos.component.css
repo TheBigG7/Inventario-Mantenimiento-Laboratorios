@@ -1,0 +1,83 @@
+.card-header {
+    background-color: #006eff;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 6px 6px 0 0;
+    font-family: Roboto, sans-serif;
+    font-size: 25px;
+    text-align: center;
+    font-family: "Cormorant Garamond", serif;
+    font-weight: bold;
+    border: 0px solid #ddd;
+    box-shadow: 5px 5px 3px 5px rgba(38, 0, 255, 0.05);
+}
+
+.contenedor {
+    position: absolute;
+    right: 20px;
+}
+
+.group {
+    display: flex;
+    line-height: 28px;
+    align-items: center;
+    position: relative;
+    max-width: 190px;
+}
+
+.input {
+    width: 100%;
+    height: 40px;
+    line-height: 28px;
+    padding: 0 1rem;
+    padding-left: 2.5rem;
+    border: 2px solid transparent;
+    border-radius: 8px;
+    outline: none;
+    background-color: #f3f3f4;
+    color: #0d0c22;
+    transition: .3s ease;
+}
+
+.input::placeholder {
+    color: #9e9ea7;
+}
+
+.input:focus,
+input:hover {
+    outline: none;
+    border-color: rgba(234, 76, 137, 0.4);
+    background-color: #fff;
+    box-shadow: 0 0 0 4px rgb(234 76 137 / 10%);
+}
+
+.icon {
+    position: absolute;
+    left: 1rem;
+    top: 10px;
+    fill: #9e9ea7;
+    width: 1rem;
+    height: 1rem;
+}
+
+.butt {
+    border: 0px solid #24b4fb;
+    background-color: #24b4fb;
+    border-radius: 0em 0.3em 0.3em 0em;
+    padding: 0.2em 0.3em 0.2em 0.3em;
+    transition: all ease-in-out 0.2s;
+    font-size: 20px;
+    color: #fff;
+    font-weight: 700;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.butt:hover {
+    background-color: #0071e2;
+}
+
+.btn-impr{
+    margin-left: 5px;
+}

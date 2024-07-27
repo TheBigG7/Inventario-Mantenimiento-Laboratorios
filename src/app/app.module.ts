@@ -30,6 +30,8 @@ import { FormuComponent } from './equipos/formu.component';
 import {MatButtonToggleModule} from '@angular/material/button-toggle';
 import { ReportesComponent } from './reportes/reportes.component';
 import { InicioComponent } from './inicio/inicio.component';
+import { RepuestosComponent } from './repuestos/repuestos.component';
+import { FormComponent } from './repuestos/form.component';
 
 
 
@@ -48,7 +50,9 @@ import { InicioComponent } from './inicio/inicio.component';
     EquiposComponent,
     FormuComponent,
     ReportesComponent,
-    InicioComponent
+    InicioComponent,
+    RepuestosComponent,
+    FormComponent
 
   ],
   imports: [

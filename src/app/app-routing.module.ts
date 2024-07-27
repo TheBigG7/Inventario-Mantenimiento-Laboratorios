@@ -13,6 +13,8 @@ import { EquiposComponent } from './equipos/equipos.component';
 import { FormuComponent } from './equipos/formu.component';
 import { InicioComponent } from './inicio/inicio.component';
 import { ReportesComponent } from './reportes/reportes.component';
+import { RepuestosComponent } from './repuestos/repuestos.component';
+import { FormComponent } from './repuestos/form.component';
 
 
 
@@ -29,16 +31,20 @@ const routes: Routes = [
   {
     path: 'dashboarda', component: DashboardAComponent,
     children: [
-      { path: '', redirectTo: 'inicio', pathMatch: 'full'},
+      { path: '', redirectTo: 'inicio', pathMatch: 'full' },
       { path: 'crear-encargados', component: EncargadosComponent },
-      { path: 'laboratorios', component: LaboratoriosComponent},
-      { path: 'laboratorios/form', component: RegistroComponent},
-      { path: 'laboratorios/form/:id', component: RegistroComponent},
-      { path: 'equipos', component: EquiposComponent},
-      { path: 'equipos/form', component: FormuComponent},
-      { path: 'equipos/form/:id', component: FormuComponent},
-      { path: 'inicio', component: InicioComponent},
-      {path: 'reportes', component: ReportesComponent},
+      { path: 'laboratorios', component: LaboratoriosComponent },
+      { path: 'laboratorios/form', component: RegistroComponent },
+      { path: 'laboratorios/form/:id', component: RegistroComponent },
+      { path: 'equipos', component: EquiposComponent },
+      { path: 'equipos/form', component: FormuComponent },
+      { path: 'equipos/form/:id', component: FormuComponent },
+      { path: 'inicio', component: InicioComponent },
+      { path: 'reportes', component: ReportesComponent },
+      { path: 'repuestos', component: RepuestosComponent },
+      { path: 'repuestos/form', component: FormComponent },
+      { path: 'repuestos/form/:id', component: FormComponent },
+
     ]
   },
   { path: 'dashboarde', component: DashboardEComponent },
