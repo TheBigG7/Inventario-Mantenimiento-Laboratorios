@@ -17,9 +17,9 @@ export class SuperAdComponent implements OnInit {
   adminOn: boolean = true
   administrador: boolean = true
   periodoOn: boolean = true
+
   periodoL: Periodo[] = []
   administradoresTICs: AdministradorTIC[] = []
-  encargados: EncargadoLaboratorio[] = []
 
   constructor(private periodoService: PeriodoService, private administradorService: AdministradorService, private activatedRoute: ActivatedRoute) { }
 
@@ -35,8 +35,8 @@ export class SuperAdComponent implements OnInit {
     idPeriodo: 0,
     fechaInicio: '',
     fechaFin: '',
-    administradorTIC_id: 0,
-    idEncargado: 0
+    administradores: [],
+    encargados: []
   }
 
 
@@ -59,7 +59,7 @@ export class SuperAdComponent implements OnInit {
     )
   }
   eliminarPeriodo(id: number): void {
-    
+
     this.periodoService.eliminarPeriodo(id)
       .subscribe(() => {
         //this.equipos = this.equipos.filter(equipo => equipo.id !== id);
@@ -96,7 +96,7 @@ export class SuperAdComponent implements OnInit {
         Swal.fire('Periodo eliminado', 'Periodo eliminado con exito', 'success');
       })
   }
-  editarAdmin(): void { 
+  editarAdmin(): void {
 
     this.activatedRoute.params.subscribe(params => {
       let id = params['administradorTIC_id']
@@ -108,9 +108,10 @@ export class SuperAdComponent implements OnInit {
     })
   }
 
-  onToggleChange(event: any) {
+  onToggleChange(event: any) {//al hacer cambio de boton
     this.adminOn = event.value;
   }
+
 }
 
 

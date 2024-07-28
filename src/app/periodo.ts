@@ -1,3 +1,5 @@
+import { AdministradorService } from "./login/administrador.service"
+import { EncargadoLaboratorio } from "./login/encargadoLaboratorio"
 
 
 export interface Periodo {
@@ -5,7 +7,7 @@ export interface Periodo {
     idPeriodo: number
     fechaInicio: string
     fechaFin: string
-    administradorTIC_id: number
-    idEncargado: number
+    administradores: AdministradorService[]
+    encargados: EncargadoLaboratorio[]
 
 }
