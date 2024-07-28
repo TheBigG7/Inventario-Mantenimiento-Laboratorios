@@ -9,5 +9,6 @@ export interface Periodo {
     fechaFin: string
     administradores: AdministradorService[]
     encargados: EncargadoLaboratorio[]
+    laboratorios: [];
 
 }

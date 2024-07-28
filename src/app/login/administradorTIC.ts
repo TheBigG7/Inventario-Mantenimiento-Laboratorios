@@ -4,5 +4,6 @@ export interface AdministradorTIC {
     apellido: string;
     correo: string;
     contrasenia: string;
-    idPeriodo: number;
+    periodos: [];
+    laboratorios: [];
 }
