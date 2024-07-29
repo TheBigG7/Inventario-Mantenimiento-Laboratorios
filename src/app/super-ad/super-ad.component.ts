@@ -17,13 +17,14 @@ export class SuperAdComponent implements OnInit {
   adminOn: boolean = true
   administrador: boolean = true
   periodoOn: boolean = true
+  
 
   periodoL: Periodo[] = []
   administradoresTICs: AdministradorTIC[] = []
 
   constructor(private periodoService: PeriodoService, private administradorService: AdministradorService, private activatedRoute: ActivatedRoute) { }
 
-  public administradorTic: AdministradorTIC = {
+  administradorTic: AdministradorTIC = {
     administradorTIC_id: 0,
     nombre: '',
     apellido: '',
@@ -36,23 +37,25 @@ export class SuperAdComponent implements OnInit {
     idPeriodo: 0,
     fechaInicio: '',
     fechaFin: '',
-    administradores: [],
-    encargados: [],
+    administradoresTICs: [],
+    encargadoLaboratorio: [],
     laboratorios: []
   }
 
 
   ngOnInit(): void {
     this.periodoService.listarPeriodos().subscribe(
-      periodo => {this.periodoL = periodo},error => {
+      periodo => {this.periodoL = periodo; console.log(this.periodoL);},error => {
         Swal.fire('Error', 'Error al listar', 'error');
       }
     )
     this.administradorService.listarAdmin().subscribe(
       admin => this.administradoresTICs = admin
     )
+    
   }
   crearPeriodo(): void {
+    console.log(this.periodo)
     this.periodoService.crear(this.periodo).subscribe(
       periodo => {
         Swal.fire('Periodo Ingresado', `Periodo ${periodo.fechaInicio} - ${periodo.fechaFin} ingresado con exito`, 'success')
@@ -116,6 +119,10 @@ export class SuperAdComponent implements OnInit {
     this.adminOn = event.value;
   }
 
+  //para obtener los nombres de los administradores y colocarlos en la lista
+  /* getAdminNames(administradores: AdministradorTIC[]): string {
+    return administradores.map(adm => `${adm.nombre} ${adm.apellido}`).join(', ');
+  } */
 }
 
 
