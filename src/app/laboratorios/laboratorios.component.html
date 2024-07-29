@@ -65,14 +65,14 @@
       </thead>
       <tbody>
         <tr *ngFor="let laboratorios of laboratoriosFiltrados">
-          <td>{{ laboratorios.id }}</td>
+          <td>{{ laboratorios.idLaboratorio }}</td>
           <td>{{ laboratorios.num_maquinas }}</td>
           <td>{{ laboratorios.proyector }}</td>
           <td>
             <button
               type="button"
               name="button"
-              [routerLink]="['/dashboarda/laboratorios/form', laboratorios.id]"
+              [routerLink]="['/dashboarda/laboratorios/form', laboratorios.idLaboratorio]"
               class="btn btn-primary"
             >
               Editar
@@ -82,7 +82,7 @@
             <button
               type="button"
               name="button"
-              (click)="delete(laboratorios.id)"
+              (click)="delete(laboratorios.idLaboratorio)"
               class="btn btn-danger btn-xs"
             >
               Eliminar

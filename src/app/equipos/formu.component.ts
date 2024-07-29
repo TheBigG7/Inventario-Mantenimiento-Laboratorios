@@ -53,7 +53,7 @@ export class FormuComponent implements OnInit{
       } else {
         this.isEditing = true; // Modo de creación, true para que el ususrio no dijite el id
         this.equipoService.getUltimoId().subscribe((ultimoId) => {
-          this.equipo.id = ultimoId + 1;
+          this.equipo.idEquipo = ultimoId + 1;
         });
       }
     })

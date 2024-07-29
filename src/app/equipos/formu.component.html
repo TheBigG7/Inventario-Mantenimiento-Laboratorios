@@ -25,7 +25,7 @@
                                 </div>-->
                                 <div class="form__group field; col-md-5; left">
                                     <input type="text" class="form__field" placeholder="ID" name="ID" id='ID'
-                                    [(ngModel)]="equipo.id" [disabled]="isEditing" disabled/>
+                                    [(ngModel)]="equipo.idEquipo" [disabled]="isEditing" disabled/>
                                     <label for="ID" class="form__label">ID (disabled)</label>
                                 </div>
                                 <!--<div class="col-md-3; center">
@@ -39,7 +39,7 @@
                                 </div>-->
                                 <div class="form__group field; col-md-3; center">
                                     <select id="laboratorio" class="form__field" aria-placeholder="Laboratorio" [(ngModel)]="equipo.laboratorio" name="laboratorio" required>
-                                      <option *ngFor="let lab of laboratorios" [value]="lab.id">{{ lab.id }}</option>
+                                      <option *ngFor="let lab of laboratorios" [value]="lab.idLaboratorio">{{ lab.idLaboratorio }}</option>
                                     </select>
                                     <label for="laboratorio" class="form__label">Laboratorio</label>
                                 </div>  

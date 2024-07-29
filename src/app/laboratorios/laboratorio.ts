@@ -1,6 +1,6 @@
 export class Laboratorio {
 
-    id: String = "";
+    idLaboratorio: String = "";
     num_maquinas: number = 0;
     proyector: String = "";
 

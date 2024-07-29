@@ -31,7 +31,7 @@ export class LaboratoriosComponent implements OnInit{
   filtrarLaboratorio(): void {
     this.laboratoriosFiltrados = this.laboratorios.filter((laboratorio) => {
       const textoBusqueda =
-        `${laboratorio.num_maquinas} ${laboratorio.proyector} ${laboratorio.id}`.toLowerCase();
+        `${laboratorio.num_maquinas} ${laboratorio.proyector} ${laboratorio.idLaboratorio}`.toLowerCase();
       return textoBusqueda.includes(this.filtro.toLowerCase());
     });
   }
@@ -58,8 +58,8 @@ cargarLaboratorios() {
     this.laboratorioService.deleteLaboratorio(id)
     .subscribe(() => {
       //this.laboratorios = this.laboratorios.filter(laboratorio => laboratorio.id !== id);
-      this.laboratorios = this.laboratorios.filter(laboratorio => laboratorio.id !== id);
-      this.laboratoriosFiltrados = this.laboratoriosFiltrados.filter(laboratorio => laboratorio.id !== id);
+      this.laboratorios = this.laboratorios.filter(laboratorio => laboratorio.idLaboratorio !== id);
+      this.laboratoriosFiltrados = this.laboratoriosFiltrados.filter(laboratorio => laboratorio.idLaboratorio !== id);
       this.router.navigate(['/dashboarda/laboratorios']);
       Swal.fire('Laboratorio eliminado', 'Laboratorio eliminado con exito', 'success');
     })
@@ -124,7 +124,7 @@ cargarLaboratorios() {
       ],
     ];
     const data = this.laboratoriosFiltrados.map((laboratorio) => [
-      laboratorio.id,
+      laboratorio.idLaboratorio,
       laboratorio.num_maquinas,
       laboratorio.proyector
     ]);

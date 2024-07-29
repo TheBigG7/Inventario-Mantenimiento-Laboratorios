@@ -45,7 +45,7 @@ export class RegistroComponent implements OnInit{
       .subscribe({
         next: laboratorio => {
           this.router.navigate(['/dashboarda/laboratorios']);
-          Swal.fire('Laboratorio guardado', `Laboratorio ${laboratorio.id} guardado con éxito`, 'success');
+          Swal.fire('Laboratorio guardado', `Laboratorio ${laboratorio.idLaboratorio} guardado con éxito`, 'success');
         },
         error: err => {
           Swal.fire('Error', err, 'error');

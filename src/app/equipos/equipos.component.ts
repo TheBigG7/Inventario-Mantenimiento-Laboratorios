@@ -69,8 +69,8 @@ cargarEquipos() {
     this.equipoService.deleteEquipo(id)
     .subscribe(() => {
       //this.equipos = this.equipos.filter(equipo => equipo.id !== id);
-      this.equipos = this.equipos.filter(equipo => equipo.id !== id);
-            this.equiposFiltrados = this.equiposFiltrados.filter(equipo => equipo.id !== id);
+      this.equipos = this.equipos.filter(equipo => equipo.idEquipo !== id);
+            this.equiposFiltrados = this.equiposFiltrados.filter(equipo => equipo.idEquipo !== id);
       this.router.navigate(['/dashboarda/equipos']);
       Swal.fire('Equipo eliminado', 'Equipo eliminado con exito', 'success');
     })
@@ -143,7 +143,7 @@ cargarEquipos() {
       ],
     ];
     const data = this.equiposFiltrados.map((equipo) => [
-      equipo.id,
+      equipo.idEquipo,
       equipo.laboratorio,
       equipo.num_equipo,
       equipo.procesador,
@@ -176,7 +176,7 @@ cargarEquipos() {
     });
 
     // Guarda el PDF
-    doc.save('Reporte_de_Maquinas_para_Mantenimiento.pdf');
+    doc.save('Reporte_de_Equipos_para_Mantenimiento.pdf');
   }
 
   saveEquipo(): void {

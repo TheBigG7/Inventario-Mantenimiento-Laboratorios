@@ -1,5 +1,5 @@
 export class Equipo {
-    id: number = 0;
+    idEquipo: number = 0;
     laboratorio: String = "";
     num_equipo: number = 0;
     procesador: string = '';
