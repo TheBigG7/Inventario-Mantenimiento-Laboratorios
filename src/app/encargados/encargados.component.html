@@ -13,7 +13,7 @@
                     <mat-form-field appearance="outline" class="d-flex justify-content-center">
                         <mat-label>Nombre: </mat-label>
                         <input matInput placeholder="Nombre Encargado" class="form-control" type="text" id="nombre"
-                            [(ngModel)]="nombre" name="nombre" required #nombreModel="ngModel">
+                            [(ngModel)]="encargadoLaboratorio.nombre" name="nombre" required #nombreModel="ngModel">
                         <mat-icon matSuffix>account_circle</mat-icon>
                         <div *ngIf="nombreModel.invalid && (nombreModel.dirty || nombreModel.touched)"
                             class="text-danger">
@@ -26,7 +26,7 @@
                     <mat-form-field appearance="outline" class="d-flex justify-content-center">
                         <mat-label>Apellido: </mat-label>
                         <input matInput placeholder="Apellido Encargado" type="text" id="apellido"
-                            [(ngModel)]="apellido" name="apellido" required #apellidoModel="ngModel">
+                            [(ngModel)]="encargadoLaboratorio.apellido" name="apellido" required #apellidoModel="ngModel">
                         <mat-icon matSuffix>account_circle</mat-icon>
                         <div *ngIf="apellidoModel.invalid && (apellidoModel.dirty || apellidoModel.touched)"
                             class="text-danger">
@@ -61,7 +61,7 @@
                     <mat-form-field appearance="outline" class="d-flex justify-content-center">
                         <mat-label>Correo: </mat-label>
                         <input matInput placeholder="ejemplo@tecazuay.edu.ec" class="form-control" type="email"
-                            id="correo" [(ngModel)]="correo" name="correo" required #correoModel="ngModel">
+                            id="correo" [(ngModel)]="encargadoLaboratorio.correo" name="correo" required #correoModel="ngModel">
                         <mat-icon matSuffix>fingerprint</mat-icon>
                         <div *ngIf="correoModel.invalid && (correoModel.dirty || correoModel.touched)"
                             class="text-danger">
@@ -74,7 +74,7 @@
                     <mat-form-field appearance="outline" class="d-flex justify-content-center">
                         <mat-label>Contraseña: </mat-label>
                         <input matInput placeholder="Contraseña" type="password" id="contrasena"
-                            [(ngModel)]="contrasenia" name="contrasena" required #contrasenaModel="ngModel">
+                            [(ngModel)]="encargadoLaboratorio.contrasenia" name="contrasena" required #contrasenaModel="ngModel">
                         <mat-icon matSuffix>assignment</mat-icon>
                         <div *ngIf="contrasenaModel.invalid && (contrasenaModel.dirty || contrasenaModel.touched)"
                             class="text-danger">

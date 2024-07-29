@@ -1,13 +1,13 @@
 import { Laboratorio } from "../laboratorios/laboratorio";
+import { Periodo } from "../periodo";
 
 export interface EncargadoLaboratorio {
-    encargadoLaboratorio_id: number;
+    idPeriodo: number;
     nombre: string;
     apellido: string;
     tipo: string; // "responsable" o "auxiliar"
     correo: string;
     contrasenia: string;
-
-    laboratorioAsignado: Laboratorio;
-    periodoos: [];
+    periodos: Periodo[];
+    laboratorio: Laboratorio;
 }

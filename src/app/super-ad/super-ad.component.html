@@ -41,28 +41,14 @@
                         </mat-form-field>
                     </div>
                     <!-- administrador TICs -->
-                    <div>
+                    <!-- <div>
                         <mat-form-field class="w-100">
                             <mat-select id="periodo" name="periodo" [(ngModel)]="periodo.administradoresTICs" multiple>
-                                <!-- *ngif -->
                                 <mat-option *ngFor="let adm of administradoresTICs" [value]="adm">{{adm.nombre}}
                                     {{adm.apellido}}</mat-option>
                             </mat-select>
                             <mat-label><mat-icon>face</mat-icon> <strong>Administradores TICs
                                     --Opcional</strong></mat-label>
-                        </mat-form-field>
-                    </div>
-
-                    <!-- administrador TICs -->
-                    <!-- <div>
-                        <mat-form-field class="w-100">
-                            <mat-select id="periodo" name="periodo" [(ngModel)]="periodo.administradorTIC_id" required>
-                                  *ngif
-                                 <ng-container *ngFor="let encar of encargados">
-                                    <mat-option *ngIf="encar.tipo == 'responsable'" [value]="encar.encargadoLaboratorio_id">{{encar.nombre}} {{encar.apellido}}</mat-option>
-                                </ng-container>
-                            </mat-select>
-                            <mat-label><mat-icon>face</mat-icon> <strong>Encargado Laboratorio</strong></mat-label>
                         </mat-form-field>
                     </div> -->
 
@@ -79,23 +65,27 @@
                         <tr>
                             <th>Fecha inicio</th>
                             <th>Fecha Fin</th>
-                            <th>Administradores de TICs</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr *ngFor="let peri of periodoL"> <!-- *ngFor="let peri of periodos" -->
                             <td>{{peri.fechaInicio}}</td><!-- {{peri.id_periodo}} -->
                             <td>{{peri.fechaFin}}</td>
-                            <td>
+                            <!-- <td>
+                                <ng-container *ngFor="let adm of peri.administradoresTICs; let isLast = last">
+                                    {{ adm.nombre }} {{ adm.apellido }}, <span *ngIf="!isLast">, </span>
+                                </ng-container>
+                            </td> -->
+                            <!-- <td>{{peri.administradoresTICs}}</td> -->
+                            <!-- <td>
                                 <table>
                                     <tr *ngFor="let adm of peri.administradoresTICs">
                                         <td>{{ adm.nombre }} {{ adm.apellido }}</td>
-                                        <td>campo</td>
                                     </tr>
                                 </table>
-                            </td>
+                            </td> -->
                             <!-- <td>{{peri.administradores}}</td> -->
-                            <td>{{ peri.administradoresTICs.length }} Administradores</td>
+                            <!-- <td>{{ peri.administradoresTICs.length }} Administradores</td> -->
                             <!-- <td *ngIf="!peri.administradoresTICs">0 Administradores</td> -->
                             <td class="d-flex justify-content-center">
                                 <button type="button" name="editar" (click)="editarPeriodo()"
@@ -214,9 +204,10 @@
                             <!-- <td>{{ad.periodos}}</td> -->
                             <td>
                                 <ng-container *ngFor="let adm of ad.periodos; let isLast = last">
-                                    {{ adm.fechaInicio }} {{ adm.fechaFin }}<span *ngIf="!isLast">, </span>
+                                    {{ adm.fechaInicio }}  {{ adm.fechaFin }} <span *ngIf="!isLast">, </span>
                                 </ng-container>
                             </td>
+
                             <td>{{ad.correo}}</td>
                             <td>{{ad.contrasenia}}</td>
                             <td class="d-flex justify-content-center">

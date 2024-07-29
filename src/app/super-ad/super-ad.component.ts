@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { AdministradorTIC } from '../login/administradorTIC';
 import { Periodo } from '../periodo';
 import { PeriodoService } from './periodo.service';
-import { EncargadoLaboratorio } from '../login/encargadoLaboratorio';
 import Swal from 'sweetalert2';
 import { ActivatedRoute } from '@angular/router';
 import { AdministradorService } from '../login/administrador.service';
@@ -17,7 +16,7 @@ export class SuperAdComponent implements OnInit {
   adminOn: boolean = true
   administrador: boolean = true
   periodoOn: boolean = true
-  
+
 
   periodoL: Periodo[] = []
   administradoresTICs: AdministradorTIC[] = []
@@ -45,14 +44,14 @@ export class SuperAdComponent implements OnInit {
 
   ngOnInit(): void {
     this.periodoService.listarPeriodos().subscribe(
-      periodo => {this.periodoL = periodo; console.log(this.periodoL);},error => {
+      periodo => { this.periodoL = periodo; console.log(this.periodoL); }, error => {
         Swal.fire('Error', 'Error al listar', 'error');
       }
     )
     this.administradorService.listarAdmin().subscribe(
       admin => this.administradoresTICs = admin
     )
-    
+
   }
   crearPeriodo(): void {
     console.log(this.periodo)
@@ -119,10 +118,17 @@ export class SuperAdComponent implements OnInit {
     this.adminOn = event.value;
   }
 
-  //para obtener los nombres de los administradores y colocarlos en la lista
-  /* getAdminNames(administradores: AdministradorTIC[]): string {
-    return administradores.map(adm => `${adm.nombre} ${adm.apellido}`).join(', ');
-  } */
+  admins: AdministradorTIC[] = []
+  loadAdministradoresTICs(ids: number[]) {
+    // Vaciar completamente el array
+    this.admins.length = 0;
+    ids.forEach(id => {
+      this.administradorService.listarPorIdAdmin(id).subscribe(adm => {
+        //this.administradoresTICsCompletos.push(adm);
+        this.admins.push(adm);
+      });
+    });
+  }
 }
 
 
