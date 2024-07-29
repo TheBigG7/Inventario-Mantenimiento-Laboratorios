@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { EncargadoLaboratorio } from '../login/encargadoLaboratorio';
 import { E } from '@angular/cdk/keycodes';
+import { Laboratorio } from '../laboratorios/laboratorio';
 
 @Component({
   selector: 'app-encargados',
@@ -15,7 +16,7 @@ export class EncargadosComponent implements OnInit{
 
   nombre: string;
   apellido: string;
-  laboratorioAsignado: string;
+  laboratorioAsignado: Laboratorio;
   tipo: string; // "responsable" o "auxiliar"
   correo: string;
   contrasenia: string;

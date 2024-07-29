@@ -53,7 +53,8 @@ const routes: Routes = [
   },
   { path: 'dashboarde', component: DashboardEComponent },
   { path: 'footer', component: FooterComponent },
-  { path: 'admin', component: SuperAdComponent }
+  { path: 'admin', component: SuperAdComponent },
+  { path: 'admin/:id', component: SuperAdComponent }
 
 ];
 

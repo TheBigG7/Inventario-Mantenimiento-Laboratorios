@@ -29,20 +29,24 @@ export class SuperAdComponent implements OnInit {
     apellido: '',
     correo: '',
     contrasenia: '',
-    idPeriodo: 0
+    periodos: [],
+    laboratorios: []
   };
   periodo: Periodo = {
     idPeriodo: 0,
     fechaInicio: '',
     fechaFin: '',
     administradores: [],
-    encargados: []
+    encargados: [],
+    laboratorios: []
   }
 
 
   ngOnInit(): void {
     this.periodoService.listarPeriodos().subscribe(
-      periodo => this.periodoL = periodo
+      periodo => {this.periodoL = periodo},error => {
+        Swal.fire('Error', 'Error al listar', 'error');
+      }
     )
     this.administradorService.listarAdmin().subscribe(
       admin => this.administradoresTICs = admin

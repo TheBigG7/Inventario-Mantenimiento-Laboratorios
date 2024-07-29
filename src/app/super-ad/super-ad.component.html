@@ -43,7 +43,7 @@
                     <!-- administrador TICs -->
                     <div>
                         <mat-form-field class="w-100">
-                            <mat-select id="periodo" name="periodo" [(ngModel)]="periodo.administradores" required>
+                            <mat-select id="periodo" name="periodo" [(ngModel)]="periodo.administradores" multiple>
                                 <!-- *ngif -->
                                 <mat-option *ngFor="let adm of administradoresTICs" [value]="adm">{{adm.nombre}}
                                     {{adm.apellido}}</mat-option>
@@ -79,14 +79,14 @@
                         <tr>
                             <th>Fecha inicio</th>
                             <th>Fecha Fin</th>
-                            <th>Administrador de TICs</th>
+                            <th>Administradores de TICs</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr *ngFor="let peri of periodoL"> <!-- *ngFor="let peri of periodos" -->
                             <td>{{peri.fechaInicio}}</td><!-- {{peri.id_periodo}} -->
                             <td>{{peri.fechaFin}}</td>
-                            <td>{{peri.administradores.toString}}</td>
+                            <td>{{peri.administradores}}</td>
                             <td class="d-flex justify-content-center">
                                 <button type="button" name="editar" (click)="editarPeriodo()"
                                     class="btn btn-outline-primary">Editar</button>
@@ -143,9 +143,9 @@
                     <!-- periodo -->
                     <div>
                         <mat-form-field class="w-100">
-                            <mat-select id="periodo" name="periodo" [(ngModel)]="administradorTic.idPeriodo" required>
+                            <mat-select id="periodo" name="periodo" [(ngModel)]="administradorTic.periodos" multiple>
                                 <!-- *ngif -->
-                                <mat-option *ngFor="let per of periodoL" [value]="per.idPeriodo">{{per.fechaInicio}} -
+                                <mat-option *ngFor="let per of periodoL" [value]="per">{{per.fechaInicio}} -
                                     {{per.fechaFin}}</mat-option>
                             </mat-select>
                             <mat-label><mat-icon>face</mat-icon> <strong>Periodos</strong></mat-label>
@@ -192,7 +192,7 @@
                         <tr>
                             <th>Nombre</th>
                             <th>Apellido</th>
-                            <th>Periodo</th>
+                            <th>Periodos</th>
                             <th>Correo</th>
                             <th>Contraseña</th>
                         </tr>
@@ -201,7 +201,7 @@
                         <tr *ngFor="let ad of administradoresTICs"> <!-- *ngFor="let peri of periodos" -->
                             <td>{{ad.nombre}}</td><!-- {{peri.id_periodo}} -->
                             <td>{{ad.apellido}}</td>
-                            <td>{{ad.idPeriodo}}</td>
+                            <td>{{ad.periodos}}</td>
                             <td>{{ad.correo}}</td>
                             <td>{{ad.contrasenia}}</td>
                             <td class="d-flex justify-content-center">
