@@ -45,12 +45,10 @@ export class FormularioLComponent {
 
   // Métodos para verificar los tipos
   isAdministradorTIC(response: any): response is AdministradorTIC {
-    //return response.role === 'admin' && /* otras condiciones específicas para AdministradorTIC */;
     return response
   }
 
   isEncargado(response: any): response is EncargadoLaboratorio {
-    /* return response.role === 'encargado' &&  otras condiciones específicas para Encargado ; */
     return response
   }
 }

@@ -4,6 +4,7 @@ import { LaboratorioService } from './laboratorio.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Location } from '@angular/common';
 import Swal from 'sweetalert2';
+import { Equipo } from '../equipos/equipo';
 
 @Component({
   selector: 'app-registro',
@@ -12,7 +13,15 @@ import Swal from 'sweetalert2';
 })
 export class RegistroComponent implements OnInit{
 
-  public laboratorio: Laboratorio = new Laboratorio()
+  laboratorio: Laboratorio = {
+    idLaboratorio: '',
+    num_maquinas: 0,
+    proyector: '',
+    equipos: new Equipo,
+    administradores: [],
+    periodos: [],
+    encargados: []
+  }
   public isEditing: boolean = false; // Bandera para el modo de edición
 
   constructor(private laboratorioService: LaboratorioService, private router: Router,
@@ -28,7 +37,7 @@ export class RegistroComponent implements OnInit{
     Swal.fire('Laboratorio no Guardado', `Laboratorio no guardado`, 'error')
   }
 
-  cargarLaboratorio(): void {
+ /*  cargarLaboratorio(): void {
     this.activitedRouter.params.subscribe(params => {
       let id = params['id']
       if(id) {
@@ -38,9 +47,22 @@ export class RegistroComponent implements OnInit{
         this.isEditing = false; // Modo de creación
       }
     })
+  } */
+    cargarLaboratorio(): void {
+      this.activitedRouter.params.subscribe(params => {
+          let id = params['id'];
+          if (id) {
+              this.isEditing = true; // Modo de edición
+              this.laboratorioService.getLaboratorio(id).subscribe((laboratorio) => {
+                  this.laboratorio = laboratorio;
+                  console.log(this.laboratorio); // Verifica el objeto cargado
+              });
+          } else {
+              this.isEditing = false; // Modo de creación
+          }
+      });
   }
-
-  public create(): void {
+  /* public create(): void {
     this.laboratorioService.create(this.laboratorio)
       .subscribe({
         next: laboratorio => {
@@ -51,6 +73,17 @@ export class RegistroComponent implements OnInit{
           Swal.fire('Error', err, 'error');
         }
       });
+  } */
+
+  create(): void {
+    this.laboratorioService.create(this.laboratorio).subscribe(
+      admin => {
+        Swal.fire('Administrador Ingresado', `Administrador ${admin.idLaboratorio}ingresado con exito`, 'success')
+      },
+      error => {
+        Swal.fire('Error', 'Error al guardar', 'error');
+      }
+    )
   }
 }
 

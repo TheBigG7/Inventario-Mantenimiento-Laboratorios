@@ -1,7 +1,14 @@
-export class Laboratorio {
+import { Equipo } from "../equipos/equipo";
+import { AdministradorTIC } from "../login/administradorTIC";
+import { EncargadoLaboratorio } from "../login/encargadoLaboratorio";
+import { Periodo } from "../periodo";
 
-    idLaboratorio: String = "";
-    num_maquinas: number = 0;
-    proyector: String = "";
-
+export interface Laboratorio {
+    idLaboratorio: string
+    num_maquinas: number
+    proyector: string
+    equipos: Equipo
+    administradores: AdministradorTIC[]
+    periodos: Periodo[]
+    encargados: EncargadoLaboratorio[]
 }
