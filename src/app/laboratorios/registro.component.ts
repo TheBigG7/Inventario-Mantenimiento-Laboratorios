@@ -17,7 +17,7 @@ export class RegistroComponent implements OnInit{
     idLaboratorio: '',
     num_maquinas: 0,
     proyector: '',
-    equipos: new Equipo,
+    equipos: [],
     administradores: [],
     periodos: [],
     encargados: []

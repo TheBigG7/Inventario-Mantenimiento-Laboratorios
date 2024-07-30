@@ -7,7 +7,7 @@ export interface Laboratorio {
     idLaboratorio: string
     num_maquinas: number
     proyector: string
-    equipos: Equipo
+    equipos: Equipo[]
     administradores: AdministradorTIC[]
     periodos: Periodo[]
     encargados: EncargadoLaboratorio[]

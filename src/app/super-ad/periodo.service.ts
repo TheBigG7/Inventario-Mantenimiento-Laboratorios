@@ -21,7 +21,7 @@ export class PeriodoService {
         return this.http.get<Periodo[]>(this.urlEndPoint);
     }
     crear(periodo: Periodo): Observable<Periodo> {
-        return this.http.post<Periodo>(this.urlEndPoint, periodo)
+        return this.http.post<Periodo>(this.urlEndPoint, periodo) //, {headers: this.httpHeaders}
     }
 
     listarPorId(id = 0): Observable<Periodo> {
