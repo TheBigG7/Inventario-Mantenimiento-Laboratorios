@@ -52,13 +52,13 @@
                 <tr *ngFor="let equipo of equiposFiltrados">
                     <td>{{equipo.idEquipo}}</td>
                     <td>{{equipo.laboratorio}}</td>
-                    <td>{{equipo.num_equipo}}</td>
+                    <td>{{equipo.numEquipo}}</td>
                     <td>{{equipo.procesador}}</td>
                     <td>{{equipo.ram}}</td>
-                    <td>{{equipo.capacidad_disco}}</td>
-                    <td>{{equipo.serie_disco}}</td>
-                    <td>{{equipo.modelo_disco}}</td>
-                    <td>{{equipo.app_install}}</td>
+                    <td>{{equipo.capacidadDisco}}</td>
+                    <td>{{equipo.serieDisco}}</td>
+                    <td>{{equipo.modeloDisco}}</td>
+                    <td>{{equipo.appInstall}}</td>
                     <td [ngClass]="{'text-verde': equipo.estado === 'Funcional', 'text-rojo': equipo.estado === 'No Funcional'}">
                         {{equipo.estado}}
                     </td>

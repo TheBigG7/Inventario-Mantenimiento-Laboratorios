@@ -3,15 +3,6 @@
         <form (ngSubmit)="login()" #loginForm="ngForm" class="p-4 border rounded bg-light">
             <img src="LOGO-TECAZUAY.png" class="img-fluid mx-auto d-block" alt="ogo tec" width="600"
                 height="200"><!-- rounded mx-auto d-block -->
-            <!-- <div class="form-group">
-                <label for="correo" class="form-label">Correo:</label>
-                <input  type="email" class="form-control" id="correo" [(ngModel)]="correo" name="correo" required
-                    #correoModel="ngModel">
-                <div *ngIf="correoModel.invalid && (correoModel.dirty || correoModel.touched)" class="text-danger">
-                    Correo es requerido.
-                </div>
-            </div> -->
-
             <div>
                 <br>
                 <mat-form-field appearance="outline" class="d-flex justify-content-center">
@@ -39,16 +30,6 @@
                 </mat-form-field>
             </div>
 
-            <!-- <div class="form-group">
-                <label for="contrasena" class="form-label">Contraseña:</label>
-                <input type="password" id="contrasena" [(ngModel)]="contrasena" name="contrasena" required
-                    #contrasenaModel="ngModel">
-                <div *ngIf="contrasenaModel.invalid && (contrasenaModel.dirty || contrasenaModel.touched)"
-                    class="text-danger">
-                    Contraseña es requerida.
-                </div>
-            </div> -->
-
             <div class="text-end">
                 <button type="submit" class="btn btn-primary mt-3" [disabled]="loginForm.invalid">Iniciar
                     Sesión</button>
@@ -56,5 +37,9 @@
 
             <p *ngIf="mensajeError" class="text-danger mt-3">{{ mensajeError }}</p>
         </form>
+        <div class="container">
+            <hr>
+            <button type="button"></button>
+        </div>
     </div>
 </div>

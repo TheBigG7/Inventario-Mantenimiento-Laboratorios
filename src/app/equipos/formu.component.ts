@@ -15,7 +15,19 @@ import { EmailService } from '../equipos/email.service';
 })
 export class FormuComponent implements OnInit{
 
-  public equipo: Equipo = new Equipo()
+  public equipo: Equipo = {
+    idEquipo: 0,
+    numEquipo: 0,
+    procesador: '',
+    ram: '',
+    capacidadDisco: '',
+    serieDisco: '',
+    modeloDisco: '',
+    estado: '',
+    appInstall: '',
+    prioridad: '',
+    laboratorio: null
+  }
   public titulo:string = "Crear Equipo"
   public isEditing: boolean = false; // Bandera para el modo de edición
   public laboratorios: Laboratorio[] = [];  // <-- Variable para almacenar los laboratorios
@@ -65,7 +77,7 @@ export class FormuComponent implements OnInit{
 
     this.equipoService.create(this.equipo).subscribe(equipo => {
       this.router.navigate(['/dashboarda/equipos']);
-      Swal.fire('Equipo guardado', `Equipo ${equipo.num_equipo} guardado con éxito`, 'success');
+      Swal.fire('Equipo guardado', `Equipo ${equipo.numEquipo} guardado con éxito`, 'success');
 
       // Enviar correo si la prioridad es alta
       if (this.equipo.prioridad === 'Alta') {

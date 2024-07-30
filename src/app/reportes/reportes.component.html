@@ -25,8 +25,8 @@
             <tbody>
                 <tr *ngFor="let equipo of equiposFiltrados">
                     <td>{{equipo.laboratorio}}</td>
-                    <td>{{equipo.num_equipo}}</td>
-                    <td>{{equipo.num_equipo}}</td>
+                    <td>{{equipo.numEquipo}}</td>
+                    <td>{{equipo.numEquipo}}</td>
                     <td [ngClass]="{'text-verde': equipo.prioridad === 'Baja', 'text-naranja': equipo.prioridad === 'Media', 'text-rojo': equipo.prioridad === 'Alta'}">
                         {{equipo.prioridad}}
                     </td>
