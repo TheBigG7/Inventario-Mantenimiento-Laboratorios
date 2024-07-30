@@ -1,0 +1,22 @@
+.full {
+    width: 30%;                  /* Hacer que el botón ocupe el 100% del ancho */
+    padding: 10px;                /* Agregar algo de padding */
+    margin: 0;                    /* Eliminar márgenes para que se expanda hasta los bordes */
+    text-align: center;           /* Alinear el texto en el centro */
+}
+.bg{
+    background: cornflowerblue;
+}
+
+.btn {
+    margin-left: auto; /* Empuja el botón hacia la derecha */
+}
+body {
+    background-image: url('/src/app/login/Background-ISTA.png'); /* Ruta relativa a la carpeta de assets */
+    background-size: cover; /* Ajusta la imagen para cubrir todo el div */
+    background-repeat: no-repeat; /* Evita que la imagen se repita */
+    background-position: center; /* Centra la imagen en el div */
+    width: 100%; /* Ajusta el ancho del div */
+    height: 100%; /* Ajusta la altura del div para que cubra toda la ventana */
+    color: white; /* Cambia el color del texto para que sea legible sobre el fondo */
+}

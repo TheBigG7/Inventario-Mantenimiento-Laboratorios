@@ -17,6 +17,7 @@ import { RepuestosComponent } from './repuestos/repuestos.component';
 import { FormComponent } from './repuestos/form.component';
 import { InventarioLabComponent } from './inventario-lab/inventario-lab.component';
 import { LabEquiposComponent } from './inventario-lab/lab-equipos/lab-equipos.component';
+import { SuperAccesoComponent } from './super-acceso/super-acceso.component';
 
 
 
@@ -54,7 +55,8 @@ const routes: Routes = [
   { path: 'dashboarde', component: DashboardEComponent },
   { path: 'footer', component: FooterComponent },
   { path: 'admin', component: SuperAdComponent },
-  { path: 'admin/:id', component: SuperAdComponent }
+  { path: 'admin/:id', component: SuperAdComponent },
+  { path: 'super', component: SuperAccesoComponent }
 
 ];
 

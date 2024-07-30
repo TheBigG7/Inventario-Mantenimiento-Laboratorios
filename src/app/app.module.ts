@@ -34,6 +34,7 @@ import { RepuestosComponent } from './repuestos/repuestos.component';
 import { FormComponent } from './repuestos/form.component';
 import { InventarioLabComponent } from './inventario-lab/inventario-lab.component';
 import { LabEquiposComponent } from './inventario-lab/lab-equipos/lab-equipos.component';
+import { SuperAccesoComponent } from './super-acceso/super-acceso.component';
 
 
 
@@ -56,7 +57,8 @@ import { LabEquiposComponent } from './inventario-lab/lab-equipos/lab-equipos.co
     RepuestosComponent,
     FormComponent,
     InventarioLabComponent,
-    LabEquiposComponent
+    LabEquiposComponent,
+    SuperAccesoComponent
 
   ],
   imports: [

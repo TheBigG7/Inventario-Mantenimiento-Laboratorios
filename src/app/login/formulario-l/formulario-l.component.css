@@ -5,3 +5,9 @@
 .btn {
     margin-left: auto; /* Empuja el botón hacia la derecha */
 }
+.full {
+    width: 100%;                  /* Hacer que el botón ocupe el 100% del ancho */
+    padding: 10px;                /* Agregar algo de padding */
+    margin: 0;                    /* Eliminar márgenes para que se expanda hasta los bordes */
+    text-align: center;           /* Alinear el texto en el centro */
+}

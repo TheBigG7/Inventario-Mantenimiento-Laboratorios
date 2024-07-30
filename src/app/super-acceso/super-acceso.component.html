@@ -1,6 +1,6 @@
 <div class="bg">
-    <div class="container d-flex justify-content-center align-items-center vh-100"><!-- mt-5  -->
-        <form (ngSubmit)="login()" #loginForm="ngForm" class="p-4 border rounded bg-light">
+    <div class="container centrar"><!-- mt-5  -->
+        <form (ngSubmit)="login()" #login2Form="ngForm" class="p-4 border rounded bg-light">
             <img src="LOGO-TECAZUAY.png" class="img-fluid mx-auto d-block" alt="ogo tec" width="600"
                 height="200"><!-- rounded mx-auto d-block -->
             <div>
@@ -22,7 +22,7 @@
                     <mat-label>Contraseña: </mat-label>
                     <input matInput placeholder="Contraseña" type="password" id="contrasena" [(ngModel)]="contrasenia"
                         name="contrasena" required #contraseniaModel="ngModel">
-                    <mat-icon matSuffix>assignment</mat-icon>
+                    <mat-icon matSuffix>assignment</mat-icon> 
                     <div *ngIf="contraseniaModel.invalid && (contraseniaModel.dirty || contraseniaModel.touched)"
                         class="text-danger">
                         <mat-hint>Contraseña es requerida.</mat-hint>
@@ -31,19 +31,20 @@
             </div>
 
             <div class="text-end">
-                <button type="submit" class="btn btn-primary mt-3" [disabled]="loginForm.invalid">Iniciar
+                <button type="submit" class="btn btn-primary mt-3" [disabled]="login2Form.invalid">Iniciar
                     Sesión</button>
             </div>
 
             <p *ngIf="mensajeError" class="text-danger mt-3">{{ mensajeError }}</p>
             <!-- <div class="container">
                 <hr>
-                <button class="btn btn-primary mt-3 full" routerLinkActive="active" [routerLink]="['super']" type="button">Control de Periodos y Administradores</button>
+                <button class="btn btn-primary mt-3 full" routerLinkActive="active" [routerLink]="['login']" type="button">atras</button>
             </div> -->
             <div class="container">
                 <hr>
-                <a class="btn btn-primary mt-3 full" routerLinkActive="active" [routerLink]="['/super']">Control de Periodos y Administradores</a>
+                <a class="btn btn-primary mt-3 full" routerLinkActive="active" [routerLink]="['login']">Atras</a>
             </div>
         </form>
+        
     </div>
 </div>
