@@ -39,7 +39,7 @@
                                 </div>-->
                                 <div class="form__group field; col-md-3; center">
                                     <select id="laboratorio" class="form__field" aria-placeholder="Laboratorio" [(ngModel)]="equipo.laboratorio" name="laboratorio" required>
-                                      <option *ngFor="let lab of laboratorios" [value]="lab.idLaboratorio">{{ lab.idLaboratorio }}</option>
+                                      <option *ngFor="let lab of laboratorios" [value]="lab">{{ lab.idLaboratorio }}</option>
                                     </select>
                                     <label for="laboratorio" class="form__label">Laboratorio</label>
                                 </div>  

@@ -51,7 +51,7 @@
             <tbody>
                 <tr *ngFor="let equipo of equiposFiltrados">
                     <td>{{equipo.idEquipo}}</td>
-                    <td>{{equipo.laboratorio}}</td>
+                    <td>{{equipo.laboratorio?.idLaboratorio}}</td>
                     <td>{{equipo.num_equipo}}</td>
                     <td>{{equipo.procesador}}</td>
                     <td>{{equipo.ram}}</td>
