@@ -26,11 +26,7 @@ export class FormularioLComponent {
         // Redirigir al dashboard correspondiente según el tipo de usuario
         // Verificar si response es de tipo AdministradorTIC o Encargado
         if (this.isAdministradorTIC(response)) {
-          if(response.correo == 'superad'){
-            this.router.navigate(['/admin']);
-          }else{
             this.router.navigate(['/dashboarda']);
-          }
         } else if (this.isEncargado(response)) {
           this.router.navigate(['/dashboarde']);
         }
