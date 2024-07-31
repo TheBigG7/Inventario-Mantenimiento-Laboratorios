@@ -39,7 +39,7 @@
                                 </div>-->
                                 <div class="form__group field; col-md-3; center">
                                     <select id="laboratorio" class="form__field" aria-placeholder="Laboratorio" [(ngModel)]="equipo.laboratorio" name="laboratorio" required>
-                                      <option *ngFor="let lab of laboratorios" [value]="lab.idLaboratorio">{{ lab.idLaboratorio }}</option>
+                                      <option *ngFor="let lab of laboratorios" [value]="lab">{{ lab.idLaboratorio }}</option>
                                     </select>
                                     <label for="laboratorio" class="form__label">Laboratorio</label>
                                 </div>  
@@ -49,7 +49,7 @@
                                 </div>-->
                                 <div class="form__group field; col-md-4; right">
                                     <input type="number" class="form__field" placeholder="Numero de equipo" name="num_equipo" id='num_equipo'
-                                    [(ngModel)]="equipo.numEquipo" min="0" required />
+                                    [(ngModel)]="equipo.num_equipo" min="0" required />
                                     <label for="num_equipo" class="form__label">Numero de equipo</label>
                                 </div>
                             </div>
@@ -78,7 +78,7 @@
                                 </div>-->
                                 <div class="form__group field; col-md-12; right">
                                     <input type="text" class="form__field" placeholder="Capacidad del disco" name="capacidad_disco" id='capacidad_disco'
-                                    [(ngModel)]="equipo.capacidadDisco" required />
+                                    [(ngModel)]="equipo.capacidad_disco" required />
                                     <label for="capacidad_disco" class="form__label">Capacidad del disco</label>
                                 </div>
                             </div>
@@ -89,7 +89,7 @@
                                 </div>-->
                                 <div class="form__group field; col-md-4; left">
                                     <input type="text" class="form__field" placeholder="Serie Disco" name="serie_disco" id='serie_disco'
-                                    [(ngModel)]="equipo.serieDisco" required />
+                                    [(ngModel)]="equipo.serie_disco" required />
                                     <label for="serie_disco" class="form__label">Serie Disco</label>
                                 </div>
                                 <!--<div class="col-md-4; center">
@@ -98,7 +98,7 @@
                                 </div>-->
                                 <div class="form__group field; col-md-4; center">
                                     <input type="text" class="form__field" placeholder="Modelo Disco" name="modelo_disco" id='modelo_disco'
-                                    [(ngModel)]="equipo.modeloDisco" required />
+                                    [(ngModel)]="equipo.modelo_disco" required />
                                     <label for="modelo_disco" class="form__label">Modelo Disco</label>
                                 </div>
                                 <!--<div class="col-md-4; right">
@@ -143,7 +143,7 @@
                                 </div>-->
                                 <div class="form__group__tx field; col-md-12; right">
                                     <textarea class="form__field" placeholder="Aplicaciones Instaladas" 
-                                    [(ngModel)]="equipo.appInstall" name="app_install" id='app_install' required></textarea>
+                                    [(ngModel)]="equipo.app_install" name="app_install" id='app_install' required></textarea>
                                     <label for="app_install" class="form__label">Aplicaciones Instaladas</label>
                                 </div>
                             </div>

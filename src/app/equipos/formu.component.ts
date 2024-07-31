@@ -17,14 +17,14 @@ export class FormuComponent implements OnInit{
 
   public equipo: Equipo = {
     idEquipo: 0,
-    numEquipo: 0,
+    num_equipo: 0,
     procesador: '',
     ram: '',
-    capacidadDisco: '',
-    serieDisco: '',
-    modeloDisco: '',
+    capacidad_disco: '',
+    serie_disco: '',
+    modelo_disco: '',
     estado: '',
-    appInstall: '',
+    app_install: '',
     prioridad: '',
     laboratorio: null
   }
@@ -77,7 +77,7 @@ export class FormuComponent implements OnInit{
 
     this.equipoService.create(this.equipo).subscribe(equipo => {
       this.router.navigate(['/dashboarda/equipos']);
-      Swal.fire('Equipo guardado', `Equipo ${equipo.numEquipo} guardado con éxito`, 'success');
+      Swal.fire('Equipo Guardado', `Equipo ${equipo.num_equipo} Guardado con éxito`, 'success');
 
       // Enviar correo si la prioridad es alta
       if (this.equipo.prioridad === 'Alta') {
