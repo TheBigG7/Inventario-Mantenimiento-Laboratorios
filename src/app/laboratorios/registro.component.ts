@@ -52,7 +52,7 @@ export class RegistroComponent implements OnInit {
       admin => this.administradoresTICs = admin
     )
 
-    this.encargadoService.listarAdmin().subscribe(
+    this.encargadoService.listar().subscribe(
       encargado => { this.encargadoL = encargado; console.log(this.encargadoL); }, Error => {
         Swal.fire('Error', 'Error al listar', 'error');
       }
