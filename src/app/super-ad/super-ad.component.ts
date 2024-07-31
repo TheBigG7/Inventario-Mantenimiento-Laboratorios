@@ -20,12 +20,12 @@ export class SuperAdComponent implements OnInit {
   periodoOn: boolean = true
 
 
-  periodoL: Periodo[] = []
-  administradoresTICs: AdministradorTIC[] = []
+  periodoL: Periodo[]
+  administradoresTICs: AdministradorTIC[]
 
   constructor(private periodoService: PeriodoService, private credencialS: CredencialService, private administradorService: AdministradorService, private activatedRoute: ActivatedRoute) { }
 
-  administradorTic: AdministradorTIC = {
+  administradorTic: AdministradorTIC   = {
     administradorTIC_id: 0,
     nombre: '',
     apellido: '',
@@ -59,15 +59,41 @@ export class SuperAdComponent implements OnInit {
       }
     )
     this.periodoService.listarPeriodos().subscribe(
-      periodo => { this.periodoL = periodo; console.log(this.periodoL); }, error => {
+      (periodo :Periodo[]) => { this.periodoL = periodo; console.log(this.periodoL); }, error => {
+        Swal.fire('Error', 'Error al listar', 'error');
+      }
+    )
+    this.periodoService.listarPorId(2).subscribe(
+      (periodo: Periodo) => {
+        console.log('Periodo específico:', periodo);
+      },
+      (error) => {
+        console.error('Error al obtener el periodo específico', error);
+      })
+    this.administradorService.listarAdmin().subscribe(
+      (admin: AdministradorTIC[]) => {this.administradoresTICs = admin; console.log(this.periodoL);}
+    )
+  }
+
+  actualizarListas(): void {
+    this.credencialS.listarPorId(1).subscribe(
+      (dato: CredencialSuperAcceso) => {
+        this.periodo.credencial = dato
+      },
+      (error) => {
+        console.error('Error al obtener los datos', error);
+      }
+    )
+    this.periodoService.listarPeriodos().subscribe(
+      (periodo :Periodo[]) => { this.periodoL = periodo; console.log(this.periodoL); }, error => {
         Swal.fire('Error', 'Error al listar', 'error');
       }
     )
     this.administradorService.listarAdmin().subscribe(
-      admin => this.administradoresTICs = admin
+      (admin: AdministradorTIC[]) => this.administradoresTICs = admin
     )
+}
 
-  }
   crearPeriodo(): void {
     console.log(this.periodo)
     this.periodoService.crear(this.periodo).subscribe(
@@ -78,6 +104,7 @@ export class SuperAdComponent implements OnInit {
         Swal.fire('Error', 'Error al guardar', 'error');
       }
     )
+    this.actualizarListas()
   }
   eliminarPeriodo(id: number): void {
 
@@ -109,6 +136,7 @@ export class SuperAdComponent implements OnInit {
         Swal.fire('Error', 'Error al guardar', 'error');
       }
     )
+    this.actualizarListas()
   }
   eliminarAdmin(id: number): void {
     this.administradorService.eliminarAdmin(id)

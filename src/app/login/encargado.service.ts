@@ -14,21 +14,21 @@ export class EncargadoService {
 
     constructor(private http: HttpClient) { }
 
-    listarAdmin(): Observable<EncargadoLaboratorio[]> {
+    listar(): Observable<EncargadoLaboratorio[]> {
 
         console.log(this.urlEndPoint);
 
         return this.http.get<EncargadoLaboratorio[]>(this.urlEndPoint);
     }
-    crearAdmin(periodo: EncargadoLaboratorio): Observable<EncargadoLaboratorio> {
+    crear(periodo: EncargadoLaboratorio): Observable<EncargadoLaboratorio> {
         return this.http.post<EncargadoLaboratorio>(this.urlEndPoint, periodo, { headers: this.httpHeaders })
     }
 
-    listarPorIdAdmin(id = 0): Observable<EncargadoLaboratorio> {
+    listarPorId(id = 0): Observable<EncargadoLaboratorio> {
         return this.http.get<EncargadoLaboratorio>(`${this.urlEndPoint}/${id}`)
     }
 
-    eliminarAdmin(id: number): Observable<EncargadoLaboratorio> {
+    eliminar(id: number): Observable<EncargadoLaboratorio> {
         return this.http.delete<EncargadoLaboratorio>(`${this.urlEndPoint}/${id}`);
     }
 }

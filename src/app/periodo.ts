@@ -9,8 +9,8 @@ export interface Periodo {
     idPeriodo: number
     fechaInicio: string
     fechaFin: string
+    laboratorios: Laboratorio[];
     administradoresTICs: AdministradorTIC[]
     encargadoLaboratorio: EncargadoLaboratorio[]
-    laboratorios: Laboratorio[];
     credencial: CredencialSuperAcceso
 }

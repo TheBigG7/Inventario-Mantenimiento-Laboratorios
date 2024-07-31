@@ -2,7 +2,7 @@ import { Laboratorio } from "../laboratorios/laboratorio";
 import { Periodo } from "../periodo";
 
 export interface EncargadoLaboratorio {
-    idPeriodo: number;
+    idEncargado: number;
     nombre: string;
     apellido: string;
     tipo: string; // "responsable" o "auxiliar"

@@ -20,8 +20,8 @@ export class AdministradorService {
 
         return this.http.get<AdministradorTIC[]>(this.urlEndPoint);
     }
-    crearAdmin(periodo: AdministradorTIC): Observable<AdministradorTIC> {
-        return this.http.post<AdministradorTIC>(this.urlEndPoint, periodo) //, { headers: this.httpHeaders }
+    crearAdmin(admin: AdministradorTIC): Observable<AdministradorTIC> {
+        return this.http.post<AdministradorTIC>(this.urlEndPoint, admin, { headers: this.httpHeaders }) //, { headers: this.httpHeaders }
     }
 
     listarPorIdAdmin(id = 0): Observable<AdministradorTIC> {

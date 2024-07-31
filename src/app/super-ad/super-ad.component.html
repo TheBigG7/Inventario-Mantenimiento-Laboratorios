@@ -1,13 +1,13 @@
-<mat-button-toggle-group
-    name="fontStyle"
-    aria-label="Font Style"
-    (change)="onToggleChange($event)"
-    class="tbt"
+<mat-button-toggle-group name="fontStyle" aria-label="Font Style" (change)="onToggleChange($event)" class="tbt"
     [value]="false">
     <mat-button-toggle [value]="false">Periodo</mat-button-toggle>
     <mat-button-toggle [value]="true">Administrador</mat-button-toggle>
     <!-- <mat-button-toggle [value]="true">Perfil</mat-button-toggle> -->
 </mat-button-toggle-group>
+<button type="button" name="button" [routerLink]="['/login/formulario']" class="btn btnS btn-outline-danger text-end"
+    (click)="periodoOn=false">
+    Salir
+</button>
 <!-- PERIODOS -->
 <div *ngIf="!adminOn">
     <div class="container">
@@ -16,10 +16,6 @@
                 <button type="button" name="button" [routerLink]="[]" class="btn btn-outline-primary"
                     (click)="periodoOn=false">
                     Añadir Periodo
-                </button>
-                <button type="button" name="button" [routerLink]="['/login/formulario']" class="btn btn-outline-danger text-end"
-                    (click)="periodoOn=false">
-                    ATRAS
                 </button>
             </div>
             <div class="card-body text-primary" *ngIf="!periodoOn">
@@ -55,7 +51,9 @@
                         <button type="submit" class="btn btn-primary mt-3" (click)="periodoOn=true">Guardar</button>
                     </div>
                 </form>
-
+                <div class="text-end">
+                    <button type="submit" class="btn btn-primary mt-3" (click)="periodoOn=true">Listado</button>
+                </div>
             </div>
             <div class="card-body text-primary" *ngIf="periodoOn">
                 <h5 class="card-title">Listado de Periodos</h5>
@@ -165,6 +163,9 @@
                         <button type="submit" class="btn btn-primary mt-3" (click)="administrador=true">Guardar</button>
                     </div>
                 </form>
+                <div class="text-end">
+                    <button type="submit" class="btn btn-primary mt-3" (click)="administrador=true">Listado</button>
+                </div>
 
             </div>
             <div class="card-body text-primary" *ngIf="administrador">
