@@ -5,6 +5,8 @@ import { PeriodoService } from './periodo.service';
 import Swal from 'sweetalert2';
 import { ActivatedRoute } from '@angular/router';
 import { AdministradorService } from '../login/administrador.service';
+import { CredencialSuperAcceso } from '../super-acceso/CredencialSuperAcceso';
+import { CredencialService } from '../super-acceso/credencial.service';
 
 @Component({
   selector: 'app-super-ad',
@@ -13,7 +15,7 @@ import { AdministradorService } from '../login/administrador.service';
 })
 export class SuperAdComponent implements OnInit {
 
-  adminOn: boolean = true
+  adminOn: boolean = false
   administrador: boolean = true
   periodoOn: boolean = true
 
@@ -21,7 +23,7 @@ export class SuperAdComponent implements OnInit {
   periodoL: Periodo[] = []
   administradoresTICs: AdministradorTIC[] = []
 
-  constructor(private periodoService: PeriodoService, private administradorService: AdministradorService, private activatedRoute: ActivatedRoute) { }
+  constructor(private periodoService: PeriodoService, private credencialS: CredencialService, private administradorService: AdministradorService, private activatedRoute: ActivatedRoute) { }
 
   administradorTic: AdministradorTIC = {
     administradorTIC_id: 0,
@@ -38,11 +40,24 @@ export class SuperAdComponent implements OnInit {
     fechaFin: '',
     administradoresTICs: [],
     encargadoLaboratorio: [],
-    laboratorios: []
+    laboratorios: [],
+    credencial: {
+      idCredencial: 0,
+      credencial: '',
+      contrasenia: '',
+      periodos: []
+    }
   }
 
-
   ngOnInit(): void {
+    this.credencialS.listarPorId(1).subscribe(
+      (dato: CredencialSuperAcceso) => {
+        this.periodo.credencial = dato
+      },
+      (error) => {
+        console.error('Error al obtener los datos', error);
+      }
+    )
     this.periodoService.listarPeriodos().subscribe(
       periodo => { this.periodoL = periodo; console.log(this.periodoL); }, error => {
         Swal.fire('Error', 'Error al listar', 'error');

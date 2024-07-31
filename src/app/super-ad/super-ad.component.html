@@ -1,6 +1,12 @@
-<mat-button-toggle-group name="fontStyle" aria-label="Font Style" (change)="onToggleChange($event)" class="tbt">
+<mat-button-toggle-group
+    name="fontStyle"
+    aria-label="Font Style"
+    (change)="onToggleChange($event)"
+    class="tbt"
+    [value]="false">
     <mat-button-toggle [value]="false">Periodo</mat-button-toggle>
     <mat-button-toggle [value]="true">Administrador</mat-button-toggle>
+    <!-- <mat-button-toggle [value]="true">Perfil</mat-button-toggle> -->
 </mat-button-toggle-group>
 <!-- PERIODOS -->
 <div *ngIf="!adminOn">
@@ -10,6 +16,10 @@
                 <button type="button" name="button" [routerLink]="[]" class="btn btn-outline-primary"
                     (click)="periodoOn=false">
                     Añadir Periodo
+                </button>
+                <button type="button" name="button" [routerLink]="['/login/formulario']" class="btn btn-outline-danger text-end"
+                    (click)="periodoOn=false">
+                    ATRAS
                 </button>
             </div>
             <div class="card-body text-primary" *ngIf="!periodoOn">
@@ -40,17 +50,6 @@
                             </div>
                         </mat-form-field>
                     </div>
-                    <!-- administrador TICs -->
-                    <!-- <div>
-                        <mat-form-field class="w-100">
-                            <mat-select id="periodo" name="periodo" [(ngModel)]="periodo.administradoresTICs" multiple>
-                                <mat-option *ngFor="let adm of administradoresTICs" [value]="adm">{{adm.nombre}}
-                                    {{adm.apellido}}</mat-option>
-                            </mat-select>
-                            <mat-label><mat-icon>face</mat-icon> <strong>Administradores TICs
-                                    --Opcional</strong></mat-label>
-                        </mat-form-field>
-                    </div> -->
 
                     <div class="text-end">
                         <button type="submit" class="btn btn-primary mt-3" (click)="periodoOn=true">Guardar</button>
@@ -71,22 +70,6 @@
                         <tr *ngFor="let peri of periodoL"> <!-- *ngFor="let peri of periodos" -->
                             <td>{{peri.fechaInicio}}</td><!-- {{peri.id_periodo}} -->
                             <td>{{peri.fechaFin}}</td>
-                            <!-- <td>
-                                <ng-container *ngFor="let adm of peri.administradoresTICs; let isLast = last">
-                                    {{ adm.nombre }} {{ adm.apellido }}, <span *ngIf="!isLast">, </span>
-                                </ng-container>
-                            </td> -->
-                            <!-- <td>{{peri.administradoresTICs}}</td> -->
-                            <!-- <td>
-                                <table>
-                                    <tr *ngFor="let adm of peri.administradoresTICs">
-                                        <td>{{ adm.nombre }} {{ adm.apellido }}</td>
-                                    </tr>
-                                </table>
-                            </td> -->
-                            <!-- <td>{{peri.administradores}}</td> -->
-                            <!-- <td>{{ peri.administradoresTICs.length }} Administradores</td> -->
-                            <!-- <td *ngIf="!peri.administradoresTICs">0 Administradores</td> -->
                             <td class="d-flex justify-content-center">
                                 <button type="button" name="editar" (click)="editarPeriodo()"
                                     class="btn btn-outline-primary">Editar</button>
@@ -144,7 +127,6 @@
                     <div>
                         <mat-form-field class="w-100">
                             <mat-select id="periodo" name="periodo" [(ngModel)]="administradorTic.periodos" multiple>
-                                <!-- *ngif -->
                                 <mat-option *ngFor="let per of periodoL" [value]="per">{{per.fechaInicio}} -
                                     {{per.fechaFin}}</mat-option>
                             </mat-select>
@@ -204,7 +186,7 @@
                             <!-- <td>{{ad.periodos}}</td> -->
                             <td>
                                 <ng-container *ngFor="let adm of ad.periodos; let isLast = last">
-                                    {{ adm.fechaInicio }}  {{ adm.fechaFin }} <span *ngIf="!isLast">, </span>
+                                    {{ adm.fechaInicio }} {{ adm.fechaFin }} <span *ngIf="!isLast">, </span>
                                 </ng-container>
                             </td>
 

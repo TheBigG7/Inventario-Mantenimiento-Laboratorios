@@ -36,14 +36,13 @@
                 </div>
                 <!-- laboratorioAsignado -->
                 <div>
-                    <mat-form-field class="w-100">
-                        <mat-select required>
-                            <!-- *ngif -->
-                            <mat-option value="option">Option</mat-option>
-                            <mat-option value="option 2">Option</mat-option>
+                    <!-- <mat-form-field class="w-100">
+                        <mat-select id="periodo" name="periodo" [(ngModel)]="administradorTic.periodos" multiple>
+                            <mat-option *ngFor="let per of periodoL" [value]="per">{{per.fechaInicio}} -
+                                {{per.fechaFin}}</mat-option>
                         </mat-select>
-                        <mat-label><mat-icon>home</mat-icon> <strong>Laboratorios</strong></mat-label>
-                    </mat-form-field>
+                        <mat-label><mat-icon>face</mat-icon> <strong>Periodos</strong></mat-label>
+                    </mat-form-field> -->
                 </div>
                 <!-- tipo -->
                 <div>
@@ -83,6 +82,7 @@
                     </mat-form-field>
                 </div>
                 <div class="text-end">
+                    <button type="submit" class="btn btn-primary mt-3" (click)="encargados=true">Atras</button>
                     <button type="submit" class="btn btn-primary mt-3" (click)="encargados=true">Guardar</button>
                 </div>
             </form>

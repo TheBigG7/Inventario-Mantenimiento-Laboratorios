@@ -12,8 +12,24 @@ export class EncargadosComponent implements OnInit{
   
 
   encargados: boolean = true
-  encargadoLaboratorio: EncargadoLaboratorio
-
+  encargadoLaboratorio: EncargadoLaboratorio = {
+    idPeriodo: 0,
+    nombre: '',
+    apellido: '',
+    tipo: '',
+    correo: '',
+    contrasenia: '',
+    periodos: [],
+    laboratorio: {
+      idLaboratorio: '',
+      num_maquinas: 0,
+      proyector: '',
+      equipos: [],
+      administradores: [],
+      periodos: [],
+      encargados: []
+    }
+  }
 
   constructor(){}
 

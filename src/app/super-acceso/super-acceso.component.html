@@ -1,9 +1,13 @@
+
 <div class="bg">
-    <div class="container centrar"><!-- mt-5  -->
+    <div class="container d-flex justify-content-center align-items-center vh-100"><!-- mt-5  -->
         <form (ngSubmit)="login()" #login2Form="ngForm" class="p-4 border rounded bg-light">
             <img src="LOGO-TECAZUAY.png" class="img-fluid mx-auto d-block" alt="ogo tec" width="600"
                 height="200"><!-- rounded mx-auto d-block -->
             <div>
+                <br>
+                <h4 class="text-center"><b>SUPER ACCESO</b></h4><br>
+                <h5 class="text-center"> CONTROL DE PERIODOS Y ADMINISTRADORES DE TICs</h5>
                 <br>
                 <mat-form-field appearance="outline" class="d-flex justify-content-center">
                     <mat-label>Correo: </mat-label>
@@ -31,8 +35,7 @@
             </div>
 
             <div class="text-end">
-                <button type="submit" class="btn btn-primary mt-3" [disabled]="login2Form.invalid">Iniciar
-                    Sesión</button>
+                <button type="submit" class="btn btn-primary mt-3" [disabled]="login2Form.invalid">Acceder</button>
             </div>
 
             <p *ngIf="mensajeError" class="text-danger mt-3">{{ mensajeError }}</p>
@@ -42,7 +45,7 @@
             </div> -->
             <div class="container">
                 <hr>
-                <a class="btn btn-primary mt-3 full" routerLinkActive="active" [routerLink]="['login']">Atras</a>
+                <a class="btn btn-primary mt-3 full" routerLinkActive="active" [routerLink]="['/login']">Atras</a>
             </div>
         </form>
         
