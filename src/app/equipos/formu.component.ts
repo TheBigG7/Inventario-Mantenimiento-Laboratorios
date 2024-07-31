@@ -77,7 +77,7 @@ export class FormuComponent implements OnInit{
 
     this.equipoService.create(this.equipo).subscribe(equipo => {
       this.router.navigate(['/dashboarda/equipos']);
-      Swal.fire('Equipo guardado', `Equipo ${equipo.num_equipo} guardado con éxito`, 'success');
+      Swal.fire('Equipo Guardado', `Equipo ${equipo.num_equipo} Guardado con éxito`, 'success');
 
       // Enviar correo si la prioridad es alta
       if (this.equipo.prioridad === 'Alta') {

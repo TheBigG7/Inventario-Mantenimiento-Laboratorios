@@ -95,7 +95,7 @@ export class RegistroComponent implements OnInit {
   create(): void {
     this.laboratorioService.create(this.laboratorio).subscribe(
       admin => {
-        Swal.fire('Laboratorio   Ingresado', `Laboratorio ${admin.idLaboratorio} ingresado con exito`, 'success')
+        Swal.fire('Laboratorio  Guardado', `Laboratorio ${admin.idLaboratorio} Guardado con exito`, 'success')
       },
       error => {
         Swal.fire('Error', 'Error al guardar', 'error');
