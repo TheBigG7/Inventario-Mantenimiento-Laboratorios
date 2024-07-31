@@ -2,14 +2,14 @@ import { Laboratorio } from "../laboratorios/laboratorio";
 
 export interface Equipo {
     idEquipo: number;
-    numEquipo: number;
+    num_equipo: number;
     procesador: string;
     ram: string;
-    capacidadDisco: string;
-    serieDisco: string;
-    modeloDisco: string;
+    capacidad_disco: string;
+    serie_disco: string;
+    modelo_disco: string;
     estado: string;
-    appInstall: string;
+    app_install: string;
     prioridad: string;
     laboratorio: Laboratorio | null;
 }

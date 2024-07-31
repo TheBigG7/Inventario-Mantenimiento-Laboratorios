@@ -21,14 +21,14 @@ export class ReportesComponent implements OnInit {
   equipos: Equipo[] = [];
   equipo: Equipo = {
     idEquipo: 0,
-    numEquipo: 0,
+    num_equipo: 0,
     procesador: '',
     ram: '',
-    capacidadDisco: '',
-    serieDisco: '',
-    modeloDisco: '',
+    capacidad_disco: '',
+    serie_disco: '',
+    modelo_disco: '',
     estado: '',
-    appInstall: '',
+    app_install: '',
     prioridad: '',
     laboratorio: null
   };
@@ -46,8 +46,8 @@ export class ReportesComponent implements OnInit {
   filtrarEquipo(): void {
     this.equiposFiltrados = this.equipos.filter((equipo) => {
       const textoBusqueda =
-        `${equipo.laboratorio} ${equipo.numEquipo} ${equipo.procesador} ${equipo.ram} ${equipo.capacidadDisco} 
-       ${equipo.serieDisco} ${equipo.modeloDisco} ${equipo.appInstall} ${equipo.estado} ${equipo.prioridad}`.toLowerCase();
+        `${equipo.laboratorio} ${equipo.num_equipo} ${equipo.procesador} ${equipo.ram} ${equipo.capacidad_disco} 
+       ${equipo.serie_disco} ${equipo.modelo_disco} ${equipo.app_install} ${equipo.estado} ${equipo.prioridad}`.toLowerCase();
       return textoBusqueda.includes(this.filtro.toLowerCase());
     });
   }
@@ -147,8 +147,8 @@ export class ReportesComponent implements OnInit {
     ];
     const data = this.equiposFiltrados.map((equipo) => [
       equipo.laboratorio,
-      equipo.numEquipo,
-      equipo.numEquipo,
+      equipo.num_equipo,
+      equipo.num_equipo,
       equipo.prioridad,
     ]);
 
