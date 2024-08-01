@@ -23,6 +23,7 @@ import { FormAdminsComponent } from './super-ad/admins/form-admins.component';
 import { PeriodosComponent } from './super-ad/periodos/periodos.component';
 import { FormPeriodoComponent } from './super-ad/periodos/form-periodo.component';
 import { FormEncargadoComponent } from './encargados/form-encargado.component';
+import { MantenimientoComponent } from './mantenimiento/mantenimiento.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
@@ -53,7 +54,8 @@ const routes: Routes = [
       { path: 'repuestos/form', component: FormComponent },
       { path: 'repuestos/form/:id', component: FormComponent },
       { path: 'inventario-lab', component: InventarioLabComponent },
-      { path: 'lab-equipo/:id', component: LabEquiposComponent }
+      { path: 'lab-equipo/:id', component: LabEquiposComponent },
+      { path: 'mantenimiento', component: MantenimientoComponent}
     ]
   },
   { path: 'footer', component: FooterComponent },
@@ -85,7 +87,8 @@ const routes: Routes = [
       { path: 'repuestos/form', component: FormComponent },
       { path: 'repuestos/form/:id', component: FormComponent },
       { path: 'inventario-lab', component: InventarioLabComponent },
-      { path: 'lab-equipo/:id', component: LabEquiposComponent }
+      { path: 'lab-equipo/:id', component: LabEquiposComponent },
+      { path: 'mantenimiento', component: MantenimientoComponent}
     ]
   }
 ];

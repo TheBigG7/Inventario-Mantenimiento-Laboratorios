@@ -1,0 +1,55 @@
+<div class="main-content">
+    <div class="container-fluid">
+      <div class="row justify-content-center">
+        <div class="col-md-8">
+          <div class="cardd">
+            <div class="card-header text-center">
+              <h4 class="card-title">{{ isEditMode ? 'Editar Mantenimiento' : 'Registrar Mantenimiento' }}</h4>
+              <p class="card-category">{{ isEditMode ? 'Edita los datos del mantenimiento' : 'Ingresa los datos del mantenimiento' }}</p>
+            </div>
+            <div class="card-body">
+              <form [formGroup]="mantenimientoForm" (ngSubmit)="onSubmit()">
+                <div class="row justify-content-center mb-3">
+                  <div class="form__group field col-md-5 mb-3">
+                    <input type="text" class="form__field" placeholder="Nombre del Equipo" formControlName="equipo.nombre" id="equipoNombre" required />
+                    <label for="equipoNombre" class="form__label">Nombre del Equipo</label>
+                  </div>
+                  <div class="form__group field col-md-5 mb-3">
+                    <input type="date" class="form__field" formControlName="fechaMant" id="fechaMant" required />
+                    <label for="fechaMant" class="form__label">Fecha de Mantenimiento</label>
+                  </div>
+                </div>
+                <div class="row justify-content-center mb-3">
+                  <div class="form__group field col-md-10 mb-3">
+                    <input type="text" class="form__field" placeholder="Nombre del Encargado" formControlName="nombreEncargado" id="nombreEncargado" required />
+                    <label for="nombreEncargado" class="form__label">Nombre del Encargado</label>
+                  </div>
+                </div>
+                <div class="row justify-content-center" style="margin-top: 50px;">
+                  <div class="col-md-6 text-center">
+                    <button type="submit" class="btn btn-danger btn-lg" role="button">
+                      {{ isEditMode ? 'Actualizar' : 'Guardar' }}
+                    </button>
+                    <button type="button" class="btn btn-secondary btn-lg" (click)="onCancel()" style="margin-left: 10px;">
+                      Cancelar
+                    </button>
+                  </div>
+                </div>
+              </form>
+            </div>
+            <div class="card-footer">
+              <h4 class="text-center">Lista de Mantenimientos</h4>
+              <ul class="list-group">
+                <li class="list-group-item" *ngFor="let mantenimiento of mantenimientos">
+                  {{ mantenimiento.nombreEncargado }} - {{ mantenimiento.fechaMant | date }}
+                  <button class="btn btn-warning btn-sm" (click)="onEdit(mantenimiento)" style="margin-left: 10px;">Editar</button>
+                  <button class="btn btn-danger btn-sm" (click)="onDelete(mantenimiento.id)" style="margin-left: 10px;">Eliminar</button>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  

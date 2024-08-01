@@ -3,12 +3,12 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { RouterModule } from '@angular/router'; 
+import { RouterModule } from '@angular/router';
 import { LoginComponent } from './login/login.component';
 import { DashboardAComponent } from './dashboard-a/dashboard-a.component';
 import { DashboardEComponent } from './dashboard-e/dashboard-e.component';
 import { FormularioLComponent } from './login/formulario-l/formulario-l.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
@@ -27,7 +27,7 @@ import { Location } from '@angular/common';
 import { SuperAdComponent } from './super-ad/super-ad.component';
 import { EquiposComponent } from './equipos/equipos.component';
 import { FormuComponent } from './equipos/formu.component';
-import {MatButtonToggleModule} from '@angular/material/button-toggle';
+import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { ReportesComponent } from './reportes/reportes.component';
 import { InicioComponent } from './inicio/inicio.component';
 import { RepuestosComponent } from './repuestos/repuestos.component';
@@ -40,6 +40,7 @@ import { FormPeriodoComponent } from './super-ad/periodos/form-periodo.component
 import { AdminsComponent } from './super-ad/admins/admins.component';
 import { FormAdminsComponent } from './super-ad/admins/form-admins.component';
 import { FormEncargadoComponent } from './encargados/form-encargado.component';
+import { MantenimientoComponent } from './mantenimiento/mantenimiento.component';
 
 
 
@@ -68,7 +69,8 @@ import { FormEncargadoComponent } from './encargados/form-encargado.component';
     FormPeriodoComponent,
     AdminsComponent,
     FormAdminsComponent,
-    FormEncargadoComponent
+    FormEncargadoComponent,
+    MantenimientoComponent
 
   ],
   imports: [
@@ -86,7 +88,8 @@ import { FormEncargadoComponent } from './encargados/form-encargado.component';
     MatSelectModule,
     BrowserAnimationsModule,
     MatCardModule,
-    MatButtonToggleModule
+    MatButtonToggleModule,
+    ReactiveFormsModule
   ],
   providers: [
     provideAnimationsAsync()
