@@ -13,16 +13,9 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class FormAdminsComponent implements OnInit {
 
-  adminOn: boolean = false
-  administrador: boolean = true
-  periodoOn: boolean = true
-
 
   periodoL: Periodo[]
   administradoresTICs: AdministradorTIC[]
-
-  constructor(private periodoService: PeriodoService, private administradorService: AdministradorService, private activatedRoute: ActivatedRoute, private router: Router) { }
-
   administradorTic: AdministradorTIC   = {
     administradorTIC_id: 0,
     nombre: '',
@@ -33,6 +26,9 @@ export class FormAdminsComponent implements OnInit {
     periodos: [],
     laboratorios: []
   };
+  constructor(private periodoService: PeriodoService, private administradorService: AdministradorService, private activatedRoute: ActivatedRoute, private router: Router) { }
+
+
 /*   periodo: Periodo = {
     idPeriodo: 0,
     fechaInicio: '',
@@ -49,7 +45,20 @@ export class FormAdminsComponent implements OnInit {
   } */
 
   ngOnInit(): void {
-  
+    this.activatedRoute.params.subscribe(params => {
+      let id = params['id'];
+      if (id) {
+        this.administradorService.listarPorIdAdmin(id).subscribe(
+          (admin) => {
+            console.log('Periodo obtenido:', admin);
+            this.administradorTic = admin;
+          },
+          (error) => {
+            Swal.fire('Error', 'Error al obtener el admin', 'error');
+          }
+        );
+      }
+    });
     this.administradorService.listarAdmin().subscribe(
       (admin: AdministradorTIC[]) => {this.administradoresTICs = admin; console.log(admin);}
     )
@@ -81,18 +90,16 @@ export class FormAdminsComponent implements OnInit {
   editarAdmin(): void {
 
     this.activatedRoute.params.subscribe(params => {
-      let id = params['administradorTIC_id']
+      let id = params['id']
       if (id) {
-        this.administradorService.listarPorIdAdmin(id).subscribe((admin) => this.administradorTic = admin)
+        this.administradorService.listarPorIdAdmin(id).subscribe(
+          (admin) => this.administradorTic = admin)
       }
     }, error => {
       Swal.fire('Error', 'Error al guardar', 'error');
     })
   }
 
-  onToggleChange(event: any) {//al hacer cambio de boton
-    this.adminOn = event.value;
-  }
 
   admins: AdministradorTIC[] = []
   loadAdministradoresTICs(ids: number[]) {

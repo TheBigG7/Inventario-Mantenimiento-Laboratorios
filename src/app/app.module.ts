@@ -39,6 +39,7 @@ import { PeriodosComponent } from './super-ad/periodos/periodos.component';
 import { FormPeriodoComponent } from './super-ad/periodos/form-periodo.component';
 import { AdminsComponent } from './super-ad/admins/admins.component';
 import { FormAdminsComponent } from './super-ad/admins/form-admins.component';
+import { FormEncargadoComponent } from './encargados/form-encargado.component';
 
 
 
@@ -66,7 +67,8 @@ import { FormAdminsComponent } from './super-ad/admins/form-admins.component';
     PeriodosComponent,
     FormPeriodoComponent,
     AdminsComponent,
-    FormAdminsComponent
+    FormAdminsComponent,
+    FormEncargadoComponent
 
   ],
   imports: [

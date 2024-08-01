@@ -24,12 +24,11 @@
                             {{ adm.fechaInicio }} {{ adm.fechaFin }} <span *ngIf="!isLast">, </span>
                         </ng-container>
                     </td>
-
                     <td>{{ad.correo}}</td>
                     <td>{{ad.contrasenia}}</td>
                     <td class="d-flex justify-content-center">
                         <button type="button" name="editar" class="btn btn-outline-primary btnm"
-                            [routerLink]="['/super/ad/form',ad.administradorTIC_id]">Editar</button>
+                            [routerLink]="['/super/ad/form/',ad.administradorTIC_id]">Editar</button>
                         <button type="button" name="eliminar" class="btn btn-outline-danger btnm"
                             (click)="eliminarAdmin(ad.administradorTIC_id)">Eliminar</button>
                     </td>

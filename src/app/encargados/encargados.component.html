@@ -1,108 +1,11 @@
 <div class="container">
     <div class="card borber-primary mb-2 mt-2">
         <div class="card-header">Encargados de los Laboratorios<mat-icon>face</mat-icon>
-            <button type="button" name="button" [routerLink]="[]" class="btn btn-outline-primary"
-                (click)="encargados=false">
+            <button type="button" name="button" class="btn btn-outline-primary btnm" [routerLink]="['form-encargado']">
                 Añadir Encargado
             </button>
         </div>
-        <div class="card-body text-primary" *ngIf="!encargados">
-            <form (ngSubmit)="crearEncargado()" #loginForm="ngForm" class="p-4 border rounded bg-light">
-                <!-- Nombre -->
-                <div>
-                    <mat-form-field appearance="outline" class="d-flex justify-content-center">
-                        <mat-label>Nombre: </mat-label>
-                        <input matInput placeholder="Nombre Encargado" class="form-control" type="text" id="nombre"
-                            [(ngModel)]="encargadoLaboratorio.nombre" name="nombre" required #nombreModel="ngModel">
-                        <mat-icon matSuffix>account_circle</mat-icon>
-                        <div *ngIf="nombreModel.invalid && (nombreModel.dirty || nombreModel.touched)"
-                            class="text-danger">
-                            <mat-hint>Nombre requerido</mat-hint>
-                        </div>
-                    </mat-form-field>
-                </div>
-                <!-- apellido -->
-                <div>
-                    <mat-form-field appearance="outline" class="d-flex justify-content-center">
-                        <mat-label>Apellido: </mat-label>
-                        <input matInput placeholder="Apellido Encargado" type="text" id="apellido"
-                            [(ngModel)]="encargadoLaboratorio.apellido" name="apellido" required
-                            #apellidoModel="ngModel">
-                        <mat-icon matSuffix>account_circle</mat-icon>
-                        <div *ngIf="apellidoModel.invalid && (apellidoModel.dirty || apellidoModel.touched)"
-                            class="text-danger">
-                            <mat-hint>Apellido es requerida.</mat-hint>
-                        </div>
-                    </mat-form-field>
-                </div>
-                <!-- tipo -->
-                <div>
-                    <mat-form-field class="w-100">
-                        <mat-select required>>
-                            <mat-option value="responsable">Responsable del laboratorio</mat-option>
-                            <mat-option value="auxiliar">Auxiliar de laboratorio</mat-option>
-                        </mat-select>
-                        <mat-label><mat-icon>loyalty</mat-icon> <strong>Tipo de Asignación</strong></mat-label>
-                        <mat-hint>tipo es requerida</mat-hint>
-                    </mat-form-field>
-                </div>
-                <!-- laboratorioAsignado -->
-                <div>
-                    <mat-form-field class="w-100">
-                        <mat-select id="periodo" name="periodo" [(ngModel)]="encargadoLaboratorio.laboratorio">
-                            <mat-option *ngFor="let labs of laboratorios"
-                                [value]="labs">{{labs.idLaboratorio}}</mat-option>
-                        </mat-select>
-                        <mat-label><mat-icon>event_seat</mat-icon> <strong>Laboratorios</strong></mat-label>
-                    </mat-form-field>
-                </div>
-                <!-- periodo -->
-                <div>
-                    <mat-form-field class="w-100">
-                        <mat-select id="periodo" name="periodo" [(ngModel)]="encargadoLaboratorio.periodos" multiple>
-                            <mat-option *ngFor="let per of periodos" [value]="per">{{per.fechaInicio}} -
-                                {{per.fechaFin}}</mat-option>
-                        </mat-select>
-                        <mat-label><mat-icon>face</mat-icon> <strong>Periodos</strong></mat-label>
-                    </mat-form-field>
-                </div>
-                <!-- correo -->
-                <div>
-                    <mat-form-field appearance="outline" class="d-flex justify-content-center">
-                        <mat-label>Correo: </mat-label>
-                        <input matInput placeholder="ejemplo@tecazuay.edu.ec" class="form-control" type="email"
-                            id="correo" [(ngModel)]="encargadoLaboratorio.correo" name="correo" required
-                            #correoModel="ngModel">
-                        <mat-icon matSuffix>fingerprint</mat-icon>
-                        <div *ngIf="correoModel.invalid && (correoModel.dirty || correoModel.touched)"
-                            class="text-danger">
-                            <mat-hint>Correo es requerido.</mat-hint>
-                        </div>
-                    </mat-form-field>
-                </div>
-                <!-- contraseña -->
-                <div>
-                    <mat-form-field appearance="outline" class="d-flex justify-content-center">
-                        <mat-label>Contraseña: </mat-label>
-                        <input matInput placeholder="Contraseña" type="password" id="contrasena"
-                            [(ngModel)]="encargadoLaboratorio.contrasenia" name="contrasena" required
-                            #contrasenaModel="ngModel">
-                        <mat-icon matSuffix>assignment</mat-icon>
-                        <div *ngIf="contrasenaModel.invalid && (contrasenaModel.dirty || contrasenaModel.touched)"
-                            class="text-danger">
-                            <mat-hint>Contraseña es requerida.</mat-hint>
-                        </div>
-                    </mat-form-field>
-                </div>
-                <div class="text-end">
-                    <button type="submit" class="btn btn-primary mt-3" (click)="encargados=true">Atras</button>
-                    <button type="submit" class="btn btn-primary mt-3" (click)="encargados=true">Guardar</button>
-                </div>
-            </form>
-
-        </div>
-
-        <div class="card-body text-primary" *ngIf="encargados">
+        <div class="card-body text-primary">
             <h5 class="card-title">Listado de encargados</h5>
             <table class="table table-bordered table-striped">
                 <thead>
@@ -120,7 +23,7 @@
                     <tr *ngFor="let encargado of encargadosL">
                         <td>{{encargado.nombre}}</td>
                         <td>{{encargado.apellido}}</td>
-                        <td>{{encargado.laboratorio.idLaboratorio}} {{encargado.laboratorio.equipos}}</td>
+                        <td>{{encargado.laboratorio.idLaboratorio}}</td>
                         <td>
                             <ng-container *ngFor="let peri of encargado.periodos; let isLast = last">
                                 {{ peri.fechaInicio }} {{ peri.fechaFin }} <span *ngIf="!isLast">, </span>
@@ -130,9 +33,10 @@
                         <td>{{encargado.correo}}</td>
                         <td>{{encargado.contrasenia}}</td>
                         <td class="d-flex justify-content-center">
-                            <button type="button" name="button" [routerLink]="[]"
-                                class="btn btn-outline-primary" (click)="editarEncargado()">Editar</button>
-                            <button (click)="eliminarEncargado(encargado.idEncargado)" class="btn btn-outline-danger">Eliminar</button>
+                            <button type="button" name="button" [routerLink]="['form-encargado/',encargado.idEncargado]"
+                                class="btn btn-outline-primary">Editar</button>
+                            <button (click)="eliminarEncargado(encargado.idEncargado)"
+                                class="btn btn-outline-danger">Eliminar</button>
                         </td>
                     </tr>
                 </tbody>
@@ -140,3 +44,4 @@
         </div>
     </div>
 </div>
+<router-outlet></router-outlet>

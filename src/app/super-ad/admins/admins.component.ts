@@ -4,7 +4,7 @@ import { AdministradorTIC } from '../../login/administradorTIC';
 import { PeriodoService } from '../periodo.service';
 import { CredencialService } from '../../super-acceso/credencial.service';
 import { AdministradorService } from '../../login/administrador.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { CredencialSuperAcceso } from '../../super-acceso/CredencialSuperAcceso';
 import Swal from 'sweetalert2';
 
@@ -20,7 +20,7 @@ export class AdminsComponent {
 
   administradoresTICs: AdministradorTIC[]
 
-  constructor(private administradorService: AdministradorService, private activatedRoute: ActivatedRoute) { }
+  constructor(private administradorService: AdministradorService, private activatedRoute: ActivatedRoute, private router: Router) { }
 
 
 
@@ -36,6 +36,5 @@ export class AdminsComponent {
         //this.equipos = this.equipos.filter(equipo => equipo.id !== id);
         Swal.fire('Periodo eliminado', 'Periodo eliminado con exito', 'success');
       })
-      this.ngOnInit()
   }
 }

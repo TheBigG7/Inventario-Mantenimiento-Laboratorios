@@ -22,6 +22,7 @@ import { AdminsComponent } from './super-ad/admins/admins.component';
 import { FormAdminsComponent } from './super-ad/admins/form-admins.component';
 import { PeriodosComponent } from './super-ad/periodos/periodos.component';
 import { FormPeriodoComponent } from './super-ad/periodos/form-periodo.component';
+import { FormEncargadoComponent } from './encargados/form-encargado.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
@@ -38,6 +39,8 @@ const routes: Routes = [
     children: [
       { path: '', redirectTo: 'inicio', pathMatch: 'full' },
       { path: 'crear-encargados', component: EncargadosComponent },
+      { path: 'crear-encargados/form-encargado', component: FormEncargadoComponent },
+      { path: 'crear-encargados/form-encargado/:id', component: FormEncargadoComponent },
       { path: 'laboratorios', component: LaboratoriosComponent },
       { path: 'laboratorios/form', component: RegistroComponent },
       { path: 'laboratorios/form/:id', component: RegistroComponent },

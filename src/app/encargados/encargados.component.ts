@@ -3,7 +3,7 @@ import { EncargadoLaboratorio } from '../login/encargadoLaboratorio';
 import { E } from '@angular/cdk/keycodes';
 import { Laboratorio } from '../laboratorios/laboratorio';
 import { EncargadoService } from '../login/encargado.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { LaboratorioService } from '../laboratorios/laboratorio.service';
 import Swal from 'sweetalert2';
 import { Periodo } from '../periodo';
@@ -26,7 +26,7 @@ export class EncargadosComponent implements OnInit {
     apellido: '',
     tipo: '',
     correo: '',
-    rol:'encargado',
+    rol: 'encargado',
     contrasenia: '',
     periodos: [],
     laboratorio: {
@@ -40,7 +40,7 @@ export class EncargadosComponent implements OnInit {
     }
   }
 
-  constructor(private encargadoService: EncargadoService, private periodoService: PeriodoService, private activatedRoute: ActivatedRoute, private laboratorioService: LaboratorioService) { }
+  constructor(private encargadoService: EncargadoService, private router: Router, private periodoService: PeriodoService, private activatedRoute: ActivatedRoute, private laboratorioService: LaboratorioService) { }
 
   ngOnInit(): void {
     this.encargadoService.listar().subscribe(
@@ -63,36 +63,16 @@ export class EncargadosComponent implements OnInit {
     )
   }
 
-  crearEncargado(): void {
-    console.log(this.encargadoLaboratorio)
-    this.encargadoService.crear(this.encargadoLaboratorio).subscribe(
-      encargado => {
-        Swal.fire('Encargado de Laboratorio Ingresado', `Encargado ${encargado.nombre} - ${encargado.apellido} ingresado con exito`, 'success')
-      },
-      error => {
-        Swal.fire('Error', 'Error al ingresar encargado', 'error');
-      }
-    )
-  }
 
   eliminarEncargado(id: number): void {
     this.encargadoService.eliminar(id)
       .subscribe(() => {
+        this.router.navigate(['/crear-encargados'])
         //this.equipos = this.equipos.filter(equipo => equipo.id !== id);
         Swal.fire('Periodo eliminado', 'Periodo eliminado con exito', 'success');
       })
   }
-  
-  editarEncargado(): void {
-    this.encargados = false
-    this.activatedRoute.params.subscribe(params => {
-      let id = params['idEncargado']
-      if (id) {
-        this.encargadoService.listarPorId(id).subscribe((encargado) => this.encargadoLaboratorio = encargado)
-      }
-    }, error => {
-      Swal.fire('Error', 'Error al actualizar', 'error');
-    })
-  }
+
+
 
 }

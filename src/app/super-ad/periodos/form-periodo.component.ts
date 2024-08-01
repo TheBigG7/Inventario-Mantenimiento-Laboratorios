@@ -32,7 +32,7 @@ export class FormPeriodoComponent implements OnInit {
   ngOnInit(): void {
     /* this.editarPeriodo() */
     this.activatedRoute.params.subscribe(params => {
-      let idPeriodo = params['idPeriodo'];
+      let idPeriodo = params['id'];
       if (idPeriodo) {
         this.periodoService.listarPorId(idPeriodo).subscribe(
           (periodo) => {
