@@ -20,7 +20,7 @@ export class EquipoService {
       map(response => response as Equipo[])
     );
   }
-
+  
   create(equipo: Equipo): Observable<Equipo> {
     return this.http.post<Equipo>(this.urlEndPoint, equipo, {headers: this.httpHeaders});
   }
@@ -32,8 +32,4 @@ export class EquipoService {
   deleteEquipo(id: number): Observable<Equipo> {
     return this.http.delete<Equipo>(`${this.urlEndPoint}/${id}`);
   }
-
-  getUltimoId(): Observable<number> {
-    return this.http.get<number>(`${this.urlEndPoint}/ultimoId`);
-  } 
 }

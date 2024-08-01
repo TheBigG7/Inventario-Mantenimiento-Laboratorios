@@ -1,13 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import jsPDF from 'jspdf';
 import Swal from 'sweetalert2';
-import { Equipo } from './equipo';
-import { Router } from '@angular/router';
 import { EquipoService } from './equipo.service';
-import { EmailService } from './email.service';
-
-//primero instalamos esto npm install jspdf jspdf-autotable despues importamos
-import { jsPDF } from 'jspdf';
-import 'jspdf-autotable'; //para generar tablas facilmente
+import { Router } from '@angular/router';
+import { Equipo } from './equipo';
 
 @Component({
   selector: 'app-equipos',
@@ -17,23 +13,10 @@ import 'jspdf-autotable'; //para generar tablas facilmente
 export class EquiposComponent implements OnInit{
 
   equipos: Equipo[] = [];
-  equipo: Equipo = {
-    idEquipo: 0,
-    num_equipo: 0,
-    procesador: '',
-    ram: '',
-    capacidad_disco: '',
-    serie_disco: '',
-    modelo_disco: '',
-    estado: '',
-    app_install: '',
-    prioridad: '',
-    laboratorio: null
-  }
   public equiposFiltrados: Equipo[] = [];
   public filtro: string = '';
 
-  constructor(private equipoService: EquipoService, private router: Router, private emailService:EmailService) { }
+  constructor(private equipoService: EquipoService, private router: Router) { }
 
   /*ngOnInit(): void {
 
@@ -83,10 +66,11 @@ cargarEquipos() {
       //this.equipos = this.equipos.filter(equipo => equipo.id !== id);
       this.equipos = this.equipos.filter(equipo => equipo.idEquipo !== id);
             this.equiposFiltrados = this.equiposFiltrados.filter(equipo => equipo.idEquipo !== id);
-      this.router.navigate(['/dashboarda/equipos']);
+      this.router.navigate(['/dashboard/equipos']);
       Swal.fire('Equipo eliminado', 'Equipo eliminado con exito', 'success');
     })
   }
+
 
   generatePDF() {
     const doc = new jsPDF();
@@ -191,15 +175,15 @@ cargarEquipos() {
     doc.save('Reporte_de_Equipos_para_Mantenimiento.pdf');
   }
 
-  saveEquipo(): void {
-    this.equipoService.create(this.equipo).subscribe(
+  /* saveEquipo(): void {
+    this.equipoService.create(this.equipos).subscribe(
       response => {
         // Aquí puedes manejar la respuesta después de crear el equipo
         Swal.fire('Equipo guardado', 'Equipo guardado con éxito', 'success');
         this.router.navigate(['/equipos']);
         
         // Verifica si la prioridad es "Alta" y envía el correo
-        if (this.equipo.prioridad === 'Alta') {
+        if (this.equipos.prioridad === 'Alta') {
           this.emailService.sendAlertEmail(this.equipo).subscribe(
             (emailResponse: any) => {
               console.log('Correo de alerta enviado:', emailResponse);
@@ -214,5 +198,6 @@ cargarEquipos() {
         Swal.fire('Error', 'Error al guardar el equipo', 'error');
       }
     );
-  }
+  } */
+
 }
