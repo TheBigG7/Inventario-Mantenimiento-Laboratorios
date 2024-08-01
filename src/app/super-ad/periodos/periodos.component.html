@@ -1,0 +1,26 @@
+<div class="container">
+    <div class="card-body text-primary">
+        <h5 class="card-title">Listado de Periodos</h5>
+        <div class="my-2 text-left">
+            <button class="btn btn-rounded btn-primary full" type="button" [routerLink]="['/super/p/form']">Crear Periodo</button>
+        </div>
+        <table class="table table-bordered table-striped">
+            <thead>
+                <tr>
+                    <th>Fecha inicio</th>
+                    <th>Fecha Fin</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let peri of periodoL">
+                    <td>{{peri.fechaInicio}}</td>
+                    <td>{{peri.fechaFin}}</td>
+                    <td class="d-flex justify-content-center">
+                        <button type="button" name="editar" class="btn btn-outline-primary btnm" [routerLink]="['/super/p/form/', peri.idPeriodo]">Editar</button>
+                        <button type="button" name="eliminar" class="btn btn-outline-danger btnm" (click)="eliminarPeriodo(peri.idPeriodo)">Eliminar</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

@@ -1,0 +1,40 @@
+<div class="container">
+    <div class="card-body text-primary">
+        <h5 class="card-title">Listado de Administradores</h5>
+        <div class="my-2 text-left">
+            <button class="btn btn-rounded btn-primary full" type="button" [routerLink]="['/super/ad/form']">Añadir Administrador</button>
+        </div>
+        <table class="table table-bordered table-striped">
+            <thead>
+                <tr>
+                    <th>Nombre</th>
+                    <th>Apellido</th>
+                    <th>Periodos</th>
+                    <th>Correo</th>
+                    <th>Contraseña</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let ad of administradoresTICs"> <!-- *ngFor="let peri of periodos" -->
+                    <td>{{ad.nombre}}</td><!-- {{peri.id_periodo}} -->
+                    <td>{{ad.apellido}}</td>
+                    <!-- <td>{{ad.periodos}}</td> -->
+                    <td>
+                        <ng-container *ngFor="let adm of ad.periodos; let isLast = last">
+                            {{ adm.fechaInicio }} {{ adm.fechaFin }} <span *ngIf="!isLast">, </span>
+                        </ng-container>
+                    </td>
+
+                    <td>{{ad.correo}}</td>
+                    <td>{{ad.contrasenia}}</td>
+                    <td class="d-flex justify-content-center">
+                        <button type="button" name="editar" class="btn btn-outline-primary btnm"
+                            [routerLink]="['/super/ad/form',ad.administradorTIC_id]">Editar</button>
+                        <button type="button" name="eliminar" class="btn btn-outline-danger btnm"
+                            (click)="eliminarAdmin(ad.administradorTIC_id)">Eliminar</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

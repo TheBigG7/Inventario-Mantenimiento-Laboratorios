@@ -35,6 +35,10 @@ import { FormComponent } from './repuestos/form.component';
 import { InventarioLabComponent } from './inventario-lab/inventario-lab.component';
 import { LabEquiposComponent } from './inventario-lab/lab-equipos/lab-equipos.component';
 import { SuperAccesoComponent } from './super-acceso/super-acceso.component';
+import { PeriodosComponent } from './super-ad/periodos/periodos.component';
+import { FormPeriodoComponent } from './super-ad/periodos/form-periodo.component';
+import { AdminsComponent } from './super-ad/admins/admins.component';
+import { FormAdminsComponent } from './super-ad/admins/form-admins.component';
 
 
 
@@ -58,7 +62,11 @@ import { SuperAccesoComponent } from './super-acceso/super-acceso.component';
     FormComponent,
     InventarioLabComponent,
     LabEquiposComponent,
-    SuperAccesoComponent
+    SuperAccesoComponent,
+    PeriodosComponent,
+    FormPeriodoComponent,
+    AdminsComponent,
+    FormAdminsComponent
 
   ],
   imports: [

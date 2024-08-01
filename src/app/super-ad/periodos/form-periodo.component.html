@@ -1,0 +1,45 @@
+<!-- PERIODOS -->
+<div>
+    <div class="container">
+        <div class="card borber-primary mb-2 mt-2">
+            <div class="card-header">Periodos<mat-icon>face</mat-icon>
+            </div>
+            <div class="card-body text-primary">
+                <form (ngSubmit)="crearPeriodo()" #periodoForm="ngForm" class="p-4 border rounded bg-light">
+                    <!-- Fecha Inicio -->
+                    <div>
+                        <mat-form-field appearance="outline" class="d-flex justify-content-center">
+                            <mat-label>Fecha Inicio: </mat-label>
+                            <input matInput placeholder="Fecha Inicio" class="form-control" type="date" id="fechaInicio"
+                                [(ngModel)]="periodo.fechaInicio" name="fechaInicio" required #fechaInicioModel="ngModel">
+                            <mat-icon matSuffix>calendar_today</mat-icon>
+                            <div *ngIf="fechaInicioModel.invalid && (fechaInicioModel.dirty || fechaInicioModel.touched)"
+                                class="text-danger">
+                                <mat-hint>Fecha requerido</mat-hint>
+                            </div>
+                        </mat-form-field>
+                    </div>
+                    <!-- Fecha Fin -->
+                    <div>
+                        <mat-form-field appearance="outline" class="d-flex justify-content-center">
+                            <mat-label>Fecha Fin: </mat-label>
+                            <input matInput placeholder="NFecha Fin" class="form-control" type="date" id="fechaFin"
+                                [(ngModel)]="periodo.fechaFin" name="fechaFin" required #fechaFinModel="ngModel">
+                            <mat-icon matSuffix>calendar_today</mat-icon>
+                            <div *ngIf="fechaFinModel.invalid && (fechaFinModel.dirty || fechaFinModel.touched)"
+                                class="text-danger">
+                                <mat-hint>Fecha requerido</mat-hint>
+                            </div>
+                        </mat-form-field>
+                    </div>
+                    <div class="text-end">
+                        <button type="submit" class="btn btn-primary mt-3">Guardar</button>
+                    </div>
+                </form>
+                <div class="text-end">
+                    <button type="submit" class="btn btn-primary mt-3" [routerLink]="['/super/p']">Listado</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

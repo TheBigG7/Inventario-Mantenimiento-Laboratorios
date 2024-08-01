@@ -1,0 +1,87 @@
+<!-- ADMINISTRADORES TICS -->
+<div>
+    <div class="container">
+        <div class="card borber-primary mb-2 mt-2">
+            <div class="card-header">Administrador de TIC<mat-icon>face</mat-icon>
+            </div>
+            <div class="card-body text-primary">
+                <form (ngSubmit)="crearAdmin()" #loginForm="ngForm" class="p-4 border rounded bg-light">
+                    <!-- Nombre -->
+                    <div>
+                        <mat-form-field appearance="outline" class="d-flex justify-content-center">
+                            <mat-label>Nombre: </mat-label>
+                            <input matInput placeholder="Nombre Administrador" class="form-control" type="text"
+                                id="nombre" [(ngModel)]="administradorTic.nombre" name="nombre" required
+                                #nombreModel="ngModel">
+                            <mat-icon matSuffix>account_circle</mat-icon>
+                            <div *ngIf="nombreModel.invalid && (nombreModel.dirty || nombreModel.touched)"
+                                class="text-danger">
+                                <mat-hint>Nombre requerido</mat-hint>
+                            </div>
+                        </mat-form-field>
+                    </div>
+                    <!-- apellido -->
+                    <div>
+                        <mat-form-field appearance="outline" class="d-flex justify-content-center">
+                            <mat-label>Apellido: </mat-label>
+                            <input matInput placeholder="Apellido Encargado" class="form-control" type="text"
+                                id="apellido" [(ngModel)]="administradorTic.apellido" name="apellido" required
+                                #apellidoModel="ngModel">
+                            <mat-icon matSuffix>account_circle</mat-icon>
+                            <div *ngIf="apellidoModel.invalid && (apellidoModel.dirty || apellidoModel.touched)"
+                                class="text-danger">
+                                <mat-hint>Apellido es requerida.</mat-hint>
+                            </div>
+                        </mat-form-field>
+                    </div>
+                    <!-- periodo -->
+                    <div>
+                        <mat-form-field class="w-100">
+                            <mat-select id="periodo" name="periodo" [(ngModel)]="administradorTic.periodos" multiple>
+                                <mat-option *ngFor="let per of periodoL" [value]="per">{{per.fechaInicio}} -
+                                    {{per.fechaFin}}</mat-option>
+                            </mat-select>
+                            <mat-label><mat-icon>face</mat-icon> <strong>Periodos</strong></mat-label>
+                        </mat-form-field>
+                    </div>
+                    <!-- correo -->
+                    <div>
+                        <mat-form-field appearance="outline" class="d-flex justify-content-center">
+                            <mat-label>Correo: </mat-label>
+                            <input matInput placeholder="ejemplo@tecazuay.edu.ec" class="form-control" type="email"
+                                id="correo" [(ngModel)]="administradorTic.correo" name="correo" required
+                                #correoModel="ngModel">
+                            <mat-icon matSuffix>fingerprint</mat-icon>
+                            <div *ngIf="correoModel.invalid && (correoModel.dirty || correoModel.touched)"
+                                class="text-danger">
+                                <mat-hint>Correo es requerido.</mat-hint>
+                            </div>
+                        </mat-form-field>
+                    </div>
+                    <!-- contraseña -->
+                    <div>
+                        <mat-form-field appearance="outline" class="d-flex justify-content-center">
+                            <mat-label>Contraseña: </mat-label>
+                            <input matInput placeholder="Contraseña" class="form-control" type="password"
+                                id="contrasena" [(ngModel)]="administradorTic.contrasenia" name="contrasena" required
+                                #contrasenaModel="ngModel">
+                            <mat-icon matSuffix>assignment</mat-icon>
+                            <div *ngIf="contrasenaModel.invalid && (contrasenaModel.dirty || contrasenaModel.touched)"
+                                class="text-danger">
+                                <mat-hint>Contraseña es requerida.</mat-hint>
+                            </div>
+                        </mat-form-field>
+                    </div>
+                    <div class="text-end">
+                        <button type="submit" class="btn btn-primary mt-3" >Guardar</button>
+                    </div>
+                </form>
+                <div class="text-end">
+                    <button type="submit" class="btn btn-primary mt-3" [routerLink]="['/super/ad']">Listado</button>
+                </div>
+
+            </div>
+            
+        </div>
+    </div>
+</div>

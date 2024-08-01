@@ -18,6 +18,10 @@ import { FormComponent } from './repuestos/form.component';
 import { InventarioLabComponent } from './inventario-lab/inventario-lab.component';
 import { LabEquiposComponent } from './inventario-lab/lab-equipos/lab-equipos.component';
 import { SuperAccesoComponent } from './super-acceso/super-acceso.component';
+import { AdminsComponent } from './super-ad/admins/admins.component';
+import { FormAdminsComponent } from './super-ad/admins/form-admins.component';
+import { PeriodosComponent } from './super-ad/periodos/periodos.component';
+import { FormPeriodoComponent } from './super-ad/periodos/form-periodo.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
@@ -52,7 +56,16 @@ const routes: Routes = [
   { path: 'footer', component: FooterComponent },
   { path: 'admin', component: SuperAdComponent },
   { path: 'admin/:id', component: SuperAdComponent },
-  { path: 'super', component: SuperAccesoComponent },
+  {
+    path: 'super', component: SuperAdComponent, children: [
+      { path: 'ad', component: AdminsComponent },
+      { path: 'ad/form', component: FormAdminsComponent },
+      { path: 'ad/form/:id', component: FormAdminsComponent },
+      { path: 'p', component: PeriodosComponent },
+      { path: 'p/form', component: FormPeriodoComponent },
+      { path: 'p/form/:id', component: FormPeriodoComponent }
+    ]
+  },
   {
     path: 'dashboarde', component: DashboardEComponent,
     children: [

@@ -3,7 +3,7 @@ import { AdministradorTIC } from '../login/administradorTIC';
 import { Periodo } from '../periodo';
 import { PeriodoService } from './periodo.service';
 import Swal from 'sweetalert2';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { AdministradorService } from '../login/administrador.service';
 import { CredencialSuperAcceso } from '../super-acceso/CredencialSuperAcceso';
 import { CredencialService } from '../super-acceso/credencial.service';
@@ -23,7 +23,7 @@ export class SuperAdComponent implements OnInit {
   periodoL: Periodo[]
   administradoresTICs: AdministradorTIC[]
 
-  constructor(private periodoService: PeriodoService, private credencialS: CredencialService, private administradorService: AdministradorService, private activatedRoute: ActivatedRoute) { }
+  constructor(private periodoService: PeriodoService, private credencialS: CredencialService, private administradorService: AdministradorService, private activatedRoute: ActivatedRoute, private router:Router) { }
 
   administradorTic: AdministradorTIC   = {
     administradorTIC_id: 0,
@@ -51,7 +51,8 @@ export class SuperAdComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.credencialS.listarPorId(1).subscribe(
+    this.router.navigate(['/super/p']);
+    /* this.credencialS.listarPorId(1).subscribe(
       (dato: CredencialSuperAcceso) => {
         this.periodo.credencial = dato
       },
@@ -73,10 +74,18 @@ export class SuperAdComponent implements OnInit {
       })
     this.administradorService.listarAdmin().subscribe(
       (admin: AdministradorTIC[]) => {this.administradoresTICs = admin; console.log(this.periodoL);}
-    )
+    ) */
+  }
+  onToggleChange(event: any): void {
+    const value = event.value;
+    if (value === false) {
+      this.router.navigate(['/super/p']);
+    } else if (value === true) {
+      this.router.navigate(['/super/ad']);
+    }
   }
 
-  actualizarListas(): void {
+  /* actualizarListas(): void {
     this.credencialS.listarPorId(1).subscribe(
       (dato: CredencialSuperAcceso) => {
         this.periodo.credencial = dato
@@ -142,7 +151,6 @@ export class SuperAdComponent implements OnInit {
   eliminarAdmin(id: number): void {
     this.administradorService.eliminarAdmin(id)
       .subscribe(() => {
-        //this.equipos = this.equipos.filter(equipo => equipo.id !== id);
         Swal.fire('Periodo eliminado', 'Periodo eliminado con exito', 'success');
       })
   }
@@ -157,12 +165,10 @@ export class SuperAdComponent implements OnInit {
       Swal.fire('Error', 'Error al guardar', 'error');
     })
   }
+*/
 
-  onToggleChange(event: any) {//al hacer cambio de boton
-    this.adminOn = event.value;
-  }
 
-  admins: AdministradorTIC[] = []
+  /* admins: AdministradorTIC[] = []
   loadAdministradoresTICs(ids: number[]) {
     // Vaciar completamente el array
     this.admins.length = 0;
@@ -172,7 +178,7 @@ export class SuperAdComponent implements OnInit {
         this.admins.push(adm);
       });
     });
-  }
+  } */
 }
 
 

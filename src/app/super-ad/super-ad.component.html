@@ -2,14 +2,14 @@
     [value]="false">
     <mat-button-toggle [value]="false">Periodo</mat-button-toggle>
     <mat-button-toggle [value]="true">Administrador</mat-button-toggle>
-    <!-- <mat-button-toggle [value]="true">Perfil</mat-button-toggle> -->
 </mat-button-toggle-group>
 <button type="button" name="button" [routerLink]="['/login/formulario']" class="btn btnS btn-outline-danger text-end"
     (click)="periodoOn=false">
     Salir
 </button>
+<router-outlet></router-outlet>
 <!-- PERIODOS -->
-<div *ngIf="!adminOn">
+<!-- <div *ngIf="!adminOn">
     <div class="container">
         <div class="card borber-primary mb-2 mt-2">
             <div class="card-header">Periodos<mat-icon>face</mat-icon>
@@ -19,9 +19,9 @@
                 </button>
             </div>
             <div class="card-body text-primary" *ngIf="!periodoOn">
-                <form (ngSubmit)="crearPeriodo()" #loginForm="ngForm" class="p-4 border rounded bg-light">
+                <form (ngSubmit)="crearPeriodo()" #loginForm="ngForm" class="p-4 border rounded bg-light"> -->
                     <!-- Fecha Inicio -->
-                    <div>
+                    <!-- <div>
                         <mat-form-field appearance="outline" class="d-flex justify-content-center">
                             <mat-label>Fecha Inicio: </mat-label>
                             <input matInput placeholder="Fecha Inicio" class="form-control" type="date" id="fechaInicio"
@@ -32,9 +32,9 @@
                                 <mat-hint>Fecha requerido</mat-hint>
                             </div>
                         </mat-form-field>
-                    </div>
+                    </div> -->
                     <!-- Fecha Fin -->
-                    <div>
+                    <!-- <div>
                         <mat-form-field appearance="outline" class="d-flex justify-content-center">
                             <mat-label>Fecha Fin: </mat-label>
                             <input matInput placeholder="NFecha Fin" class="form-control" type="date" id="fechaFin"
@@ -64,10 +64,10 @@
                             <th>Fecha Fin</th>
                         </tr>
                     </thead>
-                    <tbody>
-                        <tr *ngFor="let peri of periodoL"> <!-- *ngFor="let peri of periodos" -->
-                            <td>{{peri.fechaInicio}}</td><!-- {{peri.id_periodo}} -->
-                            <td>{{peri.fechaFin}}</td>
+                    <tbody> -->
+                       <!--  <tr *ngFor="let peri of periodoL"> --> <!-- *ngFor="let peri of periodos" -->
+                            <!-- <td>{{peri.fechaInicio}}</td> --><!-- {{peri.id_periodo}} -->
+                            <!-- <td>{{peri.fechaFin}}</td>
                             <td class="d-flex justify-content-center">
                                 <button type="button" name="editar" (click)="editarPeriodo()"
                                     class="btn btn-outline-primary">Editar</button>
@@ -80,9 +80,9 @@
             </div>
         </div>
     </div>
-</div>
+</div> -->
 <!-- ADMINISTRADORES TICS -->
-<div *ngIf="adminOn">
+<!-- <div *ngIf="adminOn">
     <div class="container">
         <div class="card borber-primary mb-2 mt-2">
             <div class="card-header">Administrador de TIC<mat-icon>face</mat-icon>
@@ -92,9 +92,9 @@
                 </button>
             </div>
             <div class="card-body text-primary" *ngIf="!administrador">
-                <form (ngSubmit)="crearAdmin()" #loginForm="ngForm" class="p-4 border rounded bg-light">
+                <form (ngSubmit)="crearAdmin()" #loginForm="ngForm" class="p-4 border rounded bg-light"> -->
                     <!-- Nombre -->
-                    <div>
+                    <!-- <div>
                         <mat-form-field appearance="outline" class="d-flex justify-content-center">
                             <mat-label>Nombre: </mat-label>
                             <input matInput placeholder="Nombre Administrador" class="form-control" type="text"
@@ -106,9 +106,9 @@
                                 <mat-hint>Nombre requerido</mat-hint>
                             </div>
                         </mat-form-field>
-                    </div>
+                    </div> -->
                     <!-- apellido -->
-                    <div>
+                    <!-- <div>
                         <mat-form-field appearance="outline" class="d-flex justify-content-center">
                             <mat-label>Apellido: </mat-label>
                             <input matInput placeholder="Apellido Encargado" class="form-control" type="text"
@@ -120,9 +120,9 @@
                                 <mat-hint>Apellido es requerida.</mat-hint>
                             </div>
                         </mat-form-field>
-                    </div>
+                    </div> -->
                     <!-- periodo -->
-                    <div>
+                   <!--  <div>
                         <mat-form-field class="w-100">
                             <mat-select id="periodo" name="periodo" [(ngModel)]="administradorTic.periodos" multiple>
                                 <mat-option *ngFor="let per of periodoL" [value]="per">{{per.fechaInicio}} -
@@ -130,9 +130,9 @@
                             </mat-select>
                             <mat-label><mat-icon>face</mat-icon> <strong>Periodos</strong></mat-label>
                         </mat-form-field>
-                    </div>
+                    </div> -->
                     <!-- correo -->
-                    <div>
+                   <!--  <div>
                         <mat-form-field appearance="outline" class="d-flex justify-content-center">
                             <mat-label>Correo: </mat-label>
                             <input matInput placeholder="ejemplo@tecazuay.edu.ec" class="form-control" type="email"
@@ -144,9 +144,9 @@
                                 <mat-hint>Correo es requerido.</mat-hint>
                             </div>
                         </mat-form-field>
-                    </div>
+                    </div> -->
                     <!-- contraseña -->
-                    <div>
+                    <!-- <div>
                         <mat-form-field appearance="outline" class="d-flex justify-content-center">
                             <mat-label>Contraseña: </mat-label>
                             <input matInput placeholder="Contraseña" class="form-control" type="password"
@@ -158,16 +158,16 @@
                                 <mat-hint>Contraseña es requerida.</mat-hint>
                             </div>
                         </mat-form-field>
-                    </div>
-                    <div class="text-end">
+                    </div> -->
+                    <!-- <div class="text-end">
                         <button type="submit" class="btn btn-primary mt-3" (click)="administrador=true">Guardar</button>
                     </div>
                 </form>
                 <div class="text-end">
                     <button type="submit" class="btn btn-primary mt-3" (click)="administrador=true">Listado</button>
-                </div>
+                </div> -->
 
-            </div>
+            <!-- </div>
             <div class="card-body text-primary" *ngIf="administrador">
                 <h5 class="card-title">Listado de encargados</h5>
                 <table class="table table-bordered table-striped">
@@ -180,12 +180,12 @@
                             <th>Contraseña</th>
                         </tr>
                     </thead>
-                    <tbody>
-                        <tr *ngFor="let ad of administradoresTICs"> <!-- *ngFor="let peri of periodos" -->
-                            <td>{{ad.nombre}}</td><!-- {{peri.id_periodo}} -->
-                            <td>{{ad.apellido}}</td>
+                    <tbody> -->
+                        <!-- <tr *ngFor="let ad of administradoresTICs"> --> <!-- *ngFor="let peri of periodos" -->
+                            <!-- <td>{{ad.nombre}}</td> --><!-- {{peri.id_periodo}} -->
+                            <!-- <td>{{ad.apellido}}</td> -->
                             <!-- <td>{{ad.periodos}}</td> -->
-                            <td>
+                            <!-- <td>
                                 <ng-container *ngFor="let adm of ad.periodos; let isLast = last">
                                     {{ adm.fechaInicio }} {{ adm.fechaFin }} <span *ngIf="!isLast">, </span>
                                 </ng-container>
@@ -205,4 +205,4 @@
             </div>
         </div>
     </div>
-</div>
+</div> -->

@@ -15,11 +15,10 @@ export class PeriodoService {
     constructor(private http: HttpClient) { }
 
     listarPeriodos(): Observable<Periodo[]> {
-
         console.log(this.urlEndPoint);
-
         return this.http.get<Periodo[]>(this.urlEndPoint);
     }
+    
     crear(periodo: Periodo): Observable<Periodo> {
         return this.http.post<Periodo>(this.urlEndPoint, periodo) //, {headers: this.httpHeaders}
     }
