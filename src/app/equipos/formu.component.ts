@@ -59,7 +59,7 @@ export class FormuComponent implements OnInit{
 
     this.equipoService.create(this.equipo)
     .subscribe(equipo => {
-      this.router.navigate(['/dashboard/equipos'])
+      this.router.navigate(['/dashboarda/equipos'])
       Swal.fire('Equipo guardato', `Equipo ${equipo.num_equipo} guardado con exito`, 'success')
     })
   }
