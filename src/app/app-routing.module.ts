@@ -19,8 +19,6 @@ import { InventarioLabComponent } from './inventario-lab/inventario-lab.componen
 import { LabEquiposComponent } from './inventario-lab/lab-equipos/lab-equipos.component';
 import { SuperAccesoComponent } from './super-acceso/super-acceso.component';
 
-
-
 const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
   //{ path: 'login', component: LoginComponent },
@@ -40,8 +38,8 @@ const routes: Routes = [
       { path: 'laboratorios/form', component: RegistroComponent },
       { path: 'laboratorios/form/:id', component: RegistroComponent },
       { path: 'equipos', component: EquiposComponent },
-      /*     { path: 'equipos/form', component: FormuComponent },
-          { path: 'equipos/form/:id', component: FormuComponent }, */
+      { path: 'equipos/form', component: FormuComponent },
+      { path: 'equipos/form/:id', component: FormuComponent },
       { path: 'inicio', component: InicioComponent },
       { path: 'reportes', component: ReportesComponent },
       { path: 'repuestos', component: RepuestosComponent },
@@ -56,21 +54,21 @@ const routes: Routes = [
   { path: 'admin/:id', component: SuperAdComponent },
   { path: 'super', component: SuperAccesoComponent },
   {
-    path: 'dashboarde', component: DashboardAComponent,
+    path: 'dashboarde', component: DashboardEComponent,
     children: [
       { path: '', redirectTo: 'inicioE', pathMatch: 'full' },
-      /*  { path: 'laboratorios', component: LaboratoriosComponent },
-       { path: 'laboratorios/form', component: RegistroComponent },
-       { path: 'laboratorios/form/:id', component: RegistroComponent }, */
+      { path: 'laboratorios', component: LaboratoriosComponent },
+      { path: 'laboratorios/form', component: RegistroComponent },
+      { path: 'laboratorios/form/:id', component: RegistroComponent },
       { path: 'equiposE', component: EquiposComponent },
       { path: 'equiposE/form', component: FormuComponent },
       { path: 'equiposE/form/:id', component: FormuComponent },
       { path: 'inicioE', component: InicioComponent },
       { path: 'reportes', component: ReportesComponent },
-      /*       { path: 'repuestos', component: RepuestosComponent },
-            { path: 'repuestos/form', component: FormComponent }, */
-      /*  { path: 'repuestos/form/:id', component: FormComponent }, */
-      /* { path: 'inventario-lab', component: InventarioLabComponent}, */
+      { path: 'repuestos', component: RepuestosComponent },
+      { path: 'repuestos/form', component: FormComponent },
+      { path: 'repuestos/form/:id', component: FormComponent },
+      { path: 'inventario-lab', component: InventarioLabComponent },
       { path: 'lab-equipo/:id', component: LabEquiposComponent }
     ]
   }
