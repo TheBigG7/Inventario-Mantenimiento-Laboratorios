@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg bg-navbar">
     <div class="container-fluid">
-        <a class="navbar-brand" routerLink="/dashboarda">
+        <a class="navbar-brand" routerLink="/dashboarde/inicioE">
             <img src="/TecLogos/logomenu.png" alt="Logo" width="30">
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
@@ -10,13 +10,40 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item">
-                    <a class="nav-link active" routerLink="">Inicio</a>
+                    <a class="nav-link active" routerLink="/dashboarde/inicioE">Inicio</a>
                 </li>
+                <!-- <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                        aria-expanded="false">Inventarios</a>
+                    <ul class="dropdown-menu sub-menu">
+                        <li><a class="dropdown-item" routerLink="/dashboarda/inicio">Inventario Repuestos</a></li>
+                        <li><a class="dropdown-item" routerLink="/dashboarda/inventario-lab">Inventario Laboratorios</a></li>
+                    </ul>
+                </li> -->
+                <!-- <li class="nav-item">
+                    <a class="nav-link" routerLink="/dashboarda/crear-encargados" >Encargados</a>
+                </li> -->
+                <!-- <li class="nav-item">
+                    <a class="nav-link" routerLink="/mantenimiento">Mantenimiento</a>
+                </li> -->
+                <!-- <li class="nav-item">
+                    <a class="nav-link" routerLink="/dashboarda/laboratorios">Laboratorios</a>
+                </li> -->
                 <li class="nav-item">
-                    <a class="nav-link" routerLink="/crear-encargados">Laboratorio</a> 
+                    <a class="nav-link" routerLink="/dashboarde/equiposE">Equipos</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" routerLink="/crear-encargados">Reporte</a> 
+                <!-- <li class="nav-item">
+                    <a class="nav-link" routerLink="/dashboarda/repuestos">Repuestos</a>
+                </li> -->
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                        aria-expanded="false">
+                        Reportes
+                    </a>
+                    <ul class="dropdown-menu sub-menu">
+                        <li><a class="dropdown-item" routerLink="/dashboarde/reportes">Laboratorios</a></li>
+                        <li><a class="dropdown-item" routerLink="/dashboarde/inicioE">Inventarios</a></li>
+                    </ul>
                 </li>
             </ul>
             <!-- <form class="d-flex" role="search">

@@ -26,6 +26,7 @@ export class EncargadosComponent implements OnInit {
     apellido: '',
     tipo: '',
     correo: '',
+    rol:'encargado',
     contrasenia: '',
     periodos: [],
     laboratorio: {

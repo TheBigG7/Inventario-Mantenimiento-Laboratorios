@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { FormsModule } from '@angular/forms';
 import { AuthService } from '../Auth.service';
 import { Router } from '@angular/router';
 import { AdministradorTIC } from '../administradorTIC';
@@ -26,25 +25,26 @@ export class FormularioLComponent {
         // Redirigir al dashboard correspondiente según el tipo de usuario
         // Verificar si response es de tipo AdministradorTIC o Encargado
         if (this.isAdministradorTIC(response)) {
+          console.log('ad')
             this.router.navigate(['/dashboarda']);
-        } else if (this.isEncargado(response)) {
-          this.router.navigate(['/dashboarde']);
+        } else if(this.isEncargado(response)) {
+          console.log('en')
+            this.router.navigate(['/dashboarde']);
         }
       },
       error => {
         console.error(error);
-        console.log("no entro");
         this.mensajeError = 'Credenciales incorrectas';
       }
     );
   }
 
-  // Métodos para verificar los tipos
+  // Metodos para verificar los tipos
   isAdministradorTIC(response: any): response is AdministradorTIC {
-    return response
+    return response && response.rol === 'admin';
   }
 
   isEncargado(response: any): response is EncargadoLaboratorio {
-    return response
+    return response && response.rol === 'encargado';
   }
 }

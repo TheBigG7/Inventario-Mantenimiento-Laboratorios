@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-dashboard-e',
@@ -6,5 +7,7 @@ import { Component } from '@angular/core';
   styleUrl: './dashboard-e.component.css'
 })
 export class DashboardEComponent {
+
+  constructor(private router: Router) {}
 
 }

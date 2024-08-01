@@ -8,6 +8,7 @@ export interface EncargadoLaboratorio {
     tipo: string; // "responsable" o "auxiliar"
     correo: string;
     contrasenia: string;
+    rol: string;
     periodos: Periodo[];
     laboratorio: Laboratorio;
 }

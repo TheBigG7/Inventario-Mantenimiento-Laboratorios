@@ -31,6 +31,7 @@ export class SuperAdComponent implements OnInit {
     apellido: '',
     correo: '',
     contrasenia: '',
+    rol: 'admin',
     periodos: [],
     laboratorios: []
   };

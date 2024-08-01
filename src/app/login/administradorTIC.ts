@@ -7,6 +7,7 @@ export interface AdministradorTIC {
     apellido: string;
     correo: string;
     contrasenia: string;
+    rol: string;
     periodos: Periodo[];
     laboratorios: Laboratorio[];
 }
