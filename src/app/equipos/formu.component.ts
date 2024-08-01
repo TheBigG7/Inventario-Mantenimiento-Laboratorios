@@ -1,12 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { Equipo } from './equipo';
-import { Laboratorio } from '../laboratorios/laboratorio';
-import { EquipoService } from './equipo.service';
 import { ActivatedRoute, Router } from '@angular/router';
-import { LaboratorioService } from '../laboratorios/laboratorio.service';
-import { Location } from '@angular/common';
 import Swal from 'sweetalert2';
-import { EmailService } from '../equipos/email.service';
+import { LaboratorioService } from '../laboratorios/laboratorio.service';
+import { EquipoService } from './equipo.service';
+import { Location } from '@angular/common';
+import { Laboratorio } from '../laboratorios/laboratorio';
+import { Equipo } from './equipo';
 
 @Component({
   selector: 'app-formu',

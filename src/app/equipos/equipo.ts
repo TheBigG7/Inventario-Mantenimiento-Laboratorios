@@ -1,4 +1,5 @@
 export class Equipo {
+
     idEquipo: number = 0;
     laboratorio: String = "";
     num_equipo: number = 0;
@@ -10,4 +11,5 @@ export class Equipo {
     estado: string = '';
     app_install: string = '';
     prioridad: string = '';
+
 }

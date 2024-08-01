@@ -1,13 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import jsPDF from 'jspdf';
 import Swal from 'sweetalert2';
-import { Equipo } from './equipo';
-import { Router } from '@angular/router';
 import { EquipoService } from './equipo.service';
-import { EmailService } from './email.service';
-
-//primero instalamos esto npm install jspdf jspdf-autotable despues importamos
-import { jsPDF } from 'jspdf';
-import 'jspdf-autotable'; //para generar tablas facilmente
+import { Router } from '@angular/router';
+import { Equipo } from './equipo';
 
 @Component({
   selector: 'app-equipos',
@@ -203,4 +199,5 @@ cargarEquipos() {
       }
     );
   } */
+
 }
