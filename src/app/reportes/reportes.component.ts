@@ -30,7 +30,7 @@ export class ReportesComponent implements OnInit {
     estado: '',
     app_install: '',
     prioridad: '',
-    laboratorio: null
+    laboratorio: '',
   };
   public equiposFiltrados: Equipo[] = [];
   public filtro: string = '';

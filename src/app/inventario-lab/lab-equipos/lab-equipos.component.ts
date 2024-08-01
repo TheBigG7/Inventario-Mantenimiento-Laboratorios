@@ -38,7 +38,7 @@ export class LabEquiposComponent implements OnInit {
     this.equiposFiltrados = this.equipos.filter((equipo) => {
       const textoBusqueda =
         `${equipo.laboratorio}`.toLowerCase();
-      return textoBusqueda.includes(this.filtro.toLowerCase()) && equipo.laboratorio?.idLaboratorio === this.labId;
+      return textoBusqueda.includes(this.filtro.toLowerCase()) && equipo.laboratorio === this.labId;
     });
   }
 }

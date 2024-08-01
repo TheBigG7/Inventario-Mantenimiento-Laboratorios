@@ -51,7 +51,7 @@
             <tbody>
                 <tr *ngFor="let equipo of equiposFiltrados">
                     <td>{{equipo.idEquipo}}</td>
-                    <td>{{equipo.laboratorio?.idLaboratorio}}</td>
+                    <td>{{equipo.laboratorio}}</td>
                     <td>{{equipo.num_equipo}}</td>
                     <td>{{equipo.procesador}}</td>
                     <td>{{equipo.ram}}</td>
@@ -63,7 +63,7 @@
                         {{equipo.estado}}
                     </td>
                     <td [ngClass]="{'text-verde': equipo.prioridad === 'Baja', 'text-naranja': equipo.prioridad === 'Media', 'text-rojo': equipo.prioridad === 'Alta'}">
-                        {{equipo.prioridad}}
+                        {{equipo.prioridad}} 
                     </td>
                     <td>
                         <button type="button" name="button" [routerLink]="['/dashboarda/equipos/form', equipo.idEquipo]" class="btn btn-primary">Editar</button>

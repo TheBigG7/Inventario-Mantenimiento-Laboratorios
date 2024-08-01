@@ -95,6 +95,7 @@ export class RegistroComponent implements OnInit {
   create(): void {
     this.laboratorioService.create(this.laboratorio).subscribe(
       admin => {
+        this.router.navigate(['/dashboarda/laboratorios']);
         Swal.fire('Laboratorio  Guardado', `Laboratorio ${admin.idLaboratorio} Guardado con exito`, 'success')
       },
       error => {
