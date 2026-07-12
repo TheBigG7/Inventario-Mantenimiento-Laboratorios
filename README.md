@@ -2,7 +2,7 @@
 
 Este repositorio contiene la aplicación cliente (SPA) desarrollada en **Angular**, diseñada para interactuar directamente con la API REST de gestión de inventarios. La interfaz permite a los Administradores TIC, Encargados de Laboratorio y Super Usuarios gestionar de forma visual e intuitiva el hardware, controlar los periodos académicos, registrar mantenimientos y generar reportes operativos del Instituto Tecnológico Superior Azuay (TECAZUAY).
 
-### 🔬 [Sistema de Gestión de Inventario para Laboratorios](https://github.com/TheBigG7/Inventario-Mantenimiento-Laboratorios_Backend.git)
+### 🔬 [Sistema de Gestión de Inventario para Laboratorios BACKEND](https://github.com/TheBigG7/Inventario-Mantenimiento-Laboratorios_Backend.git)
 
 ---
 
